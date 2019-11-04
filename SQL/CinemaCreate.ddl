@@ -1,0 +1,28 @@
+CREATE TABLE Booking (Booking_ID int IDENTITY NOT NULL, Showtime_ID int NOT NULL, User_ID int NOT NULL, Status varchar(255) NULL, Seat_Number int NULL, PRIMARY KEY (Booking_ID));
+CREATE TABLE Comment (Comment_ID int IDENTITY NOT NULL, Movie_ID int NOT NULL, User_ID int NOT NULL, Description varchar(255) NULL, PRIMARY KEY (Comment_ID));
+CREATE TABLE Complaint (Complaint_ID int IDENTITY NOT NULL, User_ID int NOT NULL, Description varchar(255) NULL, PRIMARY KEY (Complaint_ID));
+CREATE TABLE Country (Country_ID int IDENTITY NOT NULL, Name varchar(255) NULL, PRIMARY KEY (Country_ID));
+CREATE TABLE Genre (Genre_ID int IDENTITY NOT NULL, Name varchar(255) NULL, Description varchar(255) NULL, PRIMARY KEY (Genre_ID));
+CREATE TABLE Movie (Movie_ID int IDENTITY NOT NULL, Title varchar(255) NULL, Release_Date datetime NULL, Description varchar(255) NOT NULL, Director varchar(255) NULL, Age_Category int NULL, Duration int NULL, Genre_ID int NOT NULL, Country_ID int NOT NULL, PRIMARY KEY (Movie_ID));
+CREATE TABLE Rating (Rating_ID int IDENTITY NOT NULL, User_ID int NOT NULL, Movie_ID int NOT NULL, Stars int NULL, PRIMARY KEY (Rating_ID));
+CREATE TABLE Role (Role_ID int IDENTITY NOT NULL, Name varchar(255) NULL, PRIMARY KEY (Role_ID));
+CREATE TABLE Screen (Screen_ID int IDENTITY NOT NULL, Capacity int NULL, Screen_Size int NOT NULL, Rows int NOT NULL, PRIMARY KEY (Screen_ID));
+CREATE TABLE Showtime (Showtime_ID int IDENTITY NOT NULL, Movie_ID int NOT NULL, Screen_ID int NOT NULL, [Date] datetime NULL, Technology varchar(255) NULL, PRIMARY KEY (Showtime_ID));
+CREATE TABLE Ticket (Ticket_ID int IDENTITY NOT NULL, Showtime_ID int NOT NULL, User_ID int NOT NULL, Seat_Number int NULL, Price int NULL, PRIMARY KEY (Ticket_ID));
+CREATE TABLE [User] (User_ID int IDENTITY NOT NULL, Login varchar(255) NULL, Password varchar(255) NULL, First_Name varchar(255) NULL, Last_Name varchar(255) NULL, Birth datetime NULL, [E-Mail] varchar(255) NULL, Phone varchar(255) NOT NULL, Country_ID int NOT NULL, Role_ID int NOT NULL, PRIMARY KEY (User_ID));
+ALTER TABLE Comment ADD CONSTRAINT FKComment770581 FOREIGN KEY (User_ID) REFERENCES [User] (User_ID);
+ALTER TABLE Complaint ADD CONSTRAINT FKComplaint376380 FOREIGN KEY (User_ID) REFERENCES [User] (User_ID);
+ALTER TABLE Comment ADD CONSTRAINT FKComment552169 FOREIGN KEY (Movie_ID) REFERENCES Movie (Movie_ID);
+ALTER TABLE [User] ADD CONSTRAINT FKUser187139 FOREIGN KEY (Country_ID) REFERENCES Country (Country_ID);
+ALTER TABLE Movie ADD CONSTRAINT FKMovie75888 FOREIGN KEY (Country_ID) REFERENCES Country (Country_ID);
+ALTER TABLE Showtime ADD CONSTRAINT FKShowtime868351 FOREIGN KEY (Movie_ID) REFERENCES Movie (Movie_ID);
+ALTER TABLE Showtime ADD CONSTRAINT FKShowtime902595 FOREIGN KEY (Screen_ID) REFERENCES Screen (Screen_ID);
+ALTER TABLE Movie ADD CONSTRAINT FKMovie482201 FOREIGN KEY (Genre_ID) REFERENCES Genre (Genre_ID);
+ALTER TABLE Booking ADD CONSTRAINT FKBooking1666 FOREIGN KEY (Showtime_ID) REFERENCES Showtime (Showtime_ID);
+ALTER TABLE Booking ADD CONSTRAINT FKBooking57306 FOREIGN KEY (User_ID) REFERENCES [User] (User_ID);
+ALTER TABLE Ticket ADD CONSTRAINT FKTicket533432 FOREIGN KEY (Showtime_ID) REFERENCES Showtime (Showtime_ID);
+ALTER TABLE Ticket ADD CONSTRAINT FKTicket592404 FOREIGN KEY (User_ID) REFERENCES [User] (User_ID);
+ALTER TABLE Rating ADD CONSTRAINT FKRating450661 FOREIGN KEY (User_ID) REFERENCES [User] (User_ID);
+ALTER TABLE Rating ADD CONSTRAINT FKRating872089 FOREIGN KEY (Movie_ID) REFERENCES Movie (Movie_ID);
+ALTER TABLE [User] ADD CONSTRAINT FKUser306186 FOREIGN KEY (Role_ID) REFERENCES Role (Role_ID);
+
