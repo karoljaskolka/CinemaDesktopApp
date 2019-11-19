@@ -1,12 +1,26 @@
+DROP DATABASE Cinema;
+
 CREATE DATABASE Cinema;
 
 use Cinema;
 
-CREATE TABLE Country (
-Country_ID int IDENTITY(1,1) PRIMARY KEY,
-Name varchar(255) NOT NULL
+CREATE TABLE Comment (
+	Comment_ID int PRIMARY KEY, 
+	Movie_ID int,
+	User_ID int,
+	Description varchar(500),
+	Date datetime
 );
 
-INSERT INTO Country(Name) VALUES ('Argentina');
+CREATE SEQUENCE SEQ_COMMENT
+AS INT
+MINVALUE 1
+NO MAXVALUE
+START WITH 1;
 
-SELECT * FROM Country;
+DROP TABLE Comment;
+
+INSERT INTO Comment VALUES (NEXT VALUE FOR SEQ_COMMENT,NULL,NULL,NULL,'2019-11-19 17:35');
+
+SELECT CONCAT(DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Comment;
+
