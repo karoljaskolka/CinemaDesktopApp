@@ -1,26 +1,346 @@
-DROP DATABASE Cinema;
+--DROP DATABASE Cinema;
 
-CREATE DATABASE Cinema;
+--CREATE DATABASE Cinema;
 
 use Cinema;
 
-CREATE TABLE Comment (
-	Comment_ID int PRIMARY KEY, 
-	Movie_ID int,
-	User_ID int,
-	Description varchar(500),
-	Date datetime
+CREATE TABLE Role (
+	Role_ID int PRIMARY KEY,
+	Name varchar(20) NOT NULL
 );
 
-CREATE SEQUENCE SEQ_COMMENT
+CREATE TABLE Complaint(
+	Complaint_ID int PRIMARY KEY,
+	Customer_ID int NOT NULL,
+	Description varchar(500) NOT NULL,
+	Date datetime NOT NULL
+);
+
+CREATE TABLE Comment (
+	Comment_ID int PRIMARY KEY, 
+	Movie_ID int NOT NULL,
+	Customer_ID int NOT NULL,
+	Description varchar(500) NOT NULL, 
+	Date datetime NOT NULL
+);
+
+CREATE TABLE Rating(
+	Rating_ID int PRIMARY KEY,
+	Customer_ID int NOT NULL,
+	Movie_ID int NOT NULL,
+	Stars int NOT NULL,
+	Date datetime NOT NULL
+);
+
+CREATE TABLE Genre(
+	Genre_ID int PRIMARY KEY,
+	Name varchar(20) NOT NULL,
+	Description varchar(500)
+);
+
+CREATE TABLE Customer(
+	Customer_ID int PRIMARY KEY,
+	Login varchar(25) NOT NULL,
+	Password varchar(25) NOT NULL,
+	First_Name varchar(25) NOT NULL,
+	Last_Name varchar(25) NOT NULL,
+	Birth date NOT NULL,
+	Email varchar(30),
+	Phone varchar(20),
+	Role_ID int NOT NULL
+);
+
+CREATE TABLE Movie(
+	Movie_ID int PRIMARY KEY,
+	Title varchar(250) NOT NULL,
+	Release_Date date NOT NULL,
+	Description varchar(500),
+	Director varchar(50),
+	Age_Category int,
+	Duration int NOT NULL,
+	Genre_ID int
+);
+
+CREATE TABLE Ticket(
+	Ticket_ID int PRIMARY KEY,
+	Showtime_ID int NOT NULL,
+	Customer_ID int,
+	Seat_ID int NOT NULL,
+	Ticket_Type_ID int NOT NULL,
+	Status varchar(20) NOT NULL,
+	Date datetime NOT NULL
+);
+
+CREATE TABLE Showtime(
+	Showtime_ID int PRIMARY KEY,
+	Movie_ID int NOT NULL,
+	Screen_ID int NOT NULL,
+	Date datetime NOT NULL,
+	Technology varchar(2)
+);
+
+CREATE TABLE Ticket_Type(
+	Ticket_Type_ID int PRIMARY KEY,
+	Name varchar(20) NOT NULL,
+	Price int NOT NULL
+);
+
+CREATE TABLE Screen(
+	Screen_ID int PRIMARY KEY,
+	Capacity int NOT NULL,
+	Screen_Size varchar(10)
+);
+
+CREATE TABLE Seat(
+	Seat_ID int PRIMARY KEY,
+	Screen_ID int NOT NULL,
+	Name varchar(3) NOT NULL
+);
+
+ALTER TABLE Customer
+ADD CONSTRAINT FK_Customer_Role
+FOREIGN KEY(Role_ID)
+REFERENCES Role(Role_ID);
+
+ALTER TABLE Movie
+ADD CONSTRAINT FK_Movie_Genre
+FOREIGN KEY(Genre_ID)
+REFERENCES Genre(Genre_ID);
+
+ALTER TABLE Complaint
+ADD CONSTRAINT FK_Complaint_Customer
+FOREIGN KEY(Customer_ID)
+REFERENCES Customer(Customer_ID);
+
+ALTER TABLE Comment
+ADD CONSTRAINT FK_Comment_Movie
+FOREIGN KEY (Movie_ID)
+REFERENCES Movie(Movie_ID);
+
+ALTER TABLE Comment
+ADD CONSTRAINT FK_Comment_Customer
+FOREIGN KEY (Customer_ID)
+REFERENCES Customer(Customer_ID);
+
+ALTER TABLE Rating
+ADD CONSTRAINT FK_Rating_Movie
+FOREIGN KEY (Movie_ID)
+REFERENCES Movie(Movie_ID);
+
+ALTER TABLE Rating
+ADD CONSTRAINT FK_Rating_Customer
+FOREIGN KEY (Customer_ID)
+REFERENCES Customer(Customer_ID);
+
+ALTER TABLE Seat
+ADD CONSTRAINT FK_Seat_Screen
+FOREIGN KEY (Screen_ID)
+REFERENCES Screen(Screen_ID);
+
+ALTER TABLE Showtime
+ADD CONSTRAINT FK_Showtime_Movie
+FOREIGN KEY (Movie_ID)
+REFERENCES Movie(Movie_ID);
+
+ALTER TABLE Showtime
+ADD CONSTRAINT FK_Showtime_Screen
+FOREIGN KEY (Screen_ID)
+REFERENCES Screen(Screen_ID);
+
+ALTER TABLE Ticket 
+ADD CONSTRAINT FK_Ticket_Showtime
+FOREIGN KEY (Showtime_ID)
+REFERENCES Showtime(Showtime_ID);
+
+ALTER TABLE Ticket 
+ADD CONSTRAINT FK_Ticket_Customer
+FOREIGN KEY (Customer_ID)
+REFERENCES Customer(Customer_ID);
+
+ALTER TABLE Ticket 
+ADD CONSTRAINT FK_Ticket_Seat
+FOREIGN KEY (Seat_ID)
+REFERENCES Seat(Seat_ID);
+
+ALTER TABLE Ticket 
+ADD CONSTRAINT FK_Ticket_Ticket_Type
+FOREIGN KEY (Ticket_Type_ID)
+REFERENCES Ticket_Type(Ticket_Type_ID);
+
+CREATE SEQUENCE SEQ_Ticket_Type_ID
 AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+MAXVALUE 10
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Showtime_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
 MINVALUE 1
 NO MAXVALUE
-START WITH 1;
+NO CYCLE;
 
-DROP TABLE Comment;
+CREATE SEQUENCE SEQ_Screen_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+MAXVALUE 3
+NO CYCLE;
 
-INSERT INTO Comment VALUES (NEXT VALUE FOR SEQ_COMMENT,NULL,NULL,NULL,'2019-11-19 17:35');
+CREATE SEQUENCE SEQ_Seat_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+MAXVALUE 80
+NO CYCLE;
 
-SELECT CONCAT(DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Comment;
+CREATE SEQUENCE SEQ_Ticket_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+NO MAXVALUE
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Movie_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+NO MAXVALUE
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Customer_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+NO MAXVALUE
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Role_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+MAXVALUE 3
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Complaint_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+NO MAXVALUE
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Comment_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+NO MAXVALUE
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Rating_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+NO MAXVALUE
+NO CYCLE;
+
+CREATE SEQUENCE SEQ_Genre_ID
+AS INT
+START WITH 1
+INCREMENT BY 1  
+MINVALUE 1
+MAXVALUE 50
+NO CYCLE;
+
+INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
+INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
+INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
+
+-- (ID, Login, Password, First_Name, Last_Name, Birth, Email, Phone, Role_ID)
+INSERT INTO Customer VALUES (NEXT VALUE FOR SEQ_CUSTOMER_ID, 'Jan83','123456','Jan','Kowalski','1983-04-22','kowal@gmail.com','615234004',1);
+
+INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Reduced', 15);
+INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Regular', 20);
+
+INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 20, 'small');
+INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 20, 'medium');
+INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 40, 'big');
+
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Action', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Adventure', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Animation', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Comedy', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Crime', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Drama', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Fantasy', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Historical', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Horror', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Romance', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Sci-Fi', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Thriller', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Western', NULL);
+
+-- (ID, Title, Release_Date, Description, Director, Age_Category, Duration, Genre_ID)
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Joker', '2019-10-04', NULL, 'Todd Phillips', 16, 122, 5);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Once Upon a Time... in Hollywood', '2019-08-16', NULL, 'Quentin Tarantino', 16, 161, 5);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Frozen 2', '2019-11-22', NULL, 'Jennifer Lee', NULL, 103, 3);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Star Wars: The Rise of Skywalker', '2019-12-19', NULL, 'J.J. Abrams', 12, 155, 11);
+
+INSERT INTO Comment VALUES (NEXT VALUE FOR SEQ_COMMENT_ID, 1, 1,'Amazing!','2019-11-25 22:11');
+
+-- (ID, Movie_ID, Screen_ID, Date, Technology)
+INSERT INTO Showtime VALUES (NEXT VALUE FOR SEQ_SHOWTIME_ID, 1, 3, '2019-11-26 20:15', '2D');
+
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
+
+-- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
+
+CREATE VIEW SHOWTIME_VIEW AS
+SELECT Movie.Title AS 'Movie', Movie.Duration, Movie.Age_Category AS 'Age Category', Movie.Director,
+Movie.Description, Genre.Name AS 'Genre', Screen.Screen_ID AS 'Screen', 
+(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Showtime) AS 'Date', 
+Showtime.Technology
+FROM Showtime
+JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
+JOIN Screen ON Showtime.Screen_ID = Screen.Screen_ID
+JOIN Genre ON Movie.Genre_ID = Genre.Genre_ID;
+
+CREATE VIEW TICKET_VIEW AS
+SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie',
+(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Showtime) AS 'Shotime Date', 
+Ticket_Type.Price AS 'Ticket Price', 
+(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Ticket) AS 'Transaction Date', 
+Screen.Screen_ID AS 'Screen', Seat.Name AS 'Seat'
+FROM Ticket
+JOIN Customer ON Ticket.Customer_ID = Customer.Customer_ID
+JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
+JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
+JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
+JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+JOIN Screen ON Seat.Seat_ID = Screen.Screen_ID;
+
+--SELECT * FROM TICKET_VIEW;
+--SELECT * FROM SHOWTIME_VIEW;
+
 
