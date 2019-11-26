@@ -3,7 +3,6 @@
 --CREATE DATABASE Cinema;
 
 use Cinema;
-
 CREATE TABLE Role (
 	Role_ID int PRIMARY KEY,
 	Name varchar(20) NOT NULL
@@ -269,6 +268,21 @@ INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
 
 -- (ID, Login, Password, First_Name, Last_Name, Birth, Email, Phone, Role_ID)
 INSERT INTO Customer VALUES (NEXT VALUE FOR SEQ_CUSTOMER_ID, 'Jan83','123456','Jan','Kowalski','1983-04-22','kowal@gmail.com','615234004',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'AtomicPulga','qwerty','Leo','Messi','1989-10-26','lmessi@gmail.com','215488975',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'kinglj','lakers','LeBron','James','1987-08-05','ljames@gmail.com','443258971',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hazardeden','chelsea','Eden','Hazard','1992-07-11','ehazard@gmail.com','784525641',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'cr7','juveshit','Cristiano','Ronaldo','1988-08-01','cronaldo@gmail.com','756285341',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'captainamerica','trueblue','Christian','Pulisic','1998-02-27','cpulisic@gmail.com','697854231',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'flampard','bestcoach','Frank','Lampard','1984-12-04','flampard@gmail.com','795648231',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'jmourinho','specialone','Jose','Mourinho','1962-04-13','jmourinho@gmail.com','315478945',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'admin','admin','admin','admin','1998-12-13',null,null,3);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hannahBaker','note','Hannah','Baker','2000-01-19','hbaker@gmail.com','465892320',2);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'clayJensen','helmet','Clay','Jensen','2000-02-15','cjensen@gmail.com','685321457',2);
+
+
+
+
+
 
 INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Reduced', 15);
 INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Regular', 20);
@@ -315,7 +329,7 @@ INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
 
 -- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
-
+/*
 CREATE VIEW SHOWTIME_VIEW AS
 SELECT Movie.Title AS 'Movie', Movie.Duration, Movie.Age_Category AS 'Age Category', Movie.Director,
 Movie.Description, Genre.Name AS 'Genre', Screen.Screen_ID AS 'Screen', 
@@ -339,7 +353,7 @@ JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
 JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
 JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Seat_ID = Screen.Screen_ID;
-
+*/
 --SELECT * FROM TICKET_VIEW;
 --SELECT * FROM SHOWTIME_VIEW;
 
