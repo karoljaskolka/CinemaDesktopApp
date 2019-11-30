@@ -327,6 +327,13 @@ INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3B');
 INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4B');
 INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
 
+
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2000-02-15');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,-5,'2000-02-15');
+
+Select*From Rating;
+
+
 -- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
 /*
@@ -357,4 +364,55 @@ JOIN Screen ON Seat.Seat_ID = Screen.Screen_ID;
 --SELECT * FROM TICKET_VIEW;
 --SELECT * FROM SHOWTIME_VIEW;
 
+CREATE TRIGGER rating_ai ON Rating
+         AFTER INSERT 
+         AS
+           DECLARE @starsMin int ,@starsMax int 
+		   SELECT @starsMin=stars, @starsMax=stars FROM inserted
+		   IF @starsMIN < 1 
+			   UPDATE Rating SET stars=1 WHERE stars<1
+			IF @starsMAX > 10 
+			   UPDATE Rating SET stars=10 WHERE stars>10
+         
+DROP TRIGGER rating_ai;
 
+
+CREATE TRIGGER showtime_technology_ai ON Showtime
+         AFTER INSERT 
+         AS
+           DECLARE @tech2d VARCHAR(2) ,@tech3d VARCHAR(2) 
+		   SELECT @tech2d=technology, @tech3d=technology FROM inserted
+		   IF @tech3d ='3d' 
+			   UPDATE Showtime SET technology='3d' WHERE technology='3d'
+			else 
+			   UPDATE Showtime SET technology='2d' 
+         
+CREATE TRIGGER movie_age_category_ai  ON Movie
+         AFTER INSERT 
+         AS
+           DECLARE @ageMin int ,@ageMax int 
+		   SELECT @ageMin=Age_Category, @ageMax=Age_Category FROM inserted
+		   IF @ageMin < 3 
+			   UPDATE Movie SET Age_Category=3 WHERE Age_Category<3
+			IF @ageMax > 18 
+			   UPDATE Movie SET Age_Category=18 WHERE Age_Category>18
+         
+CREATE TRIGGER movie_duration_ai  ON Movie
+         AFTER INSERT 
+         AS
+           DECLARE @timeMin int  
+		   SELECT @timeMin=Duration FROM inserted
+		   IF @timeMin <1 
+			   UPDATE Movie SET Duration=1 WHERE Duration<1
+			
+
+CREATE TRIGGER ticket_type_price ON ticket_type
+         AFTER INSERT 
+         AS
+           DECLARE @priceMin int ,@priceMax int 
+		   SELECT @priceMin=Price, @priceMax=Price FROM inserted
+		   IF @priceMin <15 
+			   UPDATE ticket_type SET Price=15 WHERE Price<15
+			IF  @priceMax>25
+			     UPDATE ticket_type SET Price=25 WHERE Price>25
+			
