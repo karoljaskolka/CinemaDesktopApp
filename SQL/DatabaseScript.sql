@@ -3,6 +3,9 @@
 --CREATE DATABASE Cinema;
 
 use Cinema;
+
+-- CREATE TABLE
+
 CREATE TABLE Role (
 	Role_ID int PRIMARY KEY,
 	Name varchar(20) NOT NULL
@@ -96,6 +99,8 @@ CREATE TABLE Seat(
 	Name varchar(3) NOT NULL
 );
 
+--ALTER TABLE
+
 ALTER TABLE Customer
 ADD CONSTRAINT FK_Customer_Role
 FOREIGN KEY(Role_ID)
@@ -165,6 +170,8 @@ ALTER TABLE Ticket
 ADD CONSTRAINT FK_Ticket_Ticket_Type
 FOREIGN KEY (Ticket_Type_ID)
 REFERENCES Ticket_Type(Ticket_Type_ID);
+
+-- CREATE SEQUENCE
 
 CREATE SEQUENCE SEQ_Ticket_Type_ID
 AS INT
@@ -262,6 +269,8 @@ MINVALUE 1
 MAXVALUE 50
 NO CYCLE;
 
+--INSERT INTO
+
 INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
 INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
 INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
@@ -278,11 +287,6 @@ INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'jmourinho','special
 INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'admin','admin','admin','admin','1998-12-13',null,null,3);
 INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hannahBaker','note','Hannah','Baker','2000-01-19','hbaker@gmail.com','465892320',2);
 INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'clayJensen','helmet','Clay','Jensen','2000-02-15','cjensen@gmail.com','685321457',2);
-
-
-
-
-
 
 INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Reduced', 15);
 INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Regular', 20);
@@ -327,40 +331,43 @@ INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3B');
 INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4B');
 INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
 
-
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2000-02-15');
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,-5,'2000-02-15');
-
-Select*From Rating;
-
+-- (ID, Customer_ID, Movie_ID, Stars, Date)
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2019-12-15');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,-5,'2019-12-15');
 
 -- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
-/*
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 3, 2, 2, 'Booked', '2019-11-25 22:48');
+
 CREATE VIEW SHOWTIME_VIEW AS
-SELECT Movie.Title AS 'Movie', Movie.Duration, Movie.Age_Category AS 'Age Category', Movie.Director,
-Movie.Description, Genre.Name AS 'Genre', Screen.Screen_ID AS 'Screen', 
-(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Showtime) AS 'Date', 
-Showtime.Technology
-FROM Showtime
-JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
-JOIN Screen ON Showtime.Screen_ID = Screen.Screen_ID
+SELECT  Movie.Title AS 'Movie', Movie.Duration, Movie.Age_Category AS 'Age Category', Movie.Director,
+		Movie.Description, Genre.Name AS 'Genre', Screen.Screen_ID AS 'Screen', s1.Technology, 
+		(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',
+			DATEPART(MINUTE, Date)) 
+			FROM Showtime s2  
+			WHERE s2.Showtime_ID=s1.Showtime_ID) AS 'Date'
+FROM Showtime s1
+JOIN Movie ON s1.Movie_ID = Movie.Movie_ID
+JOIN Screen ON s1.Screen_ID = Screen.Screen_ID
 JOIN Genre ON Movie.Genre_ID = Genre.Genre_ID;
 
 CREATE VIEW TICKET_VIEW AS
-SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie',
-(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Showtime) AS 'Shotime Date', 
-Ticket_Type.Price AS 'Ticket Price', 
-(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) FROM Ticket) AS 'Transaction Date', 
-Screen.Screen_ID AS 'Screen', Seat.Name AS 'Seat'
-FROM Ticket
-JOIN Customer ON Ticket.Customer_ID = Customer.Customer_ID
-JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
-JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
-JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
-JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
+		Screen.Screen_ID AS 'Screen', Seat.Name AS 'Seat', Ticket_Type.Price AS 'Ticket Price', 
+		(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) 
+			FROM Showtime s2
+			WHERE s2.Showtime_ID = s1.Showtime_ID) AS 'Shotime Date', 
+		(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) 
+			FROM Ticket t2
+			WHERE t2.Ticket_ID = t1.Ticket_ID) AS 'Transaction Date'
+FROM Ticket t1
+JOIN Customer ON t1.Customer_ID = Customer.Customer_ID
+JOIN Showtime s1 ON t1.Showtime_ID = s1.Showtime_ID
+JOIN Movie ON s1.Movie_ID = Movie.Movie_ID
+JOIN Ticket_Type ON t1.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
+JOIN Seat ON t1.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Seat_ID = Screen.Screen_ID;
-*/
+
 --SELECT * FROM TICKET_VIEW;
 --SELECT * FROM SHOWTIME_VIEW;
 
@@ -373,9 +380,6 @@ CREATE TRIGGER rating_ai ON Rating
 			   UPDATE Rating SET stars=1 WHERE stars<1
 			IF @starsMAX > 10 
 			   UPDATE Rating SET stars=10 WHERE stars>10
-         
-DROP TRIGGER rating_ai;
-
 
 CREATE TRIGGER showtime_technology_ai ON Showtime
          AFTER INSERT 
@@ -405,7 +409,6 @@ CREATE TRIGGER movie_duration_ai  ON Movie
 		   IF @timeMin <1 
 			   UPDATE Movie SET Duration=1 WHERE Duration<1
 			
-
 CREATE TRIGGER ticket_type_price ON ticket_type
          AFTER INSERT 
          AS
@@ -415,4 +418,3 @@ CREATE TRIGGER ticket_type_price ON ticket_type
 			   UPDATE ticket_type SET Price=15 WHERE Price<15
 			IF  @priceMax>25
 			     UPDATE ticket_type SET Price=25 WHERE Price>25
-			
