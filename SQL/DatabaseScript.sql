@@ -269,76 +269,6 @@ MINVALUE 1
 MAXVALUE 50
 NO CYCLE;
 
---INSERT INTO
-
-INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
-INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
-INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
-
--- (ID, Login, Password, First_Name, Last_Name, Birth, Email, Phone, Role_ID)
-INSERT INTO Customer VALUES (NEXT VALUE FOR SEQ_CUSTOMER_ID, 'Jan83','123456','Jan','Kowalski','1983-04-22','kowal@gmail.com','615234004',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'AtomicPulga','qwerty','Leo','Messi','1989-10-26','lmessi@gmail.com','215488975',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'kinglj','lakers','LeBron','James','1987-08-05','ljames@gmail.com','443258971',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hazardeden','chelsea','Eden','Hazard','1992-07-11','ehazard@gmail.com','784525641',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'cr7','juveshit','Cristiano','Ronaldo','1988-08-01','cronaldo@gmail.com','756285341',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'captainamerica','trueblue','Christian','Pulisic','1998-02-27','cpulisic@gmail.com','697854231',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'flampard','bestcoach','Frank','Lampard','1984-12-04','flampard@gmail.com','795648231',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'jmourinho','specialone','Jose','Mourinho','1962-04-13','jmourinho@gmail.com','315478945',1);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'admin','admin','admin','admin','1998-12-13',null,null,3);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hannahBaker','note','Hannah','Baker','2000-01-19','hbaker@gmail.com','465892320',2);
-INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'clayJensen','helmet','Clay','Jensen','2000-02-15','cjensen@gmail.com','685321457',2);
-
-INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Reduced', 15);
-INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Regular', 20);
-
-INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 20, 'small');
-INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 20, 'medium');
-INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 40, 'big');
-
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Action', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Adventure', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Animation', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Comedy', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Crime', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Drama', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Fantasy', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Historical', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Horror', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Romance', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Sci-Fi', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Thriller', NULL);
-INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Western', NULL);
-
--- (ID, Title, Release_Date, Description, Director, Age_Category, Duration, Genre_ID)
-INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Joker', '2019-10-04', NULL, 'Todd Phillips', 16, 122, 5);
-INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Once Upon a Time... in Hollywood', '2019-08-16', NULL, 'Quentin Tarantino', 16, 161, 5);
-INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Frozen 2', '2019-11-22', NULL, 'Jennifer Lee', NULL, 103, 3);
-INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Star Wars: The Rise of Skywalker', '2019-12-19', NULL, 'J.J. Abrams', 12, 155, 11);
-
-INSERT INTO Comment VALUES (NEXT VALUE FOR SEQ_COMMENT_ID, 1, 1,'Amazing!','2019-11-25 22:11');
-
--- (ID, Movie_ID, Screen_ID, Date, Technology)
-INSERT INTO Showtime VALUES (NEXT VALUE FOR SEQ_SHOWTIME_ID, 1, 3, '2019-11-26 20:15', '2D');
-
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1A');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2A');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3A');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4A');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5A');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1B');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2B');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3B');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4B');
-INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
-
--- (ID, Customer_ID, Movie_ID, Stars, Date)
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2019-12-15');
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,-5,'2019-12-15');
-
--- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
-INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
-INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 3, 2, 2, 'Booked', '2019-11-25 22:48');
-
 CREATE VIEW SHOWTIME_VIEW AS
 SELECT  Movie.Title AS 'Movie', Movie.Duration, Movie.Age_Category AS 'Age Category', Movie.Director,
 		Movie.Description, Genre.Name AS 'Genre', Screen.Screen_ID AS 'Screen', s1.Technology, 
@@ -418,3 +348,86 @@ CREATE TRIGGER ticket_type_price ON ticket_type
 			   UPDATE ticket_type SET Price=15 WHERE Price<15
 			IF  @priceMax>25
 			     UPDATE ticket_type SET Price=25 WHERE Price>25
+
+
+CREATE NONCLUSTERED INDEX IX_MOVIE_TITLE ON Movie(Title);
+CREATE NONCLUSTERED INDEX IX_TICKET_CUSTOMER ON Ticket(Customer_ID);
+CREATE NONCLUSTERED INDEX IX_COMMENT_DATE ON Comment(Date DESC);
+CREATE NONCLUSTERED INDEX IX_RATING_MOVIE ON Rating(Movie_ID);
+CREATE NONCLUSTERED INDEX IX_SHOWTIME_DATE ON Showtime(Date DESC);
+CREATE NONCLUSTERED INDEX IX_CUSTOMER_NAME ON Customer(Last_Name, First_Name);
+CREATE NONCLUSTERED INDEX IX_MOVIE_RELEASE ON Movie(Release_Date);
+CREATE NONCLUSTERED INDEX IX_CUSTOMER_AUTHENTICATION ON Customer(Login,Password);
+
+--INSERT INTO
+
+INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
+INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
+INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
+
+-- (ID, Login, Password, First_Name, Last_Name, Birth, Email, Phone, Role_ID)
+INSERT INTO Customer VALUES (NEXT VALUE FOR SEQ_CUSTOMER_ID, 'Jan83','123456','Jan','Kowalski','1983-04-22','kowal@gmail.com','615234004',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'AtomicPulga','qwerty','Leo','Messi','1989-10-26','lmessi@gmail.com','215488975',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'kinglj','lakers','LeBron','James','1987-08-05','ljames@gmail.com','443258971',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hazardeden','chelsea','Eden','Hazard','1992-07-11','ehazard@gmail.com','784525641',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'cr7','juveshit','Cristiano','Ronaldo','1988-08-01','cronaldo@gmail.com','756285341',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'captainamerica','trueblue','Christian','Pulisic','1998-02-27','cpulisic@gmail.com','697854231',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'flampard','bestcoach','Frank','Lampard','1984-12-04','flampard@gmail.com','795648231',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'jmourinho','specialone','Jose','Mourinho','1962-04-13','jmourinho@gmail.com','315478945',1);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'admin','admin','admin','admin','1998-12-13',null,null,3);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hannahBaker','note','Hannah','Baker','2000-01-19','hbaker@gmail.com','465892320',2);
+INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'clayJensen','helmet','Clay','Jensen','2000-02-15','cjensen@gmail.com','685321457',2);
+
+INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Reduced', 15);
+INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Regular', 20);
+
+INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 20, 'small');
+INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 20, 'medium');
+INSERT INTO Screen VALUES (NEXT VALUE FOR SEQ_SCREEN_ID, 40, 'big');
+
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Action', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Adventure', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Animation', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Comedy', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Crime', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Drama', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Fantasy', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Historical', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Horror', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Romance', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Sci-Fi', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Thriller', NULL);
+INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Western', NULL);
+
+-- (ID, Title, Release_Date, Description, Director, Age_Category, Duration, Genre_ID)
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Joker', '2019-10-04', NULL, 'Todd Phillips', 16, 122, 5);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Once Upon a Time... in Hollywood', '2019-08-16', NULL, 'Quentin Tarantino', 16, 161, 5);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Frozen 2', '2019-11-22', NULL, 'Jennifer Lee', NULL, 103, 3);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Star Wars: The Rise of Skywalker', '2019-12-19', NULL, 'J.J. Abrams', 12, 155, 11);
+
+INSERT INTO Comment VALUES (NEXT VALUE FOR SEQ_COMMENT_ID, 1, 1,'Amazing!','2019-11-25 22:11');
+
+-- (ID, Movie_ID, Screen_ID, Date, Technology)
+INSERT INTO Showtime VALUES (NEXT VALUE FOR SEQ_SHOWTIME_ID, 1, 3, '2019-11-26 20:15', '2D');
+INSERT INTO Showtime VALUES (NEXT VALUE FOR SEQ_SHOWTIME_ID, 4, 3, '2019-12-19 20:45', '3D');
+INSERT INTO Showtime VALUES (NEXT VALUE FOR SEQ_SHOWTIME_ID, 2, 1, '2019-11-26 17:45', '2D');
+INSERT INTO Showtime VALUES (NEXT VALUE FOR SEQ_SHOWTIME_ID, 3, 2, '2019-11-26 15:15', '3D');
+
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4B');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
+
+-- (ID, Customer_ID, Movie_ID, Stars, Date)
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2019-12-15');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,-5,'2019-12-15');
+
+-- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 3, 2, 2, 'Booked', '2019-11-25 22:48');
