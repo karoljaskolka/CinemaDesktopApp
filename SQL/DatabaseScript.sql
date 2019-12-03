@@ -359,6 +359,36 @@ CREATE NONCLUSTERED INDEX IX_CUSTOMER_NAME ON Customer(Last_Name, First_Name);
 CREATE NONCLUSTERED INDEX IX_MOVIE_RELEASE ON Movie(Release_Date);
 CREATE NONCLUSTERED INDEX IX_CUSTOMER_AUTHENTICATION ON Customer(Login,Password);
 
+CREATE PROCEDURE sp_showRatingUser @Customer_ID int
+AS
+SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer',Movie.Title,Rating.stars AS 'Rating'
+FROM Rating 
+JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
+JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
+WHERE Rating.Customer_ID= @Customer_ID
+GO
+DROP PROCEDURE sp_showRatingMovie;
+
+CREATE PROCEDURE sp_showRatingMovie @Movie_ID int
+AS
+SELECT Movie.Title,(SELECT AVG(r1.stars)FROM Rating r1 WHERE r1.Movie_ID=@Movie_ID AND r1.Rating_ID = r2.Rating_ID) AS 'Average rating'
+FROM Rating r2
+JOIN Movie ON r2.Movie_ID=Movie.Movie_ID
+WHERE r2.Movie_ID= @Movie_ID
+GO
+
+
+
+
+
+
+
+
+
+
+--EXEC instruction for procedures
+EXEC sp_showRatingUser @Customer_ID=1;
+EXEC sp_showRatingMovie @Movie_ID=1;
 --INSERT INTO
 
 INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
@@ -426,8 +456,9 @@ INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
 
 -- (ID, Customer_ID, Movie_ID, Stars, Date)
 INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2019-12-15');
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,-5,'2019-12-15');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,2,-5,'2019-12-15');
 
 -- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 3, 2, 2, 'Booked', '2019-11-25 22:48');
+
