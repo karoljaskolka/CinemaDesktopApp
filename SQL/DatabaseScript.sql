@@ -367,7 +367,7 @@ JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Rating.Customer_ID= @Customer_ID
 GO
-DROP PROCEDURE sp_showRatingMovie;
+DROP PROCEDURE sp_showMovie;
 
 CREATE PROCEDURE sp_showRatingMovie @Movie_ID int
 AS
@@ -377,18 +377,67 @@ JOIN Movie ON r2.Movie_ID=Movie.Movie_ID
 WHERE r2.Movie_ID= @Movie_ID
 GO
 
+CREATE PROCEDURE sp_showGenre @Movie_ID int
+AS
+SELECT Movie.Title,Genre.Name AS 'Genre'
+FROM Movie
+JOIN Genre ON Genre.Genre_ID=Movie.Genre_ID
+WHERE Movie.Movie_ID= @Movie_ID
+GO
 
 
+CREATE PROCEDURE sp_showCommentsUser @User_ID int
+AS
+SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer',Movie.Title,Comment.Description AS 'Comment'
+FROM Comment
+JOIN Customer ON Customer.Customer_ID=Comment.Customer_ID
+JOIN Movie ON Movie.Movie_ID=Comment.Movie_ID
+WHERE Customer.Customer_ID=Comment.Customer_ID
+GO
+
+CREATE PROCEDURE sp_showCommentsMovie @Movie_ID int
+AS
+SELECT Movie.Title,concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer',Comment.Description AS 'Comment'
+FROM Comment
+JOIN Customer ON Customer.Customer_ID=Comment.Customer_ID
+JOIN Movie ON Movie.Movie_ID=Comment.Movie_ID
+WHERE Movie.Movie_ID=Movie.Movie_ID
+GO
+
+CREATE PROCEDURE sp_showComplaints @User_ID int
+AS
+SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer',Complaint.Description AS 'Complaint'
+FROM Complaint
+JOIN Customer ON Customer.Customer_ID=Complaint.Customer_ID
+WHERE Complaint.Customer_ID=@User_ID
+GO
 
 
+CREATE PROCEDURE sp_showMovie  @Movie_ID int
+AS
+SELECT Movie.Title,Movie.Director,Genre.Name AS 'Genre',Movie.Release_Date AS 'Release date', Movie.Age_Category AS 'Age category'
+FROM Movie
+JOIN Genre ON Genre.Genre_ID=Movie.Genre_ID
+WHERE Movie.Movie_ID= @Movie_ID
+GO
 
-
-
+CREATE PROCEDURE sp_showUser @User_ID int
+AS
+SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer', Customer.Login,Customer.Birth AS 'Birth date',Customer.Email, Customer.Phone
+FROM Customer
+WHERE Customer.Customer_ID=@User_ID
+GO
 
 
 --EXEC instruction for procedures
 EXEC sp_showRatingUser @Customer_ID=1;
 EXEC sp_showRatingMovie @Movie_ID=1;
+EXEC sp_showGenre @Movie_ID=1;
+EXEC sp_showCommentsUser @User_ID=1;
+EXEC sp_showCommentsMovie @Movie_ID=1;
+EXEC sp_showComplaints @User_ID=1;
+EXEC sp_showUser @User_ID=1;
+EXEC sp_showMovie @Movie_ID=1;
 --INSERT INTO
 
 INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
