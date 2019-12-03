@@ -298,9 +298,6 @@ JOIN Ticket_Type ON t1.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
 JOIN Seat ON t1.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Seat_ID = Screen.Screen_ID;
 
---SELECT * FROM TICKET_VIEW;
---SELECT * FROM SHOWTIME_VIEW;
-
 CREATE TRIGGER rating_ai ON Rating
          AFTER INSERT 
          AS
@@ -349,6 +346,7 @@ CREATE TRIGGER ticket_type_price ON ticket_type
 			IF  @priceMax>25
 			     UPDATE ticket_type SET Price=25 WHERE Price>25
 
+-- INDEXES
 
 CREATE NONCLUSTERED INDEX IX_MOVIE_TITLE ON Movie(Title);
 CREATE NONCLUSTERED INDEX IX_TICKET_CUSTOMER ON Ticket(Customer_ID);
@@ -359,6 +357,8 @@ CREATE NONCLUSTERED INDEX IX_CUSTOMER_NAME ON Customer(Last_Name, First_Name);
 CREATE NONCLUSTERED INDEX IX_MOVIE_RELEASE ON Movie(Release_Date);
 CREATE NONCLUSTERED INDEX IX_CUSTOMER_AUTHENTICATION ON Customer(Login,Password);
 
+-- PROCEDURES
+
 CREATE PROCEDURE sp_showRatingUser @Customer_ID int
 AS
 SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer',Movie.Title,Rating.stars AS 'Rating'
@@ -367,28 +367,37 @@ JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Rating.Customer_ID= @Customer_ID
 GO
-DROP PROCEDURE sp_showRatingMovie;
 
 CREATE PROCEDURE sp_showRatingMovie @Movie_ID int
 AS
-SELECT Movie.Title,(SELECT AVG(r1.stars)FROM Rating r1 WHERE r1.Movie_ID=@Movie_ID AND r1.Rating_ID = r2.Rating_ID) AS 'Average rating'
-FROM Rating r2
-JOIN Movie ON r2.Movie_ID=Movie.Movie_ID
-WHERE r2.Movie_ID= @Movie_ID
+SELECT Movie.Title, AVG(Cast(Rating.Stars as Decimal)) AS 'Average Rating'
+FROM Rating 
+JOIN Movie ON Rating.Movie_ID = Movie.Movie_ID
+WHERE Rating.Movie_ID = @Movie_ID
+GROUP BY Movie.Title
+ORDER BY Movie.Title;
 GO
 
+CREATE PROCEDURE sp_showTickets @Showtime_ID int
+AS
+SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer', Seat.Name AS 'Seat' , Ticket.Status
+FROM Ticket
+JOIN Customer ON Ticket.Customer_ID = Customer.Customer_ID
+JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
+WHERE Ticket.Showtime_ID = @Showtime_ID
+GO
 
-
-
-
-
-
-
-
+-- SELECT for views
+SELECT * FROM Ticket;
+SELECT * FROM TICKET_VIEW;
+SELECT * FROM SHOWTIME_VIEW;
 
 --EXEC instruction for procedures
 EXEC sp_showRatingUser @Customer_ID=1;
 EXEC sp_showRatingMovie @Movie_ID=1;
+EXEC sp_showTickets @Showtime_ID=4;
+
 --INSERT INTO
 
 INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
@@ -454,11 +463,33 @@ INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3B');
 INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4B');
 INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5B');
 
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1C');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2C');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3C');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4C');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5C');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '1D');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '2D');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '3D');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '4D');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 1, '5D');
+
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 2, '1A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 2, '2A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 2, '3A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 2, '4A');
+INSERT INTO Seat VALUES (NEXT VALUE FOR SEQ_SEAT_ID, 2, '5A');
+
 -- (ID, Customer_ID, Movie_ID, Stars, Date)
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2019-12-15');
-INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,2,-5,'2019-12-15');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,1,5,'2019-12-03');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 1,2,-5,'2019-12-03');
+INSERT INTO Rating Values(NEXT VALUE FOR SEQ_RATING_ID, 2,1,10,'2019-12-03');
 
 -- (ID, Showtime_ID, Customer_ID, Seat_ID, Ticket_Type_ID, Status, Date)
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 1, 1, 1, 2, 'Paid', '2019-11-25 22:35');
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 3, 2, 2, 'Booked', '2019-11-25 22:48');
-
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 4, 4, 2, 'Paid', '2019-11-25 22:48');
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 5, 5, 2, 'Paid', '2019-11-25 23:41');
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 6, 7, 2, 'Booked', '2019-11-25 19:22');
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 7, 8, 2, 'Paid', '2019-11-25 17:36');
+INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 2, 2, 21, 1, 'Paid', '2019-11-25 14:36');
