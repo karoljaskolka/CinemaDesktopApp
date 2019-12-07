@@ -6,7 +6,7 @@ use Cinema;
 
 -- CREATE TABLE
 
-CREATE TABLE Role (
+CREATE TABLE dbRole (
 	Role_ID int PRIMARY KEY,
 	Name varchar(20) NOT NULL
 );
@@ -36,13 +36,13 @@ CREATE TABLE Rating(
 
 CREATE TABLE Genre(
 	Genre_ID int PRIMARY KEY,
-	Name varchar(20) NOT NULL,
+	Name varchar(20) UNIQUE NOT NULL,
 	Description varchar(500)
 );
 
 CREATE TABLE Customer(
 	Customer_ID int PRIMARY KEY,
-	Login varchar(25) NOT NULL,
+	Login varchar(25) UNIQUE NOT NULL,
 	Password varchar(25) NOT NULL,
 	First_Name varchar(25) NOT NULL,
 	Last_Name varchar(25) NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE Seat(
 ALTER TABLE Customer
 ADD CONSTRAINT FK_Customer_Role
 FOREIGN KEY(Role_ID)
-REFERENCES Role(Role_ID);
+REFERENCES dbRole(Role_ID);
 
 ALTER TABLE Movie
 ADD CONSTRAINT FK_Movie_Genre
@@ -314,9 +314,9 @@ CREATE TRIGGER showtime_technology_ai ON Showtime
            DECLARE @tech2d VARCHAR(2) ,@tech3d VARCHAR(2) 
 		   SELECT @tech2d=technology, @tech3d=technology FROM inserted
 		   IF @tech3d ='3d' 
-			   UPDATE Showtime SET technology='3d' WHERE technology='3d'
+			   UPDATE Showtime SET technology='3D' WHERE technology='3D'
 			else 
-			   UPDATE Showtime SET technology='2d' 
+			   UPDATE Showtime SET technology='2D' 
          
 CREATE TRIGGER movie_age_category_ai  ON Movie
          AFTER INSERT 
@@ -479,7 +479,7 @@ EXEC sp_showAvailableSeats @Showtime_ID=4;
 EXEC sp_showGenre @Movie_ID=1;
 EXEC sp_showCommentsCustomer @Customer_ID=1;
 EXEC sp_showCommentsMovie @Movie_ID=1;
-EXEC sp_showComplaints @User_ID=1;
+EXEC sp_showComplaints @Customer_ID=1;
 EXEC sp_showCustomer @Customer_ID=1;
 EXEC sp_showCustomers;
 EXEC sp_showMovie @Movie_ID=1;
@@ -487,9 +487,9 @@ EXEC sp_showMovies;
 
 --INSERT INTO
 
-INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
-INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
-INSERT INTO Role VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
+INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
+INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
+INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
 
 -- (ID, Login, Password, First_Name, Last_Name, Birth, Email, Phone, Role_ID)
 INSERT INTO Customer VALUES(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'Jan83','123456','Jan','Kowalski','1983-04-22','kowal@gmail.com','615234004',1);
@@ -528,8 +528,30 @@ INSERT INTO Genre VALUES (NEXT VALUE FOR SEQ_GENRE_ID, 'Western', NULL);
 -- (ID, Title, Release_Date, Description, Director, Age_Category, Duration, Genre_ID)
 INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Joker', '2019-10-04', NULL, 'Todd Phillips', 16, 122, 5);
 INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Once Upon a Time... in Hollywood', '2019-08-16', NULL, 'Quentin Tarantino', 16, 161, 5);
-INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Frozen 2', '2019-11-22', NULL, 'Jennifer Lee', NULL, 103, 3);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Frozen 2', '2019-11-22', NULL, 'Jennifer Lee', 3, 103, 3);
 INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Star Wars: The Rise of Skywalker', '2019-12-19', NULL, 'J.J. Abrams', 12, 155, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Parasite', '2019-09-20', NULL, 'Joon-Ho Bong', 12, 132, 6);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Whiplash', '2015-01-02', NULL, 'Damien Hazielle', 3, 105, 6);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Alien', '1979-05-25', NULL, 'Ridley Scott', 16, 117, 9);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Silent Hill', '2006-05-26', NULL, 'Christophe Gans', 16, 125, 9);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'It', '2017-09-08', NULL, 'Andy Muschietti', 16, 135, 9);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'The Conjuring', '2013-07-26', NULL, 'James Wan', 16, 112, 9);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'I am Legend', '2008-01-11', NULL, 'Francis Lawrence', 12, 101, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Iron Man', '2008-04-30', NULL, 'Jon Favreau', 3, 126, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Thor Ragnarok', '2017-10-25', NULL, 'Taika Waititi', 3, 130, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Guardians of the Galaxy', '2014-08-01', NULL, 'James Gunn', 3, 121, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Avengers', '2012-05-11', NULL, 'Josh Whedon', 3, 142, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Avengers Age of Ultron', '2015-05-07', NULL, 'Josh Whedon', 3, 141, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Avengers Infinity War', '2018-04-26', NULL, 'Anthony Russo', 3, 149, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Avengers End Game', '2019-04-25', NULL, 'Anthony Russo', 3, 182, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'The Dark Knight', '2008-08-08', NULL, 'Christopher Nolan', 12, 152, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Django Unchained', '2013-01-18', NULL, 'Quentin Tarantino', 12, 165, 6);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Spiderman Far From Home', '2019-07-05', NULL, 'Jon Watts', 3, 129, 11);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Deadpool', '2016-02-12', NULL, 'Tim Miller', 12, 108, 4);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Intouchables', '2011-09-23', NULL, 'Olivier Nakache', 3, 108, 4);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'Forrest Gump', '1994-06-23', NULL, 'Robert Zemeckis', 3, 142, 6);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'The Lord of the Rings: The Return of the King', '2003-12-01', NULL, 'Peter Jackson', 3, 201, 7);
+INSERT INTO Movie VALUES (NEXT VALUE FOR SEQ_MOVIE_ID, 'The Lord of the Rings: The Two Towers', '2002-12-05', NULL, 'Peter Jackson', 3, 179, 7);
 
 INSERT INTO Comment VALUES (NEXT VALUE FOR SEQ_COMMENT_ID, 1, 1,'Amazing!','2019-11-25 22:11');
 
@@ -635,3 +657,37 @@ INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 5, 25, 2, 'Paid', '2
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 6, 27, 2, 'Booked', '2019-11-25 19:22');
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 4, 7, 28, 2, 'Paid', '2019-11-25 17:36');
 INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID, 2, 2, 51, 1, 'Paid', '2019-11-25 14:36');
+
+-- does not work
+
+/*
+
+EXECUTE AS USER = 'CINEMA_ADMIN'; 
+
+SELECT CURRENT_USER; 
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON Comment TO CINEMA_CUSTOMER;
+GRANT SELECT, INSERT, UPDATE, DELETE ON Rating TO CINEMA_CUSTOMER;
+
+GRANT SELECT, INSERT, UPDATE ON Complaint TO CINEMA_CUSTOMER;
+GRANT SELECT, INSERT, UPDATE ON Ticket TO CINEMA_CUSTOMER;
+GRANT SELECT, INSERT, UPDATE ON Customer TO CINEMA_CUSTOMER;
+
+GRANT SELECT ON Genre TO CINEMA_CUSTOMER;
+GRANT SELECT ON Movie TO CINEMA_CUSTOMER;
+GRANT SELECT ON Ticket_Type TO CINEMA_CUSTOMER;
+GRANT SELECT ON Seat TO CINEMA_CUSTOMER;
+GRANT SELECT ON Screen TO CINEMA_CUSTOMER;
+GRANT SELECT ON Showtime TO CINEMA_CUSTOMER;
+
+REVOKE DELETE ON Complaint FROM CINEMA_CUSTOMER;
+REVOKE DELETE ON Ticket FROM CINEMA_CUSTOMER;
+REVOKE DELETE ON Customer FROM CINEMA_CUSTOMER;
+REVOKE INSERT, UPDATE, DELETE ON Genre FROM CINEMA_CUSTOMER;
+REVOKE INSERT, UPDATE, DELETE ON Movie FROM CINEMA_CUSTOMER;
+REVOKE INSERT, UPDATE, DELETE ON Ticket_Type FROM CINEMA_CUSTOMER;
+REVOKE INSERT, UPDATE, DELETE ON Seat FROM CINEMA_CUSTOMER;
+REVOKE INSERT, UPDATE, DELETE ON Screen FROM CINEMA_CUSTOMER;
+REVOKE INSERT, UPDATE, DELETE ON Showtime FROM CINEMA_CUSTOMER;
+
+*/
