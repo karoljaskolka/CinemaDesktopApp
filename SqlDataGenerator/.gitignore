@@ -54,7 +54,3 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
-
-CustomerInsert.sql
-RatingInsert.sql
-ShotimeInsert.sql
