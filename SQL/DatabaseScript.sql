@@ -313,7 +313,7 @@ CREATE TRIGGER showtime_technology_ai ON Showtime
          AS
            DECLARE @tech2d VARCHAR(2) ,@tech3d VARCHAR(2) 
 		   SELECT @tech2d=technology, @tech3d=technology FROM inserted
-		   IF @tech3d ='3d' 
+		   IF @tech3d ='3D' 
 			   UPDATE Showtime SET technology='3D' WHERE technology='3D'
 			else 
 			   UPDATE Showtime SET technology='2D' 
@@ -366,6 +366,15 @@ FROM Rating
 JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Rating.Customer_ID = @Customer_ID
+GO
+
+CREATE PROCEDURE sp_showMovieRatings @Movie_ID int
+AS
+SELECT Movie.Title, Rating.stars AS 'Rating', concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer'
+FROM Rating 
+JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
+JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
+WHERE Movie.Movie_ID = @Movie_ID
 GO
 
 CREATE PROCEDURE sp_showAverageRatingMovie @Movie_ID int
@@ -469,10 +478,11 @@ GO
 -- SELECT for views
 
 SELECT * FROM TICKET_VIEW;
-SELECT * FROM SHOWTIME_VIEW WHERE Date LIKE '2019-11-26%';
+SELECT * FROM SHOWTIME_VIEW WHERE Date LIKE '2020-01-%';
 
 --EXEC instruction for procedures
 EXEC sp_showCustomerRatings @Customer_ID=1;
+EXEC sp_showMovieRatings @Movie_ID=3;
 EXEC sp_showAverageRatingMovie @Movie_ID=1;
 EXEC sp_showTickets @Showtime_ID=4;
 EXEC sp_showAvailableSeats @Showtime_ID=4;
