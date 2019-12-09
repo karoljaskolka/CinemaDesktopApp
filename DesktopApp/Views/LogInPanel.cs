@@ -9,27 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using DesktopApp.App;
+using DesktopApp.Services;
 
 namespace DesktopApp.Views
 {
     public partial class LogInPanel : UserControl
     {
 
-        SqlConnection connection;
+        public int CustomerID { get; set; }
 
         public LogInPanel()
         {
             InitializeComponent();
-            
-            try
-            {
-                connection = new SqlConnection(App.Environment.DB_SOURCE);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
             SetColors();
         }
 
@@ -42,34 +33,20 @@ namespace DesktopApp.Views
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-                "SELECT COUNT(*) FROM Customer WHERE login=@Login AND password=@Password", 
-                connection);
 
-            adapter.SelectCommand.Parameters.AddWithValue("@Login", textBoxLogin.Text);
-            adapter.SelectCommand.Parameters.AddWithValue("@Password", textBoxPassword.Text);
-
-            connection.Open();
-
-            DataTable customers = new DataTable();
-
-            adapter.Fill(customers);
-
-            connection.Close();
-
-            if (customers.Rows.Count > 0)
+            AuthenticationService service = new AuthenticationService();
+            if (service.SignIn(textBoxLogin.Text, textBoxPassword.Text))
             {
-                if(customers.Rows[0][0].ToString() == "0")
-                {
-                    labelError.Text = "Wrong login or password. Try again";
-                }
-                else
-                {
-                    labelError.Text = "Access granted";
-                }
+                CustomerID = service.GetCustomerID(textBoxLogin.Text);
+                MessageBox.Show("Access Granted :) CustomerID = " + CustomerID);
+                textBoxLogin.Clear();
+                textBoxPassword.Clear();
             }
-
-            textBoxPassword.Text = "";
+            else
+            {
+                // wyświetlenie informacji
+                MessageBox.Show("Wrong login or password");
+            }
         }
     }
 }
