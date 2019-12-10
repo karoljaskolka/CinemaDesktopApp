@@ -475,10 +475,81 @@ SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer', Customer
 FROM Customer
 GO
 
+CREATE PROCEDURE sp_getSeqCustomerID
+AS
+SELECT NEXT VALUE FOR SEQ_CUSTOMER_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqTicketTypeID
+AS
+SELECT NEXT VALUE FOR SEQ_Ticket_Type_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqShowtimeID
+AS
+SELECT NEXT VALUE FOR SEQ_Showtime_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqScreenID
+AS
+SELECT NEXT VALUE FOR SEQ_Screen_ID;
+GO
+
+CREATE PROCEDURE sp_getSeqSeatID
+AS
+SELECT NEXT VALUE FOR SEQ_Seat_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqTicketID
+AS
+SELECT NEXT VALUE FOR SEQ_Ticket_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqMovieID
+AS
+SELECT NEXT VALUE FOR SEQ_Movie_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqRoleID
+AS
+SELECT NEXT VALUE FOR SEQ_Role_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqComplaintID
+AS
+SELECT NEXT VALUE FOR SEQ_Complaint_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqCommentID
+AS
+SELECT NEXT VALUE FOR SEQ_Comment_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqRatingID
+AS
+SELECT NEXT VALUE FOR SEQ_Rating_ID;
+GO
+
+
+CREATE PROCEDURE sp_getSeqGenreID
+AS
+SELECT NEXT VALUE FOR SEQ_Genre_ID;
+GO
+
+
 -- SELECT for views
 
 SELECT * FROM TICKET_VIEW;
-SELECT * FROM SHOWTIME_VIEW WHERE Date LIKE '2020-1-22%' ORDER BY DATE ASC;
+SELECT * FROM SHOWTIME_VIEW WHERE Date LIKE '2019-11-26%' ORDER BY DATE ASC;
 
 --EXEC instruction for procedures
 EXEC sp_showCustomerRatings @Customer_ID=4;
@@ -494,7 +565,7 @@ EXEC sp_showCustomer @Customer_ID=1;
 EXEC sp_showCustomers;
 EXEC sp_showMovie @Movie_ID=1;
 EXEC sp_showMovies;
-
+EXEC sp_getSeqCustomerID;
 --INSERT INTO
 
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
