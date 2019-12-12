@@ -15,17 +15,6 @@ namespace Cinema
 {
     public partial class SignUpPanel : UserControl
     {
-        //zmienna id klienta
-        private int customerID;
-        private SqlCommand querySQL;
-        //zmienna polaczenia do bazy
-        private readonly Func<System.Data.SqlClient.SqlConnection> dbConnectionCinema = () => new SqlConnection(ConfigurationManager.ConnectionStrings["CinemaKredek"].ConnectionString);
-
-
-
-        public SqlCommand QuerySQL { get => querySQL; set => querySQL = value; }
-       
-        public int CustomerID { get => customerID; set => customerID = value; }
 
         FormMain formMain;
 
@@ -49,8 +38,17 @@ namespace Cinema
 
             if (textBoxSignUpLogin.Text != "" && textBoxSignUpPassword.Text != "" && textBoxSignUpName.Text != "" && textBoxSignUpSurname.Text != "")
             {
-
-                service.SignUp(textBoxSignUpLogin.Text, textBoxSignUpPassword.Text, textBoxSignUpName.Text, textBoxSignUpSurname.Text, dateTimePickerSignUpBirth.Value.ToString("yyyy-MM-dd"), textBoxSignUpEmail.Text, textBoxSignUpPhone.Text);
+                if (checkBoxTerms.Checked == false)
+                {
+                    MessageBox.Show("You have to agree terms");
+                }
+                else
+                {
+                    service.SignUp(textBoxSignUpLogin.Text, textBoxSignUpPassword.Text, textBoxSignUpName.Text, textBoxSignUpSurname.Text, dateTimePickerSignUpBirth.Value.ToString("yyyy-MM-dd"), textBoxSignUpEmail.Text, textBoxSignUpPhone.Text);
+                    formMain.panelContent.Controls.Clear();
+                    LogInPanel panel = new LogInPanel(formMain);
+                    formMain.panelContent.Controls.Add(panel);
+                }
 
 
 

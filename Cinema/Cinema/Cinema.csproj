@@ -164,7 +164,10 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ComplaintService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\ShowtimesService.cs" />
+    <Compile Include="Services\TicketService.cs" />
     <Compile Include="Views\LogInPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -262,6 +265,7 @@
       <DependentUpon>CinemaModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Cinema.Database.SHOWTIME_VIEW.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

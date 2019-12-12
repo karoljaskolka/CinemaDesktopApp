@@ -329,7 +329,18 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_getSeqCommentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqComplaintID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_getSeqCustomerID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqGenreID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqMovieID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqRatingID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqRoleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqScreenID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqSeatID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqShowtimeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqTicketID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getSeqTicketTypeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_showAvailableSeats" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Showtime_ID" Type="int" Mode="In" />
         </Function>
@@ -919,6 +930,17 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
           <Parameter Name="Showtime_ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_getSeqCustomerID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqCommentID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqComplaintID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqGenreID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqMovieID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqRatingID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqRoleID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqScreenID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqSeatID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqShowtimeID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqTicketID" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="sp_getSeqTicketTypeID" ReturnType="Collection(Int32)" />
         </EntityContainer>
         <ComplexType Name="sp_showAvailableSeats_Result">
           <Property Type="Int32" Name="Seat_ID" Nullable="false" />
@@ -1275,6 +1297,17 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_getSeqCustomerID" FunctionName="CinemaModel.Store.sp_getSeqCustomerID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqCommentID" FunctionName="CinemaModel.Store.sp_getSeqCommentID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqComplaintID" FunctionName="CinemaModel.Store.sp_getSeqComplaintID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqGenreID" FunctionName="CinemaModel.Store.sp_getSeqGenreID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqMovieID" FunctionName="CinemaModel.Store.sp_getSeqMovieID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqRatingID" FunctionName="CinemaModel.Store.sp_getSeqRatingID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqRoleID" FunctionName="CinemaModel.Store.sp_getSeqRoleID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqScreenID" FunctionName="CinemaModel.Store.sp_getSeqScreenID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqSeatID" FunctionName="CinemaModel.Store.sp_getSeqSeatID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqShowtimeID" FunctionName="CinemaModel.Store.sp_getSeqShowtimeID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqTicketID" FunctionName="CinemaModel.Store.sp_getSeqTicketID" />
+          <FunctionImportMapping FunctionImportName="sp_getSeqTicketTypeID" FunctionName="CinemaModel.Store.sp_getSeqTicketTypeID" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

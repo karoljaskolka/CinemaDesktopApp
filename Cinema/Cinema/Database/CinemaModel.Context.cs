@@ -155,5 +155,60 @@ namespace Cinema.Database
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqCustomerID");
         }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqCommentID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqCommentID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqComplaintID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqComplaintID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqGenreID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqGenreID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqMovieID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqMovieID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqRatingID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqRatingID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqRoleID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqRoleID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqScreenID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqScreenID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqSeatID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqSeatID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqShowtimeID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqShowtimeID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqTicketID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqTicketID");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getSeqTicketTypeID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqTicketTypeID");
+        }
     }
 }

@@ -40,6 +40,157 @@ namespace Cinema.Services
             return ID;
         }
 
+        public string GetLogin(int customerID)
+        {
+            string login;
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                login = customer.Login;
+            }
+            return login;
+        }
+
+
+        public string GetPassword(int customerID)
+        {
+            string password;
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                password = customer.Password;
+            }
+            return password;
+        }
+        public string GetName(int customerID)
+        {
+            string name;
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                name = customer.First_Name;
+            }
+            return name;
+        }
+
+        public string GetSurname(int customerID)
+        {
+            string surname;
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                surname = customer.Last_Name;
+            }
+            return surname;
+        }
+
+        public string GetEmail(int customerID)
+        {
+            string email;
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                email = customer.Email;
+            }
+            return email;
+        }
+        public string GetPhone(int customerID)
+        {
+            string phone;
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                phone = customer.Phone;
+            }
+            return phone;
+        }
+
+
+        public void SetLogin(int customerID, string login)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                customer.Login = login;
+                database.SaveChanges();
+            }
+
+        }
+
+
+        public void SetPassword(int customerID, string password)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                customer.Password = password;
+                database.SaveChanges();
+            }
+
+        }
+
+        public void SetName(int customerID, string name)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                customer.First_Name = name;
+                database.SaveChanges();
+            }
+
+        }
+
+        public void SetSurname(int customerID, string surname)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                customer.Last_Name = surname;
+                database.SaveChanges();
+            }
+
+        }
+
+        public void SetEmail(int customerID, string email)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                customer.Email = email;
+                database.SaveChanges();
+            }
+
+        }
+
+        public void SetPhone(int customerID, string phone)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                // pobranie ID użytkownika o podanym loginie
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                customer.Phone = phone;
+                database.SaveChanges();
+            }
+
+        }
+
         public bool CustomerExist(string login)
         {
             using (CinemaEntities context = new CinemaEntities())
@@ -56,9 +207,10 @@ namespace Cinema.Services
             using (CinemaEntities database = new CinemaEntities())
             {
 
-                Customer newCustomer = database.Customer.FirstOrDefault();
 
-                newCustomer.Customer_ID = Convert.ToInt32(database.sp_getSeqCustomerID());
+                Customer newCustomer = database.Customer.Create();
+
+                newCustomer.Customer_ID = Convert.ToInt32(database.sp_getSeqCustomerID().FirstOrDefault());
                 newCustomer.Login = login;
                 newCustomer.Password = password;
                 newCustomer.First_Name = firstName;
@@ -66,6 +218,7 @@ namespace Cinema.Services
                 newCustomer.Birth = DateTime.Parse(birth);
                 newCustomer.Email = email;
                 newCustomer.Phone = phone;
+                newCustomer.Role_ID = 1;
 
                 // jeśli zajęty
                 if (CustomerExist(login))

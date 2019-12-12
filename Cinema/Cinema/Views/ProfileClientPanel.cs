@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using Cinema.Services;
 
 namespace Cinema
 {
@@ -17,18 +18,11 @@ namespace Cinema
     /// </summary>
     public partial class ProfileClientPanel : UserControl
     {
-        //zmienne potrzebne do połączenia z baza a takze nr klienta
-        List<string> list;
-        private SqlCommand querySQL;
-
-        private readonly Func<System.Data.SqlClient.SqlConnection> dbConnectionCinema = () => new SqlConnection(ConfigurationManager.ConnectionStrings["CinemaKredek"].ConnectionString);
-
-        private int customerID;
+           private int customerID;
 
         public int CustomerID { get => customerID; set => customerID = value; }
-        public SqlCommand QuerySQL { get => querySQL; set => querySQL = value; }
-
-        
+       
+        CustomerService service;
 
         public ProfileClientPanel(int customerID)
         {
@@ -44,50 +38,20 @@ namespace Cinema
         /// </summary>
         private void FillTextBoxes()
         {
-            //zapytanie
-            string query = "SELECT Login,Password,First_Name,Last_Name,Email,Phone FROM Customer WHERE  Customer_ID = @Customer_ID ";
+            service = new CustomerService();
             
-            //inicjalizacja połaczenia
-            var connection = dbConnectionCinema();
-            using (var command = new SqlCommand(query,connection)
-)
-            {
-                //otworzenie polaczenia
-                connection.Open();
-
-                //dodanie parametru
-                command.Parameters.Add(new SqlParameter("@Customer_ID", CustomerID));
-                using (var reader = command.ExecuteReader())
-                {
-                    list = new List<string>();
-
-                    //przypisanie do listy wartosci klienta
-                    while (reader.Read())
-                    {
-                        list.Add(reader.GetString(0));
-                        list.Add(reader.GetString(1));
-                        list.Add(reader.GetString(2));
-                        list.Add(reader.GetString(3));
-                        list.Add(reader.GetString(4));
-                        list.Add(reader.GetString(5));
-                    }
+            
                     
-                    //inicjalizacja danych w text box'ach
-                    textBoxProfileLogin.Text = list[0].ToString();
-                    textBoxProfilePassword.Text = list[1].ToString();
-                    textBoxProfileName.Text = list[2].ToString();
-                    textBoxProfileSurname.Text = list[3].ToString();
-                    textBoxProfileEmail.Text = list[4].ToString();
-                    textBoxProfilePhone.Text = list[5].ToString();
+             //inicjalizacja danych w text box'ach
+             textBoxProfileLogin.Text = service.GetLogin(CustomerID);
+             textBoxProfilePassword.Text = service.GetPassword(CustomerID);
+             textBoxProfileName.Text = service.GetName(CustomerID);
+             textBoxProfileSurname.Text = service.GetSurname(CustomerID);
+             textBoxProfileEmail.Text = service.GetEmail(CustomerID);
+             textBoxProfilePhone.Text = service.GetPhone(CustomerID);
 
-
-
-                }
-            }
-            connection.Close();
-
-
-            }
+        }
+            
 
         /// <summary>
         /// wcisniecie przycisku zatwierdza zmiany wprowadzone przez nas
@@ -96,40 +60,26 @@ namespace Cinema
         /// <param name="e"></param>
         private void buttonProfileEdit_Click(object sender, EventArgs e)
         {
-            //zapytanie
-            string query = "UPDATE Customer SET Login=@Login, Password=@Password,First_Name=@First_Name, Last_Name=@Last_Name,Email=@Email,Phone=@Phone WHERE Customer_ID = @Customer_ID ";
             
             //jesli textBox'y które wartosci w tabeli mają not null są puste to nie spełnia warunku 
             if (textBoxProfileLogin.Text != "" && textBoxProfilePassword.Text !="" && textBoxProfileName.Text != "" && textBoxProfileSurname.Text != "")
             {
-                var connection = dbConnectionCinema();
-                using (var command = new SqlCommand(query, connection)
-    )
-                {
-                    //otworzenei polaczenia
-                    connection.Open();
+                service = new CustomerService();
 
-                    //podanie aktualnych parametrow 
-                    command.Parameters.Add(new SqlParameter("@Customer_ID", CustomerID));
-                    command.Parameters.Add(new SqlParameter("@Login", textBoxProfileLogin.Text));
-                    command.Parameters.Add(new SqlParameter("@Password", textBoxProfilePassword.Text));
-                    command.Parameters.Add(new SqlParameter("@First_Name", textBoxProfileName.Text));
-                    command.Parameters.Add(new SqlParameter("@Last_Name", textBoxProfileSurname.Text));
-                    command.Parameters.Add(new SqlParameter("@Email", textBoxProfileEmail.Text));
-                    command.Parameters.Add(new SqlParameter("@Phone", textBoxProfilePhone.Text));
+                service.SetLogin(CustomerID, textBoxProfileLogin.Text);
+                service.SetPassword(CustomerID, textBoxProfilePassword.Text);
+                service.SetName(CustomerID, textBoxProfileName.Text);
+                service.SetSurname(CustomerID, textBoxProfileSurname.Text);
+                service.SetEmail(CustomerID, textBoxProfileEmail.Text);
+                service.SetPhone(CustomerID, textBoxProfilePhone.Text);
 
 
-                    //wykonanie zapytania
-                    command.ExecuteReader();
 
-                    //zamkniecie polaczenia
-                    connection.Close();
+                //wypelnienie text boxow
+                FillTextBoxes();
+                MessageBox.Show("Your profile is updated");
 
-                    //wypelnienie text boxow
-                    FillTextBoxes();
-                    MessageBox.Show("Your profile is updated");
-
-                }
+                
                 
             }
             else
