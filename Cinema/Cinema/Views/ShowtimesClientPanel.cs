@@ -262,5 +262,6 @@ namespace Cinema
                 MessageBox.Show("You must choose seat and ticket type");
             }
         }
+
     }
 }
