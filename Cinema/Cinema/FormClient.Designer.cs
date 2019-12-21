@@ -64,68 +64,80 @@
             // 
             // buttonProfileUpdate
             // 
+            this.buttonProfileUpdate.BackColor = System.Drawing.Color.HotPink;
             this.buttonProfileUpdate.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonProfileUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonProfileUpdate.Location = new System.Drawing.Point(0, 500);
             this.buttonProfileUpdate.Name = "buttonProfileUpdate";
             this.buttonProfileUpdate.Size = new System.Drawing.Size(200, 100);
             this.buttonProfileUpdate.TabIndex = 6;
             this.buttonProfileUpdate.Text = "Profile";
-            this.buttonProfileUpdate.UseVisualStyleBackColor = true;
+            this.buttonProfileUpdate.UseVisualStyleBackColor = false;
             this.buttonProfileUpdate.Click += new System.EventHandler(this.buttonProfileUpdate_Click);
             // 
             // buttonReport
             // 
+            this.buttonReport.BackColor = System.Drawing.Color.HotPink;
             this.buttonReport.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonReport.ForeColor = System.Drawing.Color.White;
             this.buttonReport.Location = new System.Drawing.Point(0, 400);
             this.buttonReport.Name = "buttonReport";
             this.buttonReport.Size = new System.Drawing.Size(200, 100);
             this.buttonReport.TabIndex = 5;
             this.buttonReport.Text = "Report Case";
-            this.buttonReport.UseVisualStyleBackColor = true;
+            this.buttonReport.UseVisualStyleBackColor = false;
             this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
             // buttonRatings
             // 
+            this.buttonRatings.BackColor = System.Drawing.Color.HotPink;
             this.buttonRatings.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonRatings.ForeColor = System.Drawing.Color.White;
             this.buttonRatings.Location = new System.Drawing.Point(0, 300);
             this.buttonRatings.Name = "buttonRatings";
             this.buttonRatings.Size = new System.Drawing.Size(200, 100);
             this.buttonRatings.TabIndex = 4;
             this.buttonRatings.Text = "Ratings";
-            this.buttonRatings.UseVisualStyleBackColor = true;
+            this.buttonRatings.UseVisualStyleBackColor = false;
             this.buttonRatings.Click += new System.EventHandler(this.buttonRatings_Click);
             // 
             // buttonMovies
             // 
+            this.buttonMovies.BackColor = System.Drawing.Color.HotPink;
             this.buttonMovies.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonMovies.ForeColor = System.Drawing.Color.White;
             this.buttonMovies.Location = new System.Drawing.Point(0, 200);
             this.buttonMovies.Name = "buttonMovies";
             this.buttonMovies.Size = new System.Drawing.Size(200, 100);
             this.buttonMovies.TabIndex = 3;
             this.buttonMovies.Text = "Movies";
-            this.buttonMovies.UseVisualStyleBackColor = true;
+            this.buttonMovies.UseVisualStyleBackColor = false;
             this.buttonMovies.Click += new System.EventHandler(this.buttonMovies_Click);
             // 
             // buttonTickets
             // 
+            this.buttonTickets.BackColor = System.Drawing.Color.HotPink;
             this.buttonTickets.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonTickets.ForeColor = System.Drawing.Color.White;
             this.buttonTickets.Location = new System.Drawing.Point(0, 100);
             this.buttonTickets.Name = "buttonTickets";
             this.buttonTickets.Size = new System.Drawing.Size(200, 100);
             this.buttonTickets.TabIndex = 2;
             this.buttonTickets.Text = "Tickets";
-            this.buttonTickets.UseVisualStyleBackColor = true;
+            this.buttonTickets.UseVisualStyleBackColor = false;
             this.buttonTickets.Click += new System.EventHandler(this.buttonTickets_Click);
             // 
             // buttonShowtimes
             // 
+            this.buttonShowtimes.BackColor = System.Drawing.Color.HotPink;
             this.buttonShowtimes.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonShowtimes.ForeColor = System.Drawing.Color.White;
             this.buttonShowtimes.Location = new System.Drawing.Point(0, 0);
             this.buttonShowtimes.Name = "buttonShowtimes";
             this.buttonShowtimes.Size = new System.Drawing.Size(200, 100);
             this.buttonShowtimes.TabIndex = 1;
             this.buttonShowtimes.Text = "Showtimes";
-            this.buttonShowtimes.UseVisualStyleBackColor = true;
+            this.buttonShowtimes.UseVisualStyleBackColor = false;
             this.buttonShowtimes.Click += new System.EventHandler(this.buttonShowtimes_Click);
             // 
             // panelClientContent

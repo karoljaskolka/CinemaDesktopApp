@@ -13,8 +13,8 @@ namespace Cinema.Database
     
     public partial class sp_showCustomerRatings_Result
     {
-        public string Customer { get; set; }
         public string Title { get; set; }
         public int Rating { get; set; }
+        public System.DateTime Date { get; set; }
     }
 }

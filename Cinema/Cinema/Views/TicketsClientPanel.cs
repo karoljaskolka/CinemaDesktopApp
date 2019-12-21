@@ -20,24 +20,27 @@ namespace Cinema
         private int ticketID;
 
         public int CustomerID { get => customerID; set => customerID = value; }
-       //  public int TicketID { get => ticketID; set => ticketID = value; }
+        public int TicketID { get => ticketID; set => ticketID = value; }
 
         public TicketsClientPanel(int customerID)
         {
             InitializeComponent();
             CustomerID = customerID;
             service = new TicketService();
+           
             //wczytanie danych do tabeli
             GetDataFromTable();
-            ;
+            
         }
+        
+        
         /// <summary>
         /// wypelnienie tabeli danymi z bazy danych
         /// polaczen z baza</summary>
         public void GetDataFromTable()
         {
-            service.ShowTicketView();
-              //  dataGridViewTickets.DataSource = table;
+            service.ShowTicketView(dataGridViewTickets);
+              
 
         }
 
