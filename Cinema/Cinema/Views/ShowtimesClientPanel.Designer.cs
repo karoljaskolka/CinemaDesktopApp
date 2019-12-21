@@ -28,18 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridViewShowtimes = new System.Windows.Forms.DataGridView();
-            this.movieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.directorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.screenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.technologyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sHOWTIMEVIEWBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxShowtime = new System.Windows.Forms.GroupBox();
             this.comboBoxShowtimeTicket = new System.Windows.Forms.ComboBox();
             this.comboBoxShowtimeSeat = new System.Windows.Forms.ComboBox();
@@ -56,7 +45,6 @@
             this.labelShowtimeSeat = new System.Windows.Forms.Label();
             this.labelShowtimeMovie = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sHOWTIMEVIEWBindingSource)).BeginInit();
             this.groupBoxShowtime.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,91 +67,6 @@
             this.dataGridViewShowtimes.Size = new System.Drawing.Size(679, 288);
             this.dataGridViewShowtimes.TabIndex = 0;
             this.dataGridViewShowtimes.SelectionChanged += new System.EventHandler(this.dataGridViewShowtimes_SelectionChanged);
-            // 
-            // movieDataGridViewTextBoxColumn
-            // 
-            this.movieDataGridViewTextBoxColumn.DataPropertyName = "Movie";
-            this.movieDataGridViewTextBoxColumn.HeaderText = "Movie";
-            this.movieDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.movieDataGridViewTextBoxColumn.Name = "movieDataGridViewTextBoxColumn";
-            this.movieDataGridViewTextBoxColumn.ReadOnly = true;
-            this.movieDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // durationDataGridViewTextBoxColumn
-            // 
-            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
-            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
-            this.durationDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
-            this.durationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.durationDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // ageCategoryDataGridViewTextBoxColumn
-            // 
-            this.ageCategoryDataGridViewTextBoxColumn.DataPropertyName = "Age_Category";
-            this.ageCategoryDataGridViewTextBoxColumn.HeaderText = "Age Category";
-            this.ageCategoryDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ageCategoryDataGridViewTextBoxColumn.Name = "ageCategoryDataGridViewTextBoxColumn";
-            this.ageCategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ageCategoryDataGridViewTextBoxColumn.Width = 123;
-            // 
-            // directorDataGridViewTextBoxColumn
-            // 
-            this.directorDataGridViewTextBoxColumn.DataPropertyName = "Director";
-            this.directorDataGridViewTextBoxColumn.HeaderText = "Director";
-            this.directorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.directorDataGridViewTextBoxColumn.Name = "directorDataGridViewTextBoxColumn";
-            this.directorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.directorDataGridViewTextBoxColumn.Width = 87;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 108;
-            // 
-            // genreDataGridViewTextBoxColumn
-            // 
-            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
-            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
-            this.genreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
-            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.genreDataGridViewTextBoxColumn.Width = 77;
-            // 
-            // screenDataGridViewTextBoxColumn
-            // 
-            this.screenDataGridViewTextBoxColumn.DataPropertyName = "Screen";
-            this.screenDataGridViewTextBoxColumn.HeaderText = "Screen";
-            this.screenDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.screenDataGridViewTextBoxColumn.Name = "screenDataGridViewTextBoxColumn";
-            this.screenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.screenDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // technologyDataGridViewTextBoxColumn
-            // 
-            this.technologyDataGridViewTextBoxColumn.DataPropertyName = "Technology";
-            this.technologyDataGridViewTextBoxColumn.HeaderText = "Technology";
-            this.technologyDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.technologyDataGridViewTextBoxColumn.Name = "technologyDataGridViewTextBoxColumn";
-            this.technologyDataGridViewTextBoxColumn.ReadOnly = true;
-            this.technologyDataGridViewTextBoxColumn.Width = 111;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // sHOWTIMEVIEWBindingSource
-            // 
-            this.sHOWTIMEVIEWBindingSource.DataSource = typeof(Cinema.Database.SHOWTIME_VIEW);
             // 
             // groupBoxShowtime
             // 
@@ -354,7 +257,6 @@
             this.Name = "ShowtimesClientPanel";
             this.Size = new System.Drawing.Size(825, 956);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sHOWTIMEVIEWBindingSource)).EndInit();
             this.groupBoxShowtime.ResumeLayout(false);
             this.groupBoxShowtime.PerformLayout();
             this.ResumeLayout(false);
@@ -379,6 +281,5 @@
         private System.Windows.Forms.Label labelReservationDate;
         private System.Windows.Forms.Label labelReservationMovie;
         private System.Windows.Forms.ComboBox comboBoxShowtimeTicket;
-        private System.Windows.Forms.BindingSource sHOWTIMEVIEWBindingSource;
     }
 }

@@ -371,12 +371,6 @@ JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Rating.Customer_ID = @Customer_ID
 GO
 
-
-
-
-
-
-
 CREATE PROCEDURE sp_showMovieRatings @Movie_ID int
 AS
 SELECT Movie.Title, Rating.stars AS 'Rating', concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer'
@@ -385,7 +379,6 @@ JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Movie.Movie_ID = @Movie_ID
 GO
-
 
 --nowe
 CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
@@ -406,8 +399,6 @@ JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
 JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID
 WHERE Ticket.Customer_ID = @Customer_ID;
-
-
 
 CREATE PROCEDURE sp_showAverageRatingMovie @Movie_ID int
 AS
@@ -512,18 +503,15 @@ AS
 SELECT NEXT VALUE FOR SEQ_CUSTOMER_ID;
 GO
 
-
 CREATE PROCEDURE sp_getSeqTicketTypeID
 AS
 SELECT NEXT VALUE FOR SEQ_Ticket_Type_ID;
 GO
 
-
 CREATE PROCEDURE sp_getSeqShowtimeID
 AS
 SELECT NEXT VALUE FOR SEQ_Showtime_ID;
 GO
-
 
 CREATE PROCEDURE sp_getSeqScreenID
 AS
@@ -535,48 +523,40 @@ AS
 SELECT NEXT VALUE FOR SEQ_Seat_ID;
 GO
 
-
 CREATE PROCEDURE sp_getSeqTicketID
 AS
 SELECT NEXT VALUE FOR SEQ_Ticket_ID;
 GO
-
 
 CREATE PROCEDURE sp_getSeqMovieID
 AS
 SELECT NEXT VALUE FOR SEQ_Movie_ID;
 GO
 
-
 CREATE PROCEDURE sp_getSeqRoleID
 AS
 SELECT NEXT VALUE FOR SEQ_Role_ID;
 GO
-
 
 CREATE PROCEDURE sp_getSeqComplaintID
 AS
 SELECT NEXT VALUE FOR SEQ_Complaint_ID;
 GO
 
-
 CREATE PROCEDURE sp_getSeqCommentID
 AS
 SELECT NEXT VALUE FOR SEQ_Comment_ID;
 GO
-
 
 CREATE PROCEDURE sp_getSeqRatingID
 AS
 SELECT NEXT VALUE FOR SEQ_Rating_ID;
 GO
 
-
 CREATE PROCEDURE sp_getSeqGenreID
 AS
 SELECT NEXT VALUE FOR SEQ_Genre_ID;
 GO
-
 
 -- SELECT for views
 
@@ -598,11 +578,9 @@ EXEC sp_showCustomers;
 EXEC sp_showMovie @Movie_ID=1;
 EXEC sp_showMovies;
 EXEC sp_getSeqCustomerID;
-EXEC sp_getMovie_ID @Movie_Title='Frozen 2';
-EXEC sp_getShowtime_ID @Screen_ID=3, @DateOfShowtime= '2019-11-26 20:15';
-SELECT * FROM SHowtime;
+
 --INSERT INTO
-SELECT * FROM SHOWTIME_VIEW;
+
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
