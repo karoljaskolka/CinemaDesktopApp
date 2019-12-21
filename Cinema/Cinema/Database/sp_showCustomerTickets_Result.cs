@@ -11,10 +11,16 @@ namespace Cinema.Database
 {
     using System;
     
-    public partial class sp_showCustomerRatings_Result
+    public partial class sp_showCustomerTickets_Result
     {
-        public string Title { get; set; }
-        public int Rating { get; set; }
-        public System.DateTime Date { get; set; }
+        public string Client { get; set; }
+        public string Movie { get; set; }
+        public string Showtime { get; set; }
+        public int Ticket_Price { get; set; }
+        public string Status { get; set; }
+        public string Seat { get; set; }
+        public string Transaction { get; set; }
+        public string Type { get; set; }
+        public int Screen { get; set; }
     }
 }

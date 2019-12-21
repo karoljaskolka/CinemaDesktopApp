@@ -66,29 +66,17 @@
             this.dataGridViewShowtimes.AllowUserToDeleteRows = false;
             this.dataGridViewShowtimes.AllowUserToResizeColumns = false;
             this.dataGridViewShowtimes.AllowUserToResizeRows = false;
-            this.dataGridViewShowtimes.AutoGenerateColumns = false;
             this.dataGridViewShowtimes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewShowtimes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewShowtimes.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewShowtimes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewShowtimes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.movieDataGridViewTextBoxColumn,
-            this.durationDataGridViewTextBoxColumn,
-            this.ageCategoryDataGridViewTextBoxColumn,
-            this.directorDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.genreDataGridViewTextBoxColumn,
-            this.screenDataGridViewTextBoxColumn,
-            this.technologyDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn});
-            this.dataGridViewShowtimes.DataSource = this.sHOWTIMEVIEWBindingSource;
             this.dataGridViewShowtimes.GridColor = System.Drawing.Color.LavenderBlush;
-            this.dataGridViewShowtimes.Location = new System.Drawing.Point(223, 66);
+            this.dataGridViewShowtimes.Location = new System.Drawing.Point(107, 66);
             this.dataGridViewShowtimes.Name = "dataGridViewShowtimes";
             this.dataGridViewShowtimes.ReadOnly = true;
             this.dataGridViewShowtimes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewShowtimes.RowTemplate.Height = 24;
-            this.dataGridViewShowtimes.Size = new System.Drawing.Size(489, 288);
+            this.dataGridViewShowtimes.Size = new System.Drawing.Size(679, 288);
             this.dataGridViewShowtimes.TabIndex = 0;
             this.dataGridViewShowtimes.SelectionChanged += new System.EventHandler(this.dataGridViewShowtimes_SelectionChanged);
             // 
@@ -392,14 +380,5 @@
         private System.Windows.Forms.Label labelReservationMovie;
         private System.Windows.Forms.ComboBox comboBoxShowtimeTicket;
         private System.Windows.Forms.BindingSource sHOWTIMEVIEWBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn movieDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ageCategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn directorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn screenDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn technologyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
     }
 }

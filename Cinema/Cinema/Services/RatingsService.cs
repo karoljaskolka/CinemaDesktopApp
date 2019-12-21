@@ -8,21 +8,15 @@ using System.Windows.Forms;
 
 namespace Cinema.Services
 {
-    class TicketService
+    class RatingsService
     {
-
-    public void ShowTicketView(DataGridView table,int customerID)
+        public void ShowRatings(DataGridView table, int customerID)
         {
             using (CinemaEntities database = new CinemaEntities())
             {
-                table.DataSource = database.sp_showCustomerTickets(customerID).ToList();
+                table.DataSource = database.sp_showCustomerRatings(customerID).ToList();
             }
-        }
 
-
-
-    public void GetTicketID()
-        {
 
         }
 

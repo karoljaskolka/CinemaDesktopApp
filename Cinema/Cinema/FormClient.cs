@@ -21,13 +21,13 @@ namespace Cinema
         public FormClient(int customerID)
         {
             InitializeComponent();
-            //koloruje przyciski
-            buttonShowtimes.BackColor = Color.LavenderBlush;
-            buttonTickets.BackColor = Color.LavenderBlush;
-            buttonMovies.BackColor = Color.LavenderBlush;
-            buttonRatings.BackColor = Color.LavenderBlush;
-            buttonReport.BackColor = Color.LavenderBlush;
-            buttonProfileUpdate.BackColor = Color.LavenderBlush;
+            ////koloruje przyciski
+            //buttonShowtimes.BackColor = Color.LavenderBlush;
+            //buttonTickets.BackColor = Color.LavenderBlush;
+            //buttonMovies.BackColor = Color.LavenderBlush;
+            //buttonRatings.BackColor = Color.LavenderBlush;
+            //buttonReport.BackColor = Color.LavenderBlush;
+            //buttonProfileUpdate.BackColor = Color.LavenderBlush;
 
             //przypisuje nr klienta
             CustomerID = customerID;

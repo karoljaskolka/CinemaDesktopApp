@@ -20,24 +20,27 @@ namespace Cinema
         private int ticketID;
 
         public int CustomerID { get => customerID; set => customerID = value; }
-       //  public int TicketID { get => ticketID; set => ticketID = value; }
+        public int TicketID { get => ticketID; set => ticketID = value; }
 
         public TicketsClientPanel(int customerID)
         {
             InitializeComponent();
             CustomerID = customerID;
             service = new TicketService();
+           
             //wczytanie danych do tabeli
             GetDataFromTable();
-            ;
+            
         }
+        
+        
         /// <summary>
         /// wypelnienie tabeli danymi z bazy danych
         /// polaczen z baza</summary>
         public void GetDataFromTable()
         {
-            service.ShowTicketView();
-              //  dataGridViewTickets.DataSource = table;
+            service.ShowTicketView(dataGridViewTickets , customerID);
+              
 
         }
 
@@ -87,19 +90,39 @@ namespace Cinema
         ///// <param name="e"></param>
         private void dataGridViewTickets_SelectionChanged(object sender, EventArgs e)
         {
-        //    if (dataGridViewTickets.SelectedRows.Count != 0)
-        //    {
-        //        //pobieram obecny wiersz
-        //        DataGridViewRow row = this.dataGridViewTickets.SelectedRows[0];
+            if (dataGridViewTickets.SelectedRows.Count != 0)
+            {
+                //pobieram obecny wiersz
+                DataGridViewRow row = this.dataGridViewTickets.SelectedRows[0];
                 
-        //        //wlaczam widzialnosc przycisku
-        //        buttonTicketDelete.Visible = true;
+                //wlaczam widzialnosc przycisku
+                groupBoxTicket.Visible = true;
                 
-        //        //pobranie biletu sid z tabeli
-        //        TicketID = Convert.ToInt32(row.Cells["ID"].Value);
-                
+                labelTicketClient.Text = row.Cells["Client"].Value.ToString();
+                labelTicketMovie.Text = row.Cells["Movie"].Value.ToString();
+                labelTicketDate.Text = row.Cells["Showtime"].Value.ToString();
+                labelTicketScreen.Text = row.Cells["Screen"].Value.ToString();
+                labelTicketSeat.Text = row.Cells["Seat"].Value.ToString();
+                labelTicketPrice.Text = row.Cells["Ticket_Price"].Value.ToString();
+                labelTicketStatus.Text = row.Cells["Status"].Value.ToString();
+                if (labelTicketStatus.Text == "Booked")
+                {
+                    buttonBuy.Visible = true;
+                    buttonUnbook.Visible = true;
 
-        //    }
+                }
+                labelTicketType.Text = row.Cells["Type"].Value.ToString();
+            }
+        }
+
+        private void buttonUnbook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

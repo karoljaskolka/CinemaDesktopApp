@@ -210,5 +210,36 @@ namespace Cinema.Database
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getSeqTicketTypeID");
         }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getShowtime_ID(Nullable<int> screen_ID, string dateOfShowtime)
+        {
+            var screen_IDParameter = screen_ID.HasValue ?
+                new ObjectParameter("Screen_ID", screen_ID) :
+                new ObjectParameter("Screen_ID", typeof(int));
+    
+            var dateOfShowtimeParameter = dateOfShowtime != null ?
+                new ObjectParameter("DateOfShowtime", dateOfShowtime) :
+                new ObjectParameter("DateOfShowtime", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getShowtime_ID", screen_IDParameter, dateOfShowtimeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_getMovie_ID(string movie_Title)
+        {
+            var movie_TitleParameter = movie_Title != null ?
+                new ObjectParameter("Movie_Title", movie_Title) :
+                new ObjectParameter("Movie_Title", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getMovie_ID", movie_TitleParameter);
+        }
+    
+        public virtual ObjectResult<sp_showCustomerTickets_Result> sp_showCustomerTickets(Nullable<int> customer_ID)
+        {
+            var customer_IDParameter = customer_ID.HasValue ?
+                new ObjectParameter("Customer_ID", customer_ID) :
+                new ObjectParameter("Customer_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_showCustomerTickets_Result>("sp_showCustomerTickets", customer_IDParameter);
+        }
     }
 }

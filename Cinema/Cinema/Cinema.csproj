@@ -40,9 +40,15 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -125,6 +131,9 @@
     <Compile Include="Database\sp_showCustomers_Result.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\sp_showCustomerTickets_Result.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\sp_showCustomer_Result.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
@@ -166,6 +175,8 @@
     </Compile>
     <Compile Include="Services\ComplaintService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\MoviesService.cs" />
+    <Compile Include="Services\RatingsService.cs" />
     <Compile Include="Services\ShowtimesService.cs" />
     <Compile Include="Services\TicketService.cs" />
     <Compile Include="Views\LogInPanel.cs">

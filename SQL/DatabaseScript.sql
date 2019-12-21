@@ -298,6 +298,8 @@ JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
 JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID;
 
+
+
 CREATE TRIGGER rating_ai ON Rating
          AFTER INSERT 
          AS
@@ -361,12 +363,31 @@ CREATE NONCLUSTERED INDEX IX_CUSTOMER_AUTHENTICATION ON Customer(Login,Password)
 
 CREATE PROCEDURE sp_showCustomerRatings @Customer_ID int
 AS
-SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer',Movie.Title,Rating.stars AS 'Rating'
+SELECT Movie.Title AS 'Title',Rating.stars AS 'Rating', Rating.Date AS 'Date'
 FROM Rating 
 JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Rating.Customer_ID = @Customer_ID
 GO
+
+CREATE PROCEDURE sp_getShowtime_ID @Screen_ID int, @DateOfShowtime varchar
+AS
+SELECT Showtime.Showtime_ID
+FROM Showtime 
+WHERE Showtime.Screen_ID = @Screen_ID AND Showtime.Date=(SELECT CONVERT(datetime, @DateOfShowtime, 120))
+GO
+DROP PROCEDURE sp_getShowtime_ID;
+
+EXEC sp_getShowtime_ID @Screen_ID=3 , @DateOfShowtime= '2011-09-28 18:01:00';
+SELECT*FROM SHOWTIME;
+SELECT CONVERT(Datetime, '2011-09-28 18:01:00', 120);
+CREATE PROCEDURE sp_getMovie_ID @Movie_Title VARCHAR(50)
+AS
+SELECT Movie.Movie_ID
+FROM Movie 
+WHERE Movie.Title = @Movie_Title
+GO
+
 
 CREATE PROCEDURE sp_showMovieRatings @Movie_ID int
 AS
@@ -376,6 +397,48 @@ JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Movie.Movie_ID = @Movie_ID
 GO
+
+CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
+AS
+SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
+	Showtime.Date AS 'Showtime',
+	Ticket_Type.Price AS 'Ticket Price',  Ticket.Status,  Seat.Name AS 'Seat', Seat.Screen_ID AS 'Screen',
+	Ticket.Date AS 'Transaction'
+	FROM Ticket
+JOIN Customer ON Customer.Customer_ID = @Customer_ID
+JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
+JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
+JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
+JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID;
+GO
+DROP PROCEDURE sp_showCustomerTickets
+EXEC sp_showCustomerTickets @Customer_ID=9;
+SELECT * FROM TICKET_VIEW;
+
+CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
+AS
+SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
+	(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) 
+			FROM Showtime Showtime2
+			WHERE Showtime.Showtime_ID = Showtime2.Showtime_ID) AS 'Showtime',
+	Ticket_Type.Price AS 'Ticket Price',  Ticket_Type.Name AS 'Type', Ticket.Status,  Seat.Name AS 'Seat', Seat.Screen_ID AS 'Screen' , 
+	(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) 
+			FROM Ticket Ticket2
+			WHERE Ticket.Ticket_ID = Ticket2.Ticket_ID) AS 'Transaction'
+FROM Ticket 
+JOIN Customer ON Customer.Customer_ID = @Customer_ID
+JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
+JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
+JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
+JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID
+WHERE Ticket.Customer_ID = @Customer_ID;
+
+DROP PROCEDURE sp_showCustomerTickets
+
+
+EXEC sp_showCustomerTickets @Customer_ID=3;
 
 CREATE PROCEDURE sp_showAverageRatingMovie @Movie_ID int
 AS
@@ -552,7 +615,7 @@ SELECT * FROM TICKET_VIEW;
 SELECT * FROM SHOWTIME_VIEW WHERE Date LIKE '2019-11-26%' ORDER BY DATE ASC;
 
 --EXEC instruction for procedures
-EXEC sp_showCustomerRatings @Customer_ID=4;
+EXEC sp_showCustomerRatings @Customer_ID=1;
 EXEC sp_showMovieRatings @Movie_ID=3;
 EXEC sp_showAverageRatingMovie @Movie_ID=1;
 EXEC sp_showTickets @Showtime_ID=4;
@@ -566,8 +629,11 @@ EXEC sp_showCustomers;
 EXEC sp_showMovie @Movie_ID=1;
 EXEC sp_showMovies;
 EXEC sp_getSeqCustomerID;
+EXEC sp_getMovie_ID @Movie_Title='Frozen 2';
+EXEC sp_getShowtime_ID @Screen_ID=3, @DateOfShowtime= '2019-11-26 20:15';
+SELECT * FROM SHowtime;
 --INSERT INTO
-
+SELECT * FROM SHOWTIME_VIEW;
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Client');
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Employee');
 INSERT INTO dbRole VALUES (NEXT VALUE FOR SEQ_ROLE_ID, 'Admin');
@@ -825,3 +891,6 @@ DENY INSERT, UPDATE, DELETE ON Seat TO CINEMA_EMPLOYEE;
 DENY INSERT, UPDATE, DELETE ON Screen TO CINEMA_EMPLOYEE;
 DENY INSERT, UPDATE, DELETE ON Showtime TO CINEMA_EMPLOYEE;
 DENY SELECT ON dbRole TO CINEMA_EMPLOYEE;
+
+
+Select * from SHOWTIME where Showtime_ID=4;

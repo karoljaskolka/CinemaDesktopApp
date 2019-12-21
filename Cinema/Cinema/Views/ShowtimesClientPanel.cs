@@ -27,13 +27,16 @@ namespace Cinema
         private int ticketID;
         private int showtimeID;
 
+        private string name;
+        private string surname;
         //gettery i settery
         public int CustomerID { get => customerID; set => customerID = value; }
          public int SeatID { get => seatID; set => seatID = value; }
         public int TicketID { get => ticketID; set => ticketID = value; }
         public int ShowtimeID { get => showtimeID; set => showtimeID = value; }
 
-        ShowtimesService service;
+        ShowtimesService serviceShowtime;
+        CustomerService serviceCustomer;
 
         List<int> seats;
         public ShowtimesClientPanel(int customerID)
@@ -42,7 +45,12 @@ namespace Cinema
             buttonBook.BackColor = Color.LavenderBlush;
             buttonBuy.BackColor = Color.LavenderBlush;
             CustomerID = customerID;
-            service = new ShowtimesService();
+            serviceShowtime = new ShowtimesService();
+            serviceCustomer = new CustomerService();
+
+            name = serviceCustomer.GetName(CustomerID).ToString();
+            surname = serviceCustomer.GetSurname(CustomerID).ToString();
+
             //wczytanie seansow do tabeli
             GetDataFromTable();
             comboBoxShowtimeTicket.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -55,39 +63,8 @@ namespace Cinema
         public void GetDataFromTable()
         {
 
+            serviceShowtime.ShowShowtimes(dataGridViewShowtimes);
 
-
-            service.ShowShowtimes(dataGridViewShowtimes);
-
-
-
-            //    using (var connection = dbConnectionCinema())
-            //    {
-
-            //        //polaczeniea
-            //        connection.Open();
-            //        try
-            //        {
-
-
-
-            //            //tresc zapytania
-            //            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Movie.Title AS 'Title',Showtime.date AS 'Date', Showtime.Screen_ID AS 'Screen',Showtime.Showtime_ID AS 'ID' FROM Showtime INNER JOIN  Movie ON Movie.Movie_ID = Showtime.Movie_ID WHERE Date > cast(sysdatetime() as date)", connection);
-
-            //            DataTable table = new DataTable();
-
-            //            //wynik zapytania do tabeli posrednio z adaptera
-            //            adapter.Fill(table);
-
-            //            ///do datarigview dodano powyzsza tabele
-            //            dataGridViewShowtimes.DataSource = table;
-
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show(ex.ToString());
-            //        }
-            //        connection.Close();
 
         }
 
@@ -109,16 +86,29 @@ namespace Cinema
                 labelReservationMovie.Visible = true;
                 labelReservationDate.Visible = true;
                 labelReservationScreen.Visible = true;
+                labelReservationClient.Visible = true;
                 buttonBook.Visible = true;
                 comboBoxShowtimeTicket.Visible = true;
+                comboBoxShowtimeSeat.Visible = true;
                 //przypisanie warotsci do etykiet z obecnego wiersza
-                //ShowtimeID= Convert.ToInt32(row.Cells["ID"].Value);
+               // ShowtimeID= Convert.ToInt32(row.Cells["ID"].Value);
                 labelReservationMovie.Text = row.Cells["Movie"].Value.ToString();
-                labelReservationDate.Text = row.Cells[5].Value.ToString();
-                labelReservationScreen.Text = row.Cells[6].Value.ToString();
+                labelReservationDate.Text = row.Cells["Date"].Value.ToString();
+                labelReservationScreen.Text = row.Cells["Screen"].Value.ToString();
+                //ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), row.Cells["Date"].Value.ToString());
+                
+                  ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), "2019-11-26 20:15");
+                MessageBox.Show("ID: " + ShowtimeID);
+                
+                serviceShowtime.ShowAvailableSeats(comboBoxShowtimeSeat);
+
+
+
+
+                labelReservationClient.Text = name + " " + surname;
                 comboBoxShowtimeTicket.SelectedIndex = -1;
-                //wypelnienie pozostałych etykiet 
-                //fillDataFromDatabase();
+                comboBoxShowtimeSeat.SelectedIndex = -1;
+                
 
             }
 
