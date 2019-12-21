@@ -57,7 +57,11 @@ namespace Cinema.Services
                 DateTime myDate = DateTime.Parse(date);
                 // pobranie ID użytkownika o podanym loginie
                 Showtime showtime = database.Showtime.Where(x => x.Screen_ID == screenID && x.Date== myDate).SingleOrDefault();
-               // ID = showtime.Showtime_ID;
+                if (showtime != null)
+                {
+                    ID = showtime.Showtime_ID;
+                }
+                
                 //MessageBox.Show("ID " + ID);
                 }
                 return ID;

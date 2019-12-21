@@ -91,25 +91,22 @@ namespace Cinema
                 comboBoxShowtimeTicket.Visible = true;
                 comboBoxShowtimeSeat.Visible = true;
                 //przypisanie warotsci do etykiet z obecnego wiersza
-               // ShowtimeID= Convert.ToInt32(row.Cells["ID"].Value);
+                // ShowtimeID= Convert.ToInt32(row.Cells["ID"].Value);
                 labelReservationMovie.Text = row.Cells["Movie"].Value.ToString();
                 labelReservationDate.Text = row.Cells["Date"].Value.ToString();
                 labelReservationScreen.Text = row.Cells["Screen"].Value.ToString();
-                //ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), row.Cells["Date"].Value.ToString());
                 
-                  ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), "2019-11-26 20:15");
+                ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), 
+                                                                row.Cells["Date"].Value.ToString() + ":00.000");
+
                 MessageBox.Show("ID: " + ShowtimeID);
                 
                 serviceShowtime.ShowAvailableSeats(comboBoxShowtimeSeat);
-
-
-
 
                 labelReservationClient.Text = name + " " + surname;
                 comboBoxShowtimeTicket.SelectedIndex = -1;
                 comboBoxShowtimeSeat.SelectedIndex = -1;
                 
-
             }
 
         }
