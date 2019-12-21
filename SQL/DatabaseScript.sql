@@ -361,6 +361,7 @@ CREATE NONCLUSTERED INDEX IX_CUSTOMER_AUTHENTICATION ON Customer(Login,Password)
 
 -- PROCEDURES
 
+--nowe
 CREATE PROCEDURE sp_showCustomerRatings @Customer_ID int
 AS
 SELECT Movie.Title AS 'Title',Rating.stars AS 'Rating', Rating.Date AS 'Date'
@@ -370,23 +371,10 @@ JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Rating.Customer_ID = @Customer_ID
 GO
 
-CREATE PROCEDURE sp_getShowtime_ID @Screen_ID int, @DateOfShowtime varchar
-AS
-SELECT Showtime.Showtime_ID
-FROM Showtime 
-WHERE Showtime.Screen_ID = @Screen_ID AND Showtime.Date=(SELECT CONVERT(datetime, @DateOfShowtime, 120))
-GO
-DROP PROCEDURE sp_getShowtime_ID;
 
-EXEC sp_getShowtime_ID @Screen_ID=3 , @DateOfShowtime= '2011-09-28 18:01:00';
-SELECT*FROM SHOWTIME;
-SELECT CONVERT(Datetime, '2011-09-28 18:01:00', 120);
-CREATE PROCEDURE sp_getMovie_ID @Movie_Title VARCHAR(50)
-AS
-SELECT Movie.Movie_ID
-FROM Movie 
-WHERE Movie.Title = @Movie_Title
-GO
+
+
+
 
 
 CREATE PROCEDURE sp_showMovieRatings @Movie_ID int
@@ -398,24 +386,8 @@ JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Movie.Movie_ID = @Movie_ID
 GO
 
-CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
-AS
-SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
-	Showtime.Date AS 'Showtime',
-	Ticket_Type.Price AS 'Ticket Price',  Ticket.Status,  Seat.Name AS 'Seat', Seat.Screen_ID AS 'Screen',
-	Ticket.Date AS 'Transaction'
-	FROM Ticket
-JOIN Customer ON Customer.Customer_ID = @Customer_ID
-JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
-JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
-JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
-JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
-JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID;
-GO
-DROP PROCEDURE sp_showCustomerTickets
-EXEC sp_showCustomerTickets @Customer_ID=9;
-SELECT * FROM TICKET_VIEW;
 
+--nowe
 CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
 AS
 SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
@@ -435,10 +407,7 @@ JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID
 WHERE Ticket.Customer_ID = @Customer_ID;
 
-DROP PROCEDURE sp_showCustomerTickets
 
-
-EXEC sp_showCustomerTickets @Customer_ID=3;
 
 CREATE PROCEDURE sp_showAverageRatingMovie @Movie_ID int
 AS
@@ -893,4 +862,4 @@ DENY INSERT, UPDATE, DELETE ON Showtime TO CINEMA_EMPLOYEE;
 DENY SELECT ON dbRole TO CINEMA_EMPLOYEE;
 
 
-Select * from SHOWTIME where Showtime_ID=4;
+
