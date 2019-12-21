@@ -370,6 +370,9 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
           <Parameter Name="Customer_ID" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_showCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_showCustomerTickets" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Customer_ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_showGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Movie_ID" Type="int" Mode="In" />
         </Function>
@@ -953,7 +956,10 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
             <Parameter Name="DateOfShowtime" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_getMovie_ID" ReturnType="Collection(Int32)">
-            <Parameter Name="Movie_Title" Mode="In" Type="String" />
+          <Parameter Name="Movie_Title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_showCustomerTickets" ReturnType="Collection(CinemaModel.sp_showCustomerTickets_Result)">
+            <Parameter Name="Customer_ID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_showAvailableSeats_Result">
@@ -1024,6 +1030,17 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
           <Property Type="String" Name="Customer" Nullable="false" MaxLength="51" />
           <Property Type="String" Name="Seat" Nullable="false" MaxLength="3" />
           <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_showCustomerTickets_Result">
+          <Property Type="String" Name="Client" Nullable="false" MaxLength="51" />
+          <Property Type="String" Name="Movie" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Showtime" Nullable="true" MaxLength="64" />
+          <Property Type="Int32" Name="Ticket_Price" Nullable="false" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Seat" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Transaction" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="Screen" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1324,6 +1341,21 @@ warning 6002: The table/view 'Cinema.dbo.TICKET_VIEW' does not have a primary ke
           <FunctionImportMapping FunctionImportName="sp_getSeqTicketTypeID" FunctionName="CinemaModel.Store.sp_getSeqTicketTypeID" />
           <FunctionImportMapping FunctionImportName="sp_getShowtime_ID" FunctionName="CinemaModel.Store.sp_getShowtime_ID" />
           <FunctionImportMapping FunctionImportName="sp_getMovie_ID" FunctionName="CinemaModel.Store.sp_getMovie_ID" />
+          <FunctionImportMapping FunctionImportName="sp_showCustomerTickets" FunctionName="CinemaModel.Store.sp_showCustomerTickets">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CinemaModel.sp_showCustomerTickets_Result">
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="Movie" ColumnName="Movie" />
+                <ScalarProperty Name="Showtime" ColumnName="Showtime" />
+                <ScalarProperty Name="Ticket_Price" ColumnName="Ticket Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Seat" ColumnName="Seat" />
+                <ScalarProperty Name="Transaction" ColumnName="Transaction" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Screen" ColumnName="Screen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -62,12 +62,12 @@
             this.dataGridViewShowtimes.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewShowtimes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewShowtimes.GridColor = System.Drawing.Color.LavenderBlush;
-            this.dataGridViewShowtimes.Location = new System.Drawing.Point(223, 66);
+            this.dataGridViewShowtimes.Location = new System.Drawing.Point(107, 66);
             this.dataGridViewShowtimes.Name = "dataGridViewShowtimes";
             this.dataGridViewShowtimes.ReadOnly = true;
             this.dataGridViewShowtimes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewShowtimes.RowTemplate.Height = 24;
-            this.dataGridViewShowtimes.Size = new System.Drawing.Size(489, 288);
+            this.dataGridViewShowtimes.Size = new System.Drawing.Size(679, 288);
             this.dataGridViewShowtimes.TabIndex = 0;
             this.dataGridViewShowtimes.SelectionChanged += new System.EventHandler(this.dataGridViewShowtimes_SelectionChanged);
             // 

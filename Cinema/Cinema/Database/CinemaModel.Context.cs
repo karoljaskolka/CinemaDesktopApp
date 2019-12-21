@@ -232,5 +232,14 @@ namespace Cinema.Database
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_getMovie_ID", movie_TitleParameter);
         }
+    
+        public virtual ObjectResult<sp_showCustomerTickets_Result> sp_showCustomerTickets(Nullable<int> customer_ID)
+        {
+            var customer_IDParameter = customer_ID.HasValue ?
+                new ObjectParameter("Customer_ID", customer_ID) :
+                new ObjectParameter("Customer_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_showCustomerTickets_Result>("sp_showCustomerTickets", customer_IDParameter);
+        }
     }
 }

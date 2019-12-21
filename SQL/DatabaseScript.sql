@@ -298,6 +298,8 @@ JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
 JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
 JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID;
 
+
+
 CREATE TRIGGER rating_ai ON Rating
          AFTER INSERT 
          AS
@@ -395,6 +397,48 @@ JOIN Customer ON Rating.Customer_ID=Customer.Customer_ID
 JOIN Movie ON Rating.Movie_ID=Movie.Movie_ID
 WHERE Movie.Movie_ID = @Movie_ID
 GO
+
+CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
+AS
+SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
+	Showtime.Date AS 'Showtime',
+	Ticket_Type.Price AS 'Ticket Price',  Ticket.Status,  Seat.Name AS 'Seat', Seat.Screen_ID AS 'Screen',
+	Ticket.Date AS 'Transaction'
+	FROM Ticket
+JOIN Customer ON Customer.Customer_ID = @Customer_ID
+JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
+JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
+JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
+JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID;
+GO
+DROP PROCEDURE sp_showCustomerTickets
+EXEC sp_showCustomerTickets @Customer_ID=9;
+SELECT * FROM TICKET_VIEW;
+
+CREATE PROCEDURE sp_showCustomerTickets @Customer_ID int
+AS
+SELECT CONCAT(Customer.First_Name,' ', Customer.Last_Name) AS 'Client', Movie.Title AS 'Movie', 
+	(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) 
+			FROM Showtime Showtime2
+			WHERE Showtime.Showtime_ID = Showtime2.Showtime_ID) AS 'Showtime',
+	Ticket_Type.Price AS 'Ticket Price',  Ticket_Type.Name AS 'Type', Ticket.Status,  Seat.Name AS 'Seat', Seat.Screen_ID AS 'Screen' , 
+	(SELECT CONCAT(DATEPART(year, Date),'-',DATEPART(month, Date),'-',DATEPART(day, Date),' ',DATEPART(hour, Date), ':',DATEPART(MINUTE, Date)) 
+			FROM Ticket Ticket2
+			WHERE Ticket.Ticket_ID = Ticket2.Ticket_ID) AS 'Transaction'
+FROM Ticket 
+JOIN Customer ON Customer.Customer_ID = @Customer_ID
+JOIN Showtime ON Ticket.Showtime_ID = Showtime.Showtime_ID
+JOIN Movie ON Showtime.Movie_ID = Movie.Movie_ID
+JOIN Ticket_Type ON Ticket.Ticket_Type_ID = Ticket_Type.Ticket_Type_ID
+JOIN Seat ON Ticket.Seat_ID = Seat.Seat_ID
+JOIN Screen ON Seat.Screen_ID = Screen.Screen_ID
+WHERE Ticket.Customer_ID = @Customer_ID;
+
+DROP PROCEDURE sp_showCustomerTickets
+
+
+EXEC sp_showCustomerTickets @Customer_ID=3;
 
 CREATE PROCEDURE sp_showAverageRatingMovie @Movie_ID int
 AS

@@ -11,15 +11,20 @@ namespace Cinema.Services
     class TicketService
     {
 
-    public void ShowTicketView(DataGridView table)
+    public void ShowTicketView(DataGridView table,int customerID)
         {
             using (CinemaEntities database = new CinemaEntities())
             {
-                table.DataSource = database.TICKET_VIEW.ToList();
+                table.DataSource = database.sp_showCustomerTickets(customerID).ToList();
             }
         }
 
 
+
+    public void GetTicketID()
+        {
+
+        }
 
     }
 }

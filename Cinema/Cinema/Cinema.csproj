@@ -131,6 +131,9 @@
     <Compile Include="Database\sp_showCustomers_Result.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\sp_showCustomerTickets_Result.cs">
+      <DependentUpon>CinemaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\sp_showCustomer_Result.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
