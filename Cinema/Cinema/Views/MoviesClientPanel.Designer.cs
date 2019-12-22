@@ -45,7 +45,7 @@
             this.comboBoxRating.DisplayMember = "1";
             this.comboBoxRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRating.Font = new System.Drawing.Font("Castellar", 10F);
-            this.comboBoxRating.ItemHeight = 21;
+            this.comboBoxRating.ItemHeight = 16;
             this.comboBoxRating.Items.AddRange(new object[] {
             "1",
             "2",
@@ -57,9 +57,10 @@
             "8",
             "9",
             "10"});
-            this.comboBoxRating.Location = new System.Drawing.Point(711, 529);
+            this.comboBoxRating.Location = new System.Drawing.Point(519, 471);
+            this.comboBoxRating.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxRating.Name = "comboBoxRating";
-            this.comboBoxRating.Size = new System.Drawing.Size(99, 29);
+            this.comboBoxRating.Size = new System.Drawing.Size(75, 24);
             this.comboBoxRating.TabIndex = 10;
             this.comboBoxRating.ValueMember = "10";
             // 
@@ -67,9 +68,10 @@
             // 
             this.labelRate.AutoSize = true;
             this.labelRate.Font = new System.Drawing.Font("Castellar", 18F, System.Drawing.FontStyle.Bold);
-            this.labelRate.Location = new System.Drawing.Point(705, 439);
+            this.labelRate.Location = new System.Drawing.Point(514, 402);
+            this.labelRate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRate.Name = "labelRate";
-            this.labelRate.Size = new System.Drawing.Size(105, 36);
+            this.labelRate.Size = new System.Drawing.Size(87, 29);
             this.labelRate.TabIndex = 2;
             this.labelRate.Text = "Rate";
             // 
@@ -77,9 +79,10 @@
             // 
             this.labelComment.AutoSize = true;
             this.labelComment.Font = new System.Drawing.Font("Castellar", 18F, System.Drawing.FontStyle.Bold);
-            this.labelComment.Location = new System.Drawing.Point(139, 439);
+            this.labelComment.Location = new System.Drawing.Point(117, 402);
+            this.labelComment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelComment.Name = "labelComment";
-            this.labelComment.Size = new System.Drawing.Size(201, 36);
+            this.labelComment.Size = new System.Drawing.Size(163, 29);
             this.labelComment.TabIndex = 3;
             this.labelComment.Text = "Comment";
             // 
@@ -87,18 +90,20 @@
             // 
             this.textBoxCommentMovie.BackColor = System.Drawing.Color.LavenderBlush;
             this.textBoxCommentMovie.Font = new System.Drawing.Font("Castellar", 14F);
-            this.textBoxCommentMovie.Location = new System.Drawing.Point(123, 504);
+            this.textBoxCommentMovie.Location = new System.Drawing.Point(97, 448);
+            this.textBoxCommentMovie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxCommentMovie.Multiline = true;
             this.textBoxCommentMovie.Name = "textBoxCommentMovie";
-            this.textBoxCommentMovie.Size = new System.Drawing.Size(267, 85);
+            this.textBoxCommentMovie.Size = new System.Drawing.Size(201, 70);
             this.textBoxCommentMovie.TabIndex = 4;
             // 
             // buttonRate
             // 
             this.buttonRate.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.buttonRate.Location = new System.Drawing.Point(691, 625);
+            this.buttonRate.Location = new System.Drawing.Point(503, 532);
+            this.buttonRate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonRate.Name = "buttonRate";
-            this.buttonRate.Size = new System.Drawing.Size(130, 32);
+            this.buttonRate.Size = new System.Drawing.Size(98, 26);
             this.buttonRate.TabIndex = 5;
             this.buttonRate.Text = "Rate";
             this.buttonRate.UseVisualStyleBackColor = true;
@@ -107,9 +112,10 @@
             // buttonComment
             // 
             this.buttonComment.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.buttonComment.Location = new System.Drawing.Point(171, 625);
+            this.buttonComment.Location = new System.Drawing.Point(149, 532);
+            this.buttonComment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonComment.Name = "buttonComment";
-            this.buttonComment.Size = new System.Drawing.Size(130, 32);
+            this.buttonComment.Size = new System.Drawing.Size(98, 26);
             this.buttonComment.TabIndex = 6;
             this.buttonComment.Text = "Comment";
             this.buttonComment.UseVisualStyleBackColor = true;
@@ -119,9 +125,10 @@
             // 
             this.labelMovies.AutoSize = true;
             this.labelMovies.Font = new System.Drawing.Font("Castellar", 24F, System.Drawing.FontStyle.Bold);
-            this.labelMovies.Location = new System.Drawing.Point(354, 23);
+            this.labelMovies.Location = new System.Drawing.Point(282, 53);
+            this.labelMovies.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMovies.Name = "labelMovies";
-            this.labelMovies.Size = new System.Drawing.Size(193, 48);
+            this.labelMovies.Size = new System.Drawing.Size(156, 39);
             this.labelMovies.TabIndex = 11;
             this.labelMovies.Text = "Movies";
             // 
@@ -136,21 +143,24 @@
             this.dataGridViewMovies.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMovies.GridColor = System.Drawing.Color.LavenderBlush;
-            this.dataGridViewMovies.Location = new System.Drawing.Point(123, 105);
+            this.dataGridViewMovies.Location = new System.Drawing.Point(97, 121);
+            this.dataGridViewMovies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewMovies.Name = "dataGridViewMovies";
             this.dataGridViewMovies.ReadOnly = true;
             this.dataGridViewMovies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewMovies.RowTemplate.Height = 24;
-            this.dataGridViewMovies.Size = new System.Drawing.Size(698, 288);
+            this.dataGridViewMovies.Size = new System.Drawing.Size(524, 234);
             this.dataGridViewMovies.TabIndex = 12;
             this.dataGridViewMovies.SelectionChanged += new System.EventHandler(this.dataGridViewMovies_SelectionChanged);
             // 
             // MoviesClientPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
+            this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.dataGridViewMovies);
             this.Controls.Add(this.labelMovies);
             this.Controls.Add(this.buttonComment);
@@ -159,8 +169,9 @@
             this.Controls.Add(this.labelComment);
             this.Controls.Add(this.labelRate);
             this.Controls.Add(this.comboBoxRating);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MoviesClientPanel";
-            this.Size = new System.Drawing.Size(881, 677);
+            this.Size = new System.Drawing.Size(700, 600);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

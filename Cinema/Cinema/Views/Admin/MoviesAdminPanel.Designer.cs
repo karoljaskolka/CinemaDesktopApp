@@ -59,8 +59,13 @@
             // 
             // dataGridViewMovies
             // 
+            this.dataGridViewMovies.AllowUserToAddRows = false;
+            this.dataGridViewMovies.AllowUserToDeleteRows = false;
+            this.dataGridViewMovies.AllowUserToResizeColumns = false;
+            this.dataGridViewMovies.AllowUserToResizeRows = false;
             this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMovies.Location = new System.Drawing.Point(27, 81);
+            this.dataGridViewMovies.MultiSelect = false;
             this.dataGridViewMovies.Name = "dataGridViewMovies";
             this.dataGridViewMovies.RowHeadersVisible = false;
             this.dataGridViewMovies.RowTemplate.Height = 24;

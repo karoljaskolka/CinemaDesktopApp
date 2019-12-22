@@ -17,6 +17,11 @@ namespace Cinema
         {
             InitializeComponent();
             SetColors();
+            // movies panel on start
+            panelContent.Controls.Clear();
+            MoviesAdminPanel panel = new MoviesAdminPanel();
+            panelContent.Controls.Add(panel);
+
         }
 
         private void SetColors()

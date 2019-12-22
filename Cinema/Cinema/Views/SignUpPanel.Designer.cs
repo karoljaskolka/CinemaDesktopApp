@@ -187,6 +187,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.dateTimePickerSignUpBirth);
             this.Controls.Add(this.checkBoxTerms);
             this.Controls.Add(this.buttonSignUp);
@@ -204,7 +206,7 @@
             this.Controls.Add(this.textBoxSignUpLogin);
             this.Controls.Add(this.labelSignUpLogin);
             this.Name = "SignUpPanel";
-            this.Size = new System.Drawing.Size(700, 500);
+            this.Size = new System.Drawing.Size(682, 453);
             this.ResumeLayout(false);
             this.PerformLayout();
 

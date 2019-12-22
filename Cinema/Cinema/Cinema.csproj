@@ -326,6 +326,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\RatingsClientPanel.resx">
       <DependentUpon>RatingsClientPanel.cs</DependentUpon>
@@ -366,6 +367,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="cinemaPhoto.jpg" />
     <Content Include="Database\CinemaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CinemaModel.Context.cs</LastGenOutput>

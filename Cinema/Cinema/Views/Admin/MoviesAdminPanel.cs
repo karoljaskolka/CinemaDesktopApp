@@ -143,7 +143,7 @@ namespace Cinema.Views.Admin
             textBoxID.Text = dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[0].Value.ToString();
             textBoxTitle.Text = dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[1].Value.ToString();
             textBoxDirector.Text = dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[2].Value.ToString();
-            
+            dateTimePickerRelease.Value = DateTime.Parse(dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[3].Value.ToString());
             comboBoxGenre.Text = dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[4].Value.ToString();
             comboBoxCategory.Text = dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[5].Value.ToString();
             numericUpDownDuration.Value = Int32.Parse(dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[6].Value.ToString());
