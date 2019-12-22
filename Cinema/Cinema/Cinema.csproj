@@ -186,6 +186,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\ComplaintService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\GenreService.cs" />
