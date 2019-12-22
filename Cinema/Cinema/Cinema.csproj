@@ -188,10 +188,35 @@
     </Compile>
     <Compile Include="Services\ComplaintService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\GenreService.cs" />
     <Compile Include="Services\MoviesService.cs" />
     <Compile Include="Services\RatingsService.cs" />
     <Compile Include="Services\ShowtimesService.cs" />
     <Compile Include="Services\TicketService.cs" />
+    <Compile Include="Views\Admin\CommentsAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\CommentsAdminPanel.Designer.cs">
+      <DependentUpon>CommentsAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MoviesAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\MoviesAdminPanel.Designer.cs">
+      <DependentUpon>MoviesAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ShowtimesAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ShowtimesAdminPanel.Designer.cs">
+      <DependentUpon>ShowtimesAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UsersAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\UsersAdminPanel.Designer.cs">
+      <DependentUpon>UsersAdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LogInAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -265,6 +290,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\CommentsAdminPanel.resx">
+      <DependentUpon>CommentsAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\MoviesAdminPanel.resx">
+      <DependentUpon>MoviesAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ShowtimesAdminPanel.resx">
+      <DependentUpon>ShowtimesAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\UsersAdminPanel.resx">
+      <DependentUpon>UsersAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LogInAdminPanel.resx">
       <DependentUpon>LogInAdminPanel.cs</DependentUpon>

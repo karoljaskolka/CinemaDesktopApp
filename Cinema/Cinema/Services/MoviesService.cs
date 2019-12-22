@@ -16,10 +16,86 @@ namespace Cinema.Services
             {
                 table.DataSource = database.sp_showMovies().ToList();
             }
-
-
         }
         
+        public void GetMovies(DataGridView table)
+        {
+            using(CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.Movie.Join(database.Genre, x => x.Genre_ID, y => y.Genre_ID, 
+                                    (x, y) => new {
+                                        x.Movie_ID, x.Title, x.Director, x.Release_Date, y.Name,
+                                            x.Age_Category, x.Duration, x.Description }).ToList();
+            }
+        }
+
+        public void GetMovieByTitle(DataGridView table, string title)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.Movie.Join(database.Genre, x => x.Genre_ID, y => y.Genre_ID,
+                                    (x, y) => new {
+                                        x.Movie_ID,
+                                        x.Title,
+                                        x.Director,
+                                        x.Release_Date,
+                                        y.Name,
+                                        x.Age_Category,
+                                        x.Duration,
+                                        x.Description
+                                    }).Where(x => x.Title.Contains(title)).ToList();
+            }
+        }
+
+        public void AddMovie(string title, string director, string release, int genreID, int age, int duration, string description)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                Movie newMovie = database.Movie.Create();
+
+                newMovie.Movie_ID = Convert.ToInt32(database.sp_getSeqMovieID().FirstOrDefault());
+                newMovie.Title = title;
+                newMovie.Director = director;
+                newMovie.Age_Category = age;
+                newMovie.Duration = duration;
+                newMovie.Release_Date = DateTime.Parse(release);
+                newMovie.Genre_ID = genreID;
+                newMovie.Description = description;
+
+                database.Movie.Add(newMovie);
+                database.SaveChanges();
+            }
+        }
+
+        public void EditMovie(int ID, string title, string director, string release, int genreID, int age, int duration, string description)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+
+                Movie editMovie = database.Movie.Single(x => x.Movie_ID == ID);
+
+                editMovie.Title = title;
+                editMovie.Director = director;
+                editMovie.Age_Category = age;
+                editMovie.Duration = duration;
+                editMovie.Release_Date = DateTime.Parse(release);
+                editMovie.Genre_ID = genreID;
+                editMovie.Description = description;
+
+                database.SaveChanges();
+            }
+        }
+
+        public void DeleteMovie(int MovieID)
+        {
+            using(CinemaEntities database = new CinemaEntities())
+            {
+                Movie movie = database.Movie.Single(x => x.Movie_ID == MovieID);
+                database.Movie.Remove(movie);
+                database.SaveChanges();
+            }
+        }
+
         public int GetMovieID(string title)
         {
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinema.Views.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,22 +31,31 @@ namespace Cinema
 
         private void buttonMovies_Click(object sender, EventArgs e)
         {
+            panelContent.Controls.Clear();
+            MoviesAdminPanel panel = new MoviesAdminPanel();
+            panelContent.Controls.Add(panel);
 
         }
 
         private void buttonShowtimes_Click(object sender, EventArgs e)
         {
-
+            panelContent.Controls.Clear();
+            ShowtimesAdminPanel panel = new ShowtimesAdminPanel();
+            panelContent.Controls.Add(panel);
         }
 
         private void buttonUsers_Click(object sender, EventArgs e)
         {
-
+            panelContent.Controls.Clear();
+            UsersAdminPanel panel = new UsersAdminPanel();
+            panelContent.Controls.Add(panel);
         }
 
         private void buttonComments_Click(object sender, EventArgs e)
         {
-
+            panelContent.Controls.Clear();
+            CommentsAdminPanel panel = new CommentsAdminPanel();
+            panelContent.Controls.Add(panel);
         }
     }
 }
