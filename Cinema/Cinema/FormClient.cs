@@ -21,19 +21,34 @@ namespace Cinema
         public FormClient(int customerID)
         {
             InitializeComponent();
-            ////koloruje przyciski
-            //buttonShowtimes.BackColor = Color.LavenderBlush;
-            //buttonTickets.BackColor = Color.LavenderBlush;
-            //buttonMovies.BackColor = Color.LavenderBlush;
-            //buttonRatings.BackColor = Color.LavenderBlush;
-            //buttonReport.BackColor = Color.LavenderBlush;
-            //buttonProfileUpdate.BackColor = Color.LavenderBlush;
 
+            SetColors();
             //przypisuje nr klienta
             CustomerID = customerID;
 
+            
         }
 
+
+        private void SetColors()
+        {
+            ////koloruje przyciski
+            buttonShowtimes.BackColor = Color.HotPink;
+            buttonTickets.BackColor = Color.HotPink;
+            buttonMovies.BackColor = Color.HotPink;
+            buttonRatings.BackColor = Color.HotPink;
+            buttonReport.BackColor = Color.HotPink;
+            buttonProfileUpdate.BackColor = Color.HotPink;
+
+            buttonShowtimes.ForeColor = Color.White;
+            buttonTickets.ForeColor = Color.White;
+            buttonMovies.ForeColor = Color.White;
+            buttonRatings.ForeColor = Color.White;
+            buttonReport.ForeColor = Color.White;
+            buttonProfileUpdate.ForeColor = Color.White;
+
+
+        }
         /// <summary>
         /// przycisk otwieera panel profilu
         /// </summary>

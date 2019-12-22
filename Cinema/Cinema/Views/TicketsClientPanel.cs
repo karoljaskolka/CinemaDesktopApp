@@ -30,7 +30,7 @@ namespace Cinema
            
             //wczytanie danych do tabeli
             GetDataFromTable();
-            
+
         }
         
         
