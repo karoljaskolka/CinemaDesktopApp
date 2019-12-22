@@ -330,3 +330,5 @@ ASALocalRun/
 .mfractor/
 
 SqlDataGenerator/*.sql
+
+Cinema/Cinema/App.config

@@ -65,7 +65,7 @@
             // buttonProfileUpdate
             // 
             this.buttonProfileUpdate.BackColor = System.Drawing.Color.HotPink;
-            this.buttonProfileUpdate.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonProfileUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonProfileUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonProfileUpdate.Location = new System.Drawing.Point(0, 500);
             this.buttonProfileUpdate.Name = "buttonProfileUpdate";
@@ -78,7 +78,7 @@
             // buttonReport
             // 
             this.buttonReport.BackColor = System.Drawing.Color.HotPink;
-            this.buttonReport.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonReport.ForeColor = System.Drawing.Color.White;
             this.buttonReport.Location = new System.Drawing.Point(0, 400);
             this.buttonReport.Name = "buttonReport";
@@ -91,7 +91,7 @@
             // buttonRatings
             // 
             this.buttonRatings.BackColor = System.Drawing.Color.HotPink;
-            this.buttonRatings.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonRatings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonRatings.ForeColor = System.Drawing.Color.White;
             this.buttonRatings.Location = new System.Drawing.Point(0, 300);
             this.buttonRatings.Name = "buttonRatings";
@@ -104,7 +104,7 @@
             // buttonMovies
             // 
             this.buttonMovies.BackColor = System.Drawing.Color.HotPink;
-            this.buttonMovies.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonMovies.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonMovies.ForeColor = System.Drawing.Color.White;
             this.buttonMovies.Location = new System.Drawing.Point(0, 200);
             this.buttonMovies.Name = "buttonMovies";
@@ -117,7 +117,7 @@
             // buttonTickets
             // 
             this.buttonTickets.BackColor = System.Drawing.Color.HotPink;
-            this.buttonTickets.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonTickets.ForeColor = System.Drawing.Color.White;
             this.buttonTickets.Location = new System.Drawing.Point(0, 100);
             this.buttonTickets.Name = "buttonTickets";
@@ -130,7 +130,7 @@
             // buttonShowtimes
             // 
             this.buttonShowtimes.BackColor = System.Drawing.Color.HotPink;
-            this.buttonShowtimes.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonShowtimes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonShowtimes.ForeColor = System.Drawing.Color.White;
             this.buttonShowtimes.Location = new System.Drawing.Point(0, 0);
             this.buttonShowtimes.Name = "buttonShowtimes";
@@ -157,6 +157,8 @@
             this.Controls.Add(this.panelClientContent);
             this.Controls.Add(this.panelButtonsClient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormClient";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Client of Cinema";

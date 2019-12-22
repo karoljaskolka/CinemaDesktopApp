@@ -22,7 +22,7 @@ namespace Cinema
         {
             InitializeComponent();
             this.formMain=formMain;
-            buttonSignUp.BackColor = Color.PeachPuff;
+            buttonSignUp.BackColor = Design.LAUNCHER_BUTTONS; ;
         }
 
         /// <summary>

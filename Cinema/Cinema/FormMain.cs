@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinema.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +16,21 @@ namespace Cinema
         public FormMain()
         {
             InitializeComponent();
-            //koloruuje przyciski
-            buttonLogIn.BackColor = Color.PeachPuff;
-            buttonSignUp.BackColor = Color.PeachPuff;
-            
+            SetColors();
+        }
+
+        private void SetColors()
+        {
+            buttonLogIn.BackColor = Design.LAUNCHER_BUTTONS;
+            buttonSignUp.BackColor = Design.LAUNCHER_BUTTONS;
+            buttonEmployee.BackColor = Design.LAUNCHER_BUTTONS;
+            buttonAdmin.BackColor = Design.LAUNCHER_BUTTONS;
+            panelContent.BackColor = Design.LAUNCHER_BACKGROUND;
+            panelButtonsStartWindow.BackColor = Design.LAUNCHER_NAV;
         }
 
         /// <summary>
-        /// przycisk otwiera panel logowani
+        /// przycisk otwiera panel logowania klienta
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -42,9 +50,23 @@ namespace Cinema
         {
             
             panelContent.Controls.Clear();
-            SignUpPanel signUpPanel = new SignUpPanel(this);
-            panelContent.Controls.Add(signUpPanel);
+            SignUpPanel panel = new SignUpPanel(this);
+            panelContent.Controls.Add(panel);
             
+        }
+
+        private void buttonEmployee_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            LogInEmployeePanel panel = new LogInEmployeePanel(this);
+            panelContent.Controls.Add(panel);
+        }
+
+        private void buttonAdmin_Click(object sender, EventArgs e)
+        {
+            panelContent.Controls.Clear();
+            LogInAdminPanel panel = new LogInAdminPanel(this);
+            panelContent.Controls.Add(panel);
         }
     }
 }

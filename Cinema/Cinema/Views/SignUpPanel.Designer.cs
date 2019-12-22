@@ -56,17 +56,17 @@
             // checkBoxTerms
             // 
             this.checkBoxTerms.AutoSize = true;
-            this.checkBoxTerms.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.checkBoxTerms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.checkBoxTerms.Location = new System.Drawing.Point(104, 408);
             this.checkBoxTerms.Name = "checkBoxTerms";
-            this.checkBoxTerms.Size = new System.Drawing.Size(222, 25);
+            this.checkBoxTerms.Size = new System.Drawing.Size(165, 24);
             this.checkBoxTerms.TabIndex = 37;
             this.checkBoxTerms.Text = "I agree to terms";
             this.checkBoxTerms.UseVisualStyleBackColor = true;
             // 
             // buttonSignUp
             // 
-            this.buttonSignUp.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSignUp.Location = new System.Drawing.Point(454, 392);
             this.buttonSignUp.Name = "buttonSignUp";
             this.buttonSignUp.Size = new System.Drawing.Size(147, 37);
@@ -77,7 +77,7 @@
             // 
             // labelSignUpBirth
             // 
-            this.labelSignUpBirth.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpBirth.Location = new System.Drawing.Point(194, 220);
             this.labelSignUpBirth.Name = "labelSignUpBirth";
             this.labelSignUpBirth.Size = new System.Drawing.Size(92, 24);
@@ -93,7 +93,7 @@
             // 
             // labelSignUpPassword
             // 
-            this.labelSignUpPassword.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpPassword.Location = new System.Drawing.Point(194, 76);
             this.labelSignUpPassword.Name = "labelSignUpPassword";
             this.labelSignUpPassword.Size = new System.Drawing.Size(146, 24);
@@ -102,7 +102,7 @@
             // 
             // labelSignUpName
             // 
-            this.labelSignUpName.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpName.Location = new System.Drawing.Point(194, 124);
             this.labelSignUpName.Name = "labelSignUpName";
             this.labelSignUpName.Size = new System.Drawing.Size(88, 24);
@@ -111,7 +111,7 @@
             // 
             // labelSignUpSurname
             // 
-            this.labelSignUpSurname.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpSurname.Location = new System.Drawing.Point(194, 170);
             this.labelSignUpSurname.Name = "labelSignUpSurname";
             this.labelSignUpSurname.Size = new System.Drawing.Size(136, 24);
@@ -120,7 +120,7 @@
             // 
             // labelSignUpEmail
             // 
-            this.labelSignUpEmail.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpEmail.Location = new System.Drawing.Point(194, 261);
             this.labelSignUpEmail.Name = "labelSignUpEmail";
             this.labelSignUpEmail.Size = new System.Drawing.Size(107, 24);
@@ -129,7 +129,7 @@
             // 
             // labelSignUpPhone
             // 
-            this.labelSignUpPhone.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpPhone.Location = new System.Drawing.Point(194, 306);
             this.labelSignUpPhone.Name = "labelSignUpPhone";
             this.labelSignUpPhone.Size = new System.Drawing.Size(107, 24);
@@ -175,7 +175,7 @@
             // 
             // labelSignUpLogin
             // 
-            this.labelSignUpLogin.Font = new System.Drawing.Font("Castellar", 10F, System.Drawing.FontStyle.Bold);
+            this.labelSignUpLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.labelSignUpLogin.Location = new System.Drawing.Point(194, 33);
             this.labelSignUpLogin.Name = "labelSignUpLogin";
             this.labelSignUpLogin.Size = new System.Drawing.Size(92, 24);
@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.OldLace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.Controls.Add(this.dateTimePickerSignUpBirth);
             this.Controls.Add(this.checkBoxTerms);
             this.Controls.Add(this.buttonSignUp);

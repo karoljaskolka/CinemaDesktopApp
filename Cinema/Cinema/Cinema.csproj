@@ -161,11 +161,24 @@
     <Compile Include="Database\TICKET_VIEW.cs">
       <DependentUpon>CinemaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Design.cs" />
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormClient.Designer.cs">
       <DependentUpon>FormClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmployee.Designer.cs">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -179,6 +192,18 @@
     <Compile Include="Services\RatingsService.cs" />
     <Compile Include="Services\ShowtimesService.cs" />
     <Compile Include="Services\TicketService.cs" />
+    <Compile Include="Views\LogInAdminPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LogInAdminPanel.Designer.cs">
+      <DependentUpon>LogInAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogInEmployeePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LogInEmployeePanel.Designer.cs">
+      <DependentUpon>LogInEmployeePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LogInPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -229,11 +254,23 @@
     <Compile Include="Views\TicketsClientPanel.Designer.cs">
       <DependentUpon>TicketsClientPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEmployee.resx">
+      <DependentUpon>FormEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LogInAdminPanel.resx">
+      <DependentUpon>LogInAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LogInEmployeePanel.resx">
+      <DependentUpon>LogInEmployeePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LogInPanel.resx">
       <DependentUpon>LogInPanel.cs</DependentUpon>

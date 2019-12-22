@@ -37,7 +37,7 @@
             // 
             // buttonLogInAccept
             // 
-            this.buttonLogInAccept.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonLogInAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonLogInAccept.Location = new System.Drawing.Point(366, 276);
             this.buttonLogInAccept.Name = "buttonLogInAccept";
             this.buttonLogInAccept.Size = new System.Drawing.Size(136, 47);
@@ -49,20 +49,20 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.labelPassword.Location = new System.Drawing.Point(185, 201);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(146, 25);
+            this.labelPassword.Size = new System.Drawing.Size(113, 25);
             this.labelPassword.TabIndex = 8;
             this.labelPassword.Text = "Password:";
             // 
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
+            this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.labelLogin.Location = new System.Drawing.Point(236, 122);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(95, 25);
+            this.labelLogin.Size = new System.Drawing.Size(72, 25);
             this.labelLogin.TabIndex = 7;
             this.labelLogin.Text = "Login:";
             // 
@@ -85,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.OldLace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.Controls.Add(this.buttonLogInAccept);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
