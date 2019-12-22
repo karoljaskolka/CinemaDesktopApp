@@ -35,18 +35,20 @@
             // textBoxReport
             // 
             this.textBoxReport.BackColor = System.Drawing.Color.LavenderBlush;
-            this.textBoxReport.Location = new System.Drawing.Point(201, 68);
+            this.textBoxReport.Location = new System.Drawing.Point(151, 55);
+            this.textBoxReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxReport.Multiline = true;
             this.textBoxReport.Name = "textBoxReport";
-            this.textBoxReport.Size = new System.Drawing.Size(524, 501);
+            this.textBoxReport.Size = new System.Drawing.Size(394, 408);
             this.textBoxReport.TabIndex = 0;
             // 
             // buttonReport
             // 
             this.buttonReport.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonReport.Location = new System.Drawing.Point(387, 620);
+            this.buttonReport.Location = new System.Drawing.Point(290, 504);
+            this.buttonReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonReport.Name = "buttonReport";
-            this.buttonReport.Size = new System.Drawing.Size(188, 67);
+            this.buttonReport.Size = new System.Drawing.Size(141, 54);
             this.buttonReport.TabIndex = 1;
             this.buttonReport.Text = "Report";
             this.buttonReport.UseVisualStyleBackColor = true;
@@ -54,14 +56,17 @@
             // 
             // ReportClientPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
+            this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.textBoxReport);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReportClientPanel";
-            this.Size = new System.Drawing.Size(728, 690);
+            this.Size = new System.Drawing.Size(700, 600);
             this.ResumeLayout(false);
             this.PerformLayout();
 

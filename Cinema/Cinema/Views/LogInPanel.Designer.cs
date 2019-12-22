@@ -50,7 +50,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.labelPassword.Location = new System.Drawing.Point(185, 201);
+            this.labelPassword.Location = new System.Drawing.Point(195, 201);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(113, 25);
             this.labelPassword.TabIndex = 8;
@@ -86,6 +86,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.buttonLogInAccept);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);

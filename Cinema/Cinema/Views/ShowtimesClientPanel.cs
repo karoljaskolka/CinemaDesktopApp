@@ -24,15 +24,15 @@ namespace Cinema
         
         private int customerID;
         private int seatID;
-        private int ticketID;
+        private int ticketTypeID;
         private int showtimeID;
 
         private string name;
         private string surname;
         //gettery i settery
         public int CustomerID { get => customerID; set => customerID = value; }
-         public int SeatID { get => seatID; set => seatID = value; }
-        public int TicketID { get => ticketID; set => ticketID = value; }
+        public int SeatID { get => seatID; set => seatID = value; }
+        public int TicketTypeID { get => ticketTypeID; set => ticketTypeID = value; }
         public int ShowtimeID { get => showtimeID; set => showtimeID = value; }
 
         ShowtimesService serviceShowtime;
@@ -57,6 +57,7 @@ namespace Cinema
             comboBoxShowtimeSeat.DropDownStyle = ComboBoxStyle.DropDownList;
             
         }
+
         /// <summary>
         /// wyswietlenie seansow w tabeli
         /// </summary>
@@ -87,20 +88,16 @@ namespace Cinema
                 labelReservationDate.Visible = true;
                 labelReservationScreen.Visible = true;
                 labelReservationClient.Visible = true;
+                buttonBuy.Visible = true;
                 buttonBook.Visible = true;
                 comboBoxShowtimeTicket.Visible = true;
                 comboBoxShowtimeSeat.Visible = true;
+                
                 //przypisanie warotsci do etykiet z obecnego wiersza
-                // ShowtimeID= Convert.ToInt32(row.Cells["ID"].Value);
                 labelReservationMovie.Text = row.Cells["Movie"].Value.ToString();
                 labelReservationDate.Text = row.Cells["Date"].Value.ToString();
                 labelReservationScreen.Text = row.Cells["Screen"].Value.ToString();
-                
-                ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), 
-                                                                row.Cells["Date"].Value.ToString() + ":00.000");
-
-             
-                
+                ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), row.Cells["Date"].Value.ToString() + ":00.000");
                 serviceShowtime.ShowAvailableSeats(comboBoxShowtimeSeat, ShowtimeID);
 
                 labelReservationClient.Text = name + " " + surname;
@@ -111,70 +108,7 @@ namespace Cinema
 
         }
 
-        /// <summary>
-        /// funkcja pobiera dane z tabeli tych wartosci ktorych nie ma w tabeli
-        /// </summary>
-        private void fillDataFromDatabase()
-        {
-        //    labelReservationClient.Visible = true;
-        //    comboBoxShowtimeSeat.Visible = true;
-
-        //    //tresc zapytan
-        //    string query = "SELECT concat(Customer.First_Name,' ',Customer.Last_Name)AS 'Customer' FROM Customer WHERE  Customer_ID = @Customer_ID ";
-        //    string querySeat = "SELECT Seat.Name From Seat WHERE Screen_ID=@Screen_ID";
-        //    //inicjalizacja polaczenia
-        //    var connection = dbConnectionCinema();
-        //    using (var command = new SqlCommand(query, connection))
-
-        //    {
-        //        //otworzenie polaczenia
-        //        connection.Open();
-
-        //        //parametr id klienta
-        //        command.Parameters.Add(new SqlParameter("@Customer_ID", CustomerID));
-                
-        //        //przypisanie do labela imiienia i nazwiska obecnego klienta
-        //        labelReservationClient.Text=command.ExecuteScalar().ToString();
-                
-              
-                
-        //    }
-            
-        //        try
-        //        {
-
-        //        //wyczyszczenie chcekbox'a
-        //        comboBoxShowtimeSeat.Items.Clear();
-
-
-        //            SqlDataAdapter adapter = new SqlDataAdapter(querySeat, connection);
-                    
-        //            DataTable table = new DataTable();
-                    
-        //        //parametr id wybrabnej sali
-        //            adapter.SelectCommand.Parameters.AddWithValue("@Screen_ID", labelReservationScreen.Text);
-        //        //wynik zapytania do tabeli posrednio z adaptera
-        //        adapter.Fill(table);
-
-        //        //lista siedzen
-        //        seats = new List<int>();
-        //        //dodaje kazda wartosc z listy do comboboxa
-        //            foreach(DataRow dr in table.Rows)
-        //        {
-        //            comboBoxShowtimeSeat.Items.Add(dr["Name"].ToString());
-                    
-        //        }
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.ToString());
-        //        }
-
-           
-
-        //    connection.Close();
-        }
+        
 
         /// <summary>
         /// przycisk rezerwuje miejsce na seans
@@ -189,59 +123,22 @@ namespace Cinema
             ////jesli zaznaczylismy comboboxy to wchodzimy
             if (!string.IsNullOrEmpty(comboBoxShowtimeTicket.Text) && !string.IsNullOrEmpty(comboBoxShowtimeSeat.Text))
             {
-            //    //jesli ulgowy to przypisuje id biletu 1
-            //    if (comboBoxShowtimeSeat.Text == "Reduced")
-            //    {
-            //        TicketID = 1;
-            //    }
-            //    else
-            //    {
-            //        TicketID = 2;
-            //    }
-            //    //inicjalizacja polaczenia
-            //   // var connection;
-            //    //tresc zapytania 
-            //    string querySeatID = "SELECT Seat_ID From Seat WHERE Screen_ID=@Screen_ID AND Name=@Name";
+                 if (comboBoxShowtimeSeat.Text == "Reduced")
+                 {
+                     TicketTypeID = 1;
+                 }
+                 else
+                  {
+                     TicketTypeID = 2;
+                  }
+
+
+                SeatID = Convert.ToInt32(comboBoxShowtimeSeat.SelectedValue);
+                serviceShowtime.OrderingTicket(ShowtimeID, CustomerID, SeatID, TicketTypeID, "Booked");
+
+                MessageBox.Show("You booked a ticket for " + labelReservationMovie.Text);
+                CleanLabels();
                 
-            //    //szukam siedzienia id
-            //    using (var command = new SqlCommand(querySeatID, connection))
-
-            //    {
-            //        connection.Open();
-
-            //        //podaje parametry nazwy siedzeinia i id sali
-            //        command.Parameters.Add(new SqlParameter("@Name", comboBoxShowtimeSeat.Text));
-            //        command.Parameters.Add(new SqlParameter("@Screen_ID", labelReservationScreen.Text));
-                    
-            //       SeatID = Convert.ToInt32(command.ExecuteScalar().ToString());
-
-            //    }
-
-
-            //    //rezerwuje bilet
-            //    using (var command = new SqlCommand(query, connection))
-            //    {
-            //        //obecna data
-            //        DateTime myDateTime = DateTime.Now;
-            //        //format daty poprawny do sql
-            //        string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd HH:mm");
-            //        //podaje potrzebne parametry
-            //        command.Parameters.Add(new SqlParameter("@Showtime_ID", ShowtimeID));
-            //        command.Parameters.Add(new SqlParameter("@Customer_ID", CustomerID));
-            //        command.Parameters.Add(new SqlParameter("@Seat_ID", SeatID));
-            //        command.Parameters.Add(new SqlParameter("@Ticket_Type_ID", TicketID));
-            //        command.Parameters.Add(new SqlParameter("@Date", sqlFormattedDate));
-                    
-            //        //wykonanie inserta
-            //        command.ExecuteScalar();
-            //        connection.Close();
-
-            //        //zerowanie comboboxow
-            //        comboBoxShowtimeTicket.SelectedIndex = -1;
-            //        comboBoxShowtimeSeat.SelectedIndex = -1;
-            //        MessageBox.Show("Congratulations, you booked a ticket");
-
-            //    }
 
             }
             else
@@ -250,9 +147,38 @@ namespace Cinema
             }
         }
 
+        private void CleanLabels()
+        {
+            labelReservationMovie.Text = "";
+            labelReservationDate.Text = "";
+            labelReservationScreen.Text = "";
+            labelReservationClient.Text = ""; 
+            comboBoxShowtimeTicket.SelectedIndex = -1;
+            comboBoxShowtimeSeat.SelectedIndex = -1;
+            buttonBook.Visible = false;
+            buttonBuy.Visible = false;
+        }
+
         private void buttonBuy_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Seat_ID : " + comboBoxShowtimeSeat.SelectedValue);
+            if (comboBoxShowtimeSeat.Text == "Reduced")
+            {
+                TicketTypeID = 1;
+            }
+            else
+            {
+                TicketTypeID = 2;
+            }
+
+
+            SeatID = Convert.ToInt32(comboBoxShowtimeSeat.SelectedValue);
+            serviceShowtime.OrderingTicket(ShowtimeID, CustomerID, SeatID, TicketTypeID, "Paid");
+
+            MessageBox.Show("You booght a ticket for " + labelReservationMovie.Text);
+            CleanLabels();
+
+
+
         }
     }
 }

@@ -25,5 +25,7 @@ namespace Cinema
         public static Color EMPLOYEE_NAV = Color.FromArgb(210, 227, 209);
         public static Color EMPLOYEE_BACKGROUND = Color.FromArgb(212, 212, 212);
         public static Color EMPLOYEE_BUTTONS = Color.FromArgb(96, 206, 136);
+
+        
     }
 }
