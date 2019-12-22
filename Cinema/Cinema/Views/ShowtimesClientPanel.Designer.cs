@@ -172,7 +172,6 @@
             this.buttonBuy.TabIndex = 7;
             this.buttonBuy.Text = "Buy";
             this.buttonBuy.UseVisualStyleBackColor = false;
-            this.buttonBuy.Visible = false;
             this.buttonBuy.Click += new System.EventHandler(this.buttonBuy_Click);
             // 
             // buttonBook

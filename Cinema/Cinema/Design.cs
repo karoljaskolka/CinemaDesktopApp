@@ -19,12 +19,11 @@ namespace Cinema
 
         public static Color CLIENT_NAV = Color.FromArgb(209, 130, 166);
         public static Color CLIENT_BACKGROUND = Color.FromArgb(212, 212, 212);
-        public static Color CLIENT_BUTTONS = Color.FromArgb(247, 7, 231);
+        public static Color CLIENT_BUTTONS_BACKCOLOR = Color.HotPink;
+        public static Color CLIENT_BUTTONS_FORECOLOR = Color.White;
 
         public static Color EMPLOYEE_NAV = Color.FromArgb(210, 227, 209);
         public static Color EMPLOYEE_BACKGROUND = Color.FromArgb(212, 212, 212);
         public static Color EMPLOYEE_BUTTONS = Color.FromArgb(96, 206, 136);
-
-       // public static Color CLIENT_BUTTONS = Color.FromArgb();
     }
 }

@@ -33,19 +33,19 @@ namespace Cinema
         private void SetColors()
         {
             ////koloruje przyciski
-            buttonShowtimes.BackColor = Color.HotPink;
-            buttonTickets.BackColor = Color.HotPink;
-            buttonMovies.BackColor = Color.HotPink;
-            buttonRatings.BackColor = Color.HotPink;
-            buttonReport.BackColor = Color.HotPink;
-            buttonProfileUpdate.BackColor = Color.HotPink;
+            buttonShowtimes.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonTickets.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonMovies.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonRatings.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonReport.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonProfileUpdate.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
 
-            buttonShowtimes.ForeColor = Color.White;
-            buttonTickets.ForeColor = Color.White;
-            buttonMovies.ForeColor = Color.White;
-            buttonRatings.ForeColor = Color.White;
-            buttonReport.ForeColor = Color.White;
-            buttonProfileUpdate.ForeColor = Color.White;
+            buttonShowtimes.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonTickets.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonMovies.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonRatings.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonReport.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonProfileUpdate.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
 
 
         }

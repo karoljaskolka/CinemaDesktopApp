@@ -252,7 +252,7 @@ namespace Cinema
 
         private void buttonBuy_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Seat_ID : " + comboBoxShowtimeSeat.SelectedValue);
         }
     }
 }
