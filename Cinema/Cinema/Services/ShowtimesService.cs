@@ -24,28 +24,14 @@ namespace Cinema.Services
 
         }
 
-        public void ShowAvailableSeats(ComboBox seat)
+        public void ShowAvailableSeats(ComboBox seats, int showtimeID)
         {
             using (CinemaEntities database = new CinemaEntities())
             {
 
-                //seat.Items.AddRange(database.sp_showAvailableSeats(4).ToString());
-                List<string> seats = new List<string>();
-
-                DataTable table = new DataTable();
-
-               // seats.Add(database.sp_showAvailableSeats(4).ToString());
-                var result = database.sp_showAvailableSeats(4).ToString();
-
-
-                //table.DataSet(result);
-
-
-
-
-                BindingSource bs = new BindingSource();
-                bs.DataSource = seats;
-                seat.DataSource = bs;
+                seats.DataSource = database.sp_showAvailableSeats(showtimeID);
+                seats.ValueMember = "Seat_ID";
+                seats.DisplayMember = "Name";
             }
         }
         public int GetShowtimeID(int screenID,string date)

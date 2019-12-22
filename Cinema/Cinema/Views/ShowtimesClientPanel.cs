@@ -99,9 +99,9 @@ namespace Cinema
                 ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), 
                                                                 row.Cells["Date"].Value.ToString() + ":00.000");
 
-                MessageBox.Show("ID: " + ShowtimeID);
+             
                 
-                serviceShowtime.ShowAvailableSeats(comboBoxShowtimeSeat);
+                serviceShowtime.ShowAvailableSeats(comboBoxShowtimeSeat, ShowtimeID);
 
                 labelReservationClient.Text = name + " " + surname;
                 comboBoxShowtimeTicket.SelectedIndex = -1;
@@ -250,5 +250,9 @@ namespace Cinema
             }
         }
 
+        private void buttonBuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
