@@ -29,7 +29,8 @@ namespace Cinema
         public ReportClientPanel(int customerID)
         {
             InitializeComponent();
-            buttonReport.BackColor = Color.LavenderBlush;
+            buttonReport.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonReport.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
             CustomerID = customerID;
         }
 

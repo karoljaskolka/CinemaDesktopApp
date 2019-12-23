@@ -186,6 +186,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMovieInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMovieInfo.Designer.cs">
+      <DependentUpon>FormMovieInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\ComplaintService.cs" />
     <Compile Include="Services\CustomerService.cs" />
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMovieInfo.resx">
+      <DependentUpon>FormMovieInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\CommentsAdminPanel.resx">
       <DependentUpon>CommentsAdminPanel.cs</DependentUpon>

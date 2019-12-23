@@ -19,7 +19,18 @@ namespace Cinema
         {
             InitializeComponent();
             this.formMain = formMain;
+            SetDesign();
             buttonLogInAccept.BackColor = Design.LAUNCHER_BUTTONS;
+        }
+        private void SetDesign()
+        {
+
+           labelLogin.ForeColor = Design.FONT_CLIENT;
+            labelPassword.ForeColor = Design.FONT_CLIENT;
+
+            labelLogin.BackColor = Color.Transparent;
+            labelPassword.BackColor = Color.Transparent;
+
         }
 
         /// <summary>

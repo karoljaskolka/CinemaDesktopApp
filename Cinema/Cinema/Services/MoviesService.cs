@@ -179,5 +179,28 @@ namespace Cinema.Services
             return false;
         }
 
+        public void ShowComments(DataGridView table, int movieID)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+
+                table.DataSource = database.sp_showCommentsMovie(movieID).ToList();
+
+            }
+
+
+        }
+
+        public void ShowAvgRating(DataGridView table, int movieID)
+        {
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.sp_showAverageRatingMovie(movieID).ToList();
+              }
+
+
+        }
+
     }
 }

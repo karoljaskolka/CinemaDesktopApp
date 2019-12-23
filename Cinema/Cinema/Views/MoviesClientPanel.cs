@@ -25,16 +25,40 @@ namespace Cinema
         public MoviesClientPanel(int customerID)
         {
             InitializeComponent();
-            buttonRate.BackColor = Color.LavenderBlush;
-            buttonComment.BackColor = Color.LavenderBlush;
 
-            buttonRate.Enabled = false;
-            buttonComment.Enabled = false;
+            SetDesign();
+            
 
             CustomerID = customerID;
 
             service = new MoviesService();
             SetMoviesInTable();
+        }
+
+        private void SetDesign()
+        {
+            buttonRate.Enabled = false;
+            buttonComment.Enabled = false;
+            buttonInfo.Enabled = false;
+            buttonRate.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonComment.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonInfo.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+
+            buttonRate.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonComment.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            buttonInfo.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+
+            labelComment.ForeColor = Design.FONT_CLIENT;
+            labelRate.ForeColor = Design.FONT_CLIENT;
+            labelMovies.ForeColor = Design.FONT_CLIENT;
+            labelTitle.ForeColor = Design.FONT_CLIENT;
+            labelTitleOfMovie.ForeColor = Design.FONT_CLIENT;
+
+            labelComment.BackColor = Color.Transparent;
+            labelRate.BackColor = Color.Transparent;
+            labelMovies.BackColor = Color.Transparent;
+            labelTitle.BackColor = Color.Transparent;
+            labelTitleOfMovie.BackColor = Color.Transparent;
         }
 
         private void SetMoviesInTable()
@@ -52,12 +76,12 @@ namespace Cinema
                 
                 buttonComment.Enabled = true;
                 buttonRate.Enabled = true;
+                buttonInfo.Enabled = true;
 
-                
                 string title = row.Cells["Title"].Value.ToString();
                 MovieID = service.GetMovieID(title);
 
-                
+                labelTitleOfMovie.Text = title;
 
 
                 comboBoxRating.SelectedIndex = -1;
@@ -106,11 +130,19 @@ namespace Cinema
                 MessageBox.Show("You commented this film");
 
                 textBoxCommentMovie.Text = "";
+
             }
             else
             {
                 MessageBox.Show("First you must write comment");
             }
+        }
+
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            FormMovieInfo informations = new FormMovieInfo(MovieID);
+            
+            informations.Show();
         }
     }
 }

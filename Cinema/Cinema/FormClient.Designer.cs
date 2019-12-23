@@ -143,6 +143,7 @@
             // panelClientContent
             // 
             this.panelClientContent.BackColor = System.Drawing.Color.Lavender;
+            this.panelClientContent.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
             this.panelClientContent.Location = new System.Drawing.Point(200, 0);
             this.panelClientContent.Name = "panelClientContent";
             this.panelClientContent.Size = new System.Drawing.Size(700, 600);

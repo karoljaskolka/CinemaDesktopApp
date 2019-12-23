@@ -42,8 +42,10 @@ namespace Cinema
         public ShowtimesClientPanel(int customerID)
         {
             InitializeComponent();
-            buttonBook.BackColor = Color.LavenderBlush;
-            buttonBuy.BackColor = Color.LavenderBlush;
+            SetDesign();
+
+            
+
             CustomerID = customerID;
             serviceShowtime = new ShowtimesService();
             serviceCustomer = new CustomerService();
@@ -53,9 +55,32 @@ namespace Cinema
 
             //wczytanie seansow do tabeli
             GetDataFromTable();
+            
+            
+        }
+
+
+        private void SetDesign()
+        {
+
+
+            buttonBuy.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonBuy.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+
+            buttonBook.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonBook.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+
+            groupBoxShowtime.BackColor = Color.Transparent;
+            groupBoxShowtime.ForeColor = Design.FONT_CLIENT;
+
             comboBoxShowtimeTicket.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxShowtimeSeat.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+
+            comboBoxShowtimeSeat.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            comboBoxShowtimeSeat.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+
+            comboBoxShowtimeTicket.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            comboBoxShowtimeTicket.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
         }
 
         /// <summary>
@@ -174,7 +199,7 @@ namespace Cinema
             SeatID = Convert.ToInt32(comboBoxShowtimeSeat.SelectedValue);
             serviceShowtime.OrderingTicket(ShowtimeID, CustomerID, SeatID, TicketTypeID, "Paid");
 
-            MessageBox.Show("You booght a ticket for " + labelReservationMovie.Text);
+            MessageBox.Show("You bought a ticket for " + labelReservationMovie.Text);
             CleanLabels();
 
 

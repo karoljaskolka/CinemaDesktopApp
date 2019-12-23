@@ -18,22 +18,39 @@ namespace Cinema
         TicketService service;
         private int customerID;
         private int ticketID;
-
+        private int showtimeID;
+        private int seatID;
+        bool checkTicket;
         public int CustomerID { get => customerID; set => customerID = value; }
         public int TicketID { get => ticketID; set => ticketID = value; }
+        public int ShowtimeID { get => showtimeID; set => showtimeID = value; }
+        public int SeatID { get => seatID; set => seatID = value; }
 
         public TicketsClientPanel(int customerID)
         {
             InitializeComponent();
             CustomerID = customerID;
             service = new TicketService();
-           
+            SetDesign();
+            checkTicket = false;
+
             //wczytanie danych do tabeli
             GetDataFromTable();
 
         }
         
-        
+        private void SetDesign()
+        {
+            buttonBuy.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonBuy.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+            groupBoxTicket.ForeColor = Design.FONT_CLIENT;
+            groupBoxTicket.BackColor = Color.Transparent;
+
+            buttonUnbook.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonUnbook.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+        }
+
+
         /// <summary>
         /// wypelnienie tabeli danymi z bazy danych
         /// polaczen z baza</summary>
@@ -44,44 +61,7 @@ namespace Cinema
 
         }
 
-        /// <summary>
-        /// przycisk usuwa rezerwacje lub stary bilet
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonTicketDelete_Click(object sender, EventArgs e)
-        {
-        //    //tresc usuniecia
-        //    string query = "DELETE FROM Ticket WHERE Ticket_ID=@Ticket_ID";
-        //    //jesli nie wybrano zadnego biletu
-        //    if (TicketID <= 0)
-        //    {
-        //        MessageBox.Show("Your should pick ticket to delete");
-        //    }
-        //    else
-        //    {
-
-
-        //        var connection = dbConnectionCinema();
-        //        using (var command = new SqlCommand(query, connection))
-
-        //        {
-        //            connection.Open();
-
-        //            //dodanie parametru id biletu
-        //            command.Parameters.Add(new SqlParameter("@Ticket_ID", TicketID));
-                    
-        //            //wykonanie operacji
-        //            command.ExecuteScalar();
-
-        //            MessageBox.Show("Your reservation has been canceled");
-        //            //wypelnienie tabeli danymi
-        //            GetDataFromTable();
-        //            connection.Close();
-        //        }
-        //    }
-            
-        }
+        
 
         ///// <summary>
         ///// funkcja ktora wywoluje sie jak zminiamy kliknieciem wiersz
@@ -97,7 +77,9 @@ namespace Cinema
                 
                 //wlaczam widzialnosc przycisku
                 groupBoxTicket.Visible = true;
-                
+
+                checkTicket = true;
+
                 labelTicketClient.Text = row.Cells["Client"].Value.ToString();
                 labelTicketMovie.Text = row.Cells["Movie"].Value.ToString();
                 labelTicketDate.Text = row.Cells["Showtime"].Value.ToString();
@@ -109,20 +91,81 @@ namespace Cinema
                 {
                     buttonBuy.Visible = true;
                     buttonUnbook.Visible = true;
+                    
 
                 }
+                else
+                {
+                    buttonBuy.Visible = false;
+                    buttonUnbook.Visible = false;
+                }
+                
                 labelTicketType.Text = row.Cells["Type"].Value.ToString();
+            }
+            else
+            {
+                checkTicket = false;
             }
         }
 
         private void buttonUnbook_Click(object sender, EventArgs e)
         {
 
+            if (checkTicket){
+
+                SeatID = service.GetSeatID(Convert.ToInt32(labelTicketScreen.Text), labelTicketSeat.Text);
+                ShowtimeID = service.GetShowtimeID(Convert.ToInt32(labelTicketScreen.Text), labelTicketDate.Text + ":00.000");
+                TicketID = service.GetTicketID(ShowtimeID, SeatID);
+
+                service.UnbookTicket(TicketID);
+
+                MessageBox.Show("You reservation has been canceled.");
+
+
+                GetDataFromTable();
+                CleanLabels();
+            }
+            else
+            {
+                MessageBox.Show("You must choose a ticket");
+
+            }
+            
+
         }
 
         private void buttonBuy_Click(object sender, EventArgs e)
         {
+            if (checkTicket)
+            {
+                SeatID = service.GetSeatID(Convert.ToInt32(labelTicketScreen.Text), labelTicketSeat.Text);
+                ShowtimeID = service.GetShowtimeID(Convert.ToInt32(labelTicketScreen.Text), labelTicketDate.Text + ":00.000");
+                TicketID = service.GetTicketID(ShowtimeID, SeatID);
 
+                service.BuyTicket(TicketID);
+
+                MessageBox.Show("You bouht this ticket.");
+
+                GetDataFromTable();
+                CleanLabels();
+            }
+            else
+            {
+                MessageBox.Show("You must choose a ticket");
+
+            }
+        }
+
+
+        private void CleanLabels()
+        {
+            labelTicketMovie.Text = "";
+            labelTicketDate.Text = "";
+            labelTicketScreen.Text = "";
+            labelTicketClient.Text = "";
+            checkTicket = false;
+            buttonUnbook.Visible = false;
+            buttonBuy.Visible = false;
         }
     }
 }

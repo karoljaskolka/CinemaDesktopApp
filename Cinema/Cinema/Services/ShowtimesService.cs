@@ -48,7 +48,7 @@ namespace Cinema.Services
                     ID = showtime.Showtime_ID;
                 }
                 
-                //MessageBox.Show("ID " + ID);
+                
                 }
                 return ID;
             

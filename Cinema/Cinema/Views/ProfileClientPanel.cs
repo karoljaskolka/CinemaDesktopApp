@@ -29,8 +29,36 @@ namespace Cinema
             InitializeComponent();
             buttonProfileEdit.BackColor = Color.LavenderBlush;
             CustomerID = customerID;
+            SetDesign();
+
             //wypełniam textBox'y
             FillTextBoxes();
+        }
+
+
+        private void SetDesign()
+        {
+
+            labelProfileLogin.ForeColor = Design.FONT_CLIENT;
+            labelProfileName.ForeColor = Design.FONT_CLIENT;
+            labelProfileEmail.ForeColor = Design.FONT_CLIENT;
+            labelProfilePassword.ForeColor = Design.FONT_CLIENT;
+            labelProfilePhone.ForeColor = Design.FONT_CLIENT;
+            labelProfileSurname.ForeColor = Design.FONT_CLIENT;
+
+            
+            
+
+            labelProfileLogin.BackColor = Color.Transparent;
+            labelProfileName.BackColor = Color.Transparent;
+            labelProfileEmail.BackColor = Color.Transparent;
+            labelProfilePassword.BackColor = Color.Transparent;
+            labelProfilePhone.BackColor = Color.Transparent;
+            labelProfileSurname.BackColor = Color.Transparent;
+
+            buttonProfileEdit.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonProfileEdit.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
+
         }
 
         /// <summary>

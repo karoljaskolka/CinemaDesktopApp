@@ -29,5 +29,7 @@ namespace Cinema
         public static Color BUTTON_DELETE = Color.FromArgb(235, 82, 82);
         public static Color BUTTON_EDIT = Color.FromArgb(82, 169, 235);
         public static Color BUTTON_ADD = Color.FromArgb(82, 235, 118);
+
+        public static Color FONT_CLIENT = Color.FromArgb(255, 215, 0);
     }
 }

@@ -63,14 +63,14 @@
             this.dataGridViewTickets.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTickets.GridColor = System.Drawing.Color.LavenderBlush;
-            this.dataGridViewTickets.Location = new System.Drawing.Point(69, 72);
-            this.dataGridViewTickets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewTickets.Location = new System.Drawing.Point(92, 89);
+            this.dataGridViewTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewTickets.MultiSelect = false;
             this.dataGridViewTickets.Name = "dataGridViewTickets";
             this.dataGridViewTickets.RowHeadersWidth = 51;
             this.dataGridViewTickets.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewTickets.RowTemplate.Height = 24;
-            this.dataGridViewTickets.Size = new System.Drawing.Size(568, 209);
+            this.dataGridViewTickets.Size = new System.Drawing.Size(757, 257);
             this.dataGridViewTickets.TabIndex = 2;
             this.dataGridViewTickets.SelectionChanged += new System.EventHandler(this.dataGridViewTickets_SelectionChanged);
             // 
@@ -95,11 +95,11 @@
             this.groupBoxTicket.Controls.Add(this.labelSeat);
             this.groupBoxTicket.Controls.Add(this.labelMovie);
             this.groupBoxTicket.Font = new System.Drawing.Font("Castellar", 24F, System.Drawing.FontStyle.Bold);
-            this.groupBoxTicket.Location = new System.Drawing.Point(173, 308);
-            this.groupBoxTicket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxTicket.Location = new System.Drawing.Point(231, 379);
+            this.groupBoxTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxTicket.Name = "groupBoxTicket";
-            this.groupBoxTicket.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxTicket.Size = new System.Drawing.Size(367, 290);
+            this.groupBoxTicket.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxTicket.Size = new System.Drawing.Size(489, 357);
             this.groupBoxTicket.TabIndex = 56;
             this.groupBoxTicket.TabStop = false;
             this.groupBoxTicket.Text = "Ticket";
@@ -109,10 +109,9 @@
             // 
             this.labelTicketStatus.AutoSize = true;
             this.labelTicketStatus.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketStatus.Location = new System.Drawing.Point(305, 211);
-            this.labelTicketStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketStatus.Location = new System.Drawing.Point(394, 261);
             this.labelTicketStatus.Name = "labelTicketStatus";
-            this.labelTicketStatus.Size = new System.Drawing.Size(54, 13);
+            this.labelTicketStatus.Size = new System.Drawing.Size(67, 17);
             this.labelTicketStatus.TabIndex = 18;
             this.labelTicketStatus.Text = "label5";
             // 
@@ -120,10 +119,9 @@
             // 
             this.labelStatus.AutoSize = true;
             this.labelStatus.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelStatus.Location = new System.Drawing.Point(202, 206);
-            this.labelStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStatus.Location = new System.Drawing.Point(269, 254);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(87, 19);
+            this.labelStatus.Size = new System.Drawing.Size(105, 25);
             this.labelStatus.TabIndex = 17;
             this.labelStatus.Text = "Status:";
             // 
@@ -131,10 +129,9 @@
             // 
             this.labelTicketPrice.AutoSize = true;
             this.labelTicketPrice.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketPrice.Location = new System.Drawing.Point(98, 164);
-            this.labelTicketPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketPrice.Location = new System.Drawing.Point(131, 202);
             this.labelTicketPrice.Name = "labelTicketPrice";
-            this.labelTicketPrice.Size = new System.Drawing.Size(55, 13);
+            this.labelTicketPrice.Size = new System.Drawing.Size(67, 17);
             this.labelTicketPrice.TabIndex = 16;
             this.labelTicketPrice.Text = "label2";
             // 
@@ -142,10 +139,9 @@
             // 
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelPrice.Location = new System.Drawing.Point(10, 158);
-            this.labelPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrice.Location = new System.Drawing.Point(13, 194);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(68, 19);
+            this.labelPrice.Size = new System.Drawing.Size(85, 25);
             this.labelPrice.TabIndex = 15;
             this.labelPrice.Text = "Price:";
             // 
@@ -153,10 +149,9 @@
             // 
             this.labelTicketSeat.AutoSize = true;
             this.labelTicketSeat.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketSeat.Location = new System.Drawing.Point(98, 266);
-            this.labelTicketSeat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketSeat.Location = new System.Drawing.Point(131, 327);
             this.labelTicketSeat.Name = "labelTicketSeat";
-            this.labelTicketSeat.Size = new System.Drawing.Size(54, 13);
+            this.labelTicketSeat.Size = new System.Drawing.Size(67, 17);
             this.labelTicketSeat.TabIndex = 14;
             this.labelTicketSeat.Text = "label5";
             // 
@@ -164,10 +159,9 @@
             // 
             this.labelTicketType.AutoSize = true;
             this.labelTicketType.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketType.Location = new System.Drawing.Point(97, 197);
-            this.labelTicketType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketType.Location = new System.Drawing.Point(129, 242);
             this.labelTicketType.Name = "labelTicketType";
-            this.labelTicketType.Size = new System.Drawing.Size(54, 13);
+            this.labelTicketType.Size = new System.Drawing.Size(67, 17);
             this.labelTicketType.TabIndex = 13;
             this.labelTicketType.Text = "label5";
             // 
@@ -175,10 +169,9 @@
             // 
             this.labelTicketScreen.AutoSize = true;
             this.labelTicketScreen.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketScreen.Location = new System.Drawing.Point(98, 232);
-            this.labelTicketScreen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketScreen.Location = new System.Drawing.Point(131, 286);
             this.labelTicketScreen.Name = "labelTicketScreen";
-            this.labelTicketScreen.Size = new System.Drawing.Size(54, 13);
+            this.labelTicketScreen.Size = new System.Drawing.Size(67, 17);
             this.labelTicketScreen.TabIndex = 12;
             this.labelTicketScreen.Text = "label5";
             // 
@@ -186,10 +179,9 @@
             // 
             this.labelTicketClient.AutoSize = true;
             this.labelTicketClient.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketClient.Location = new System.Drawing.Point(98, 62);
-            this.labelTicketClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketClient.Location = new System.Drawing.Point(131, 76);
             this.labelTicketClient.Name = "labelTicketClient";
-            this.labelTicketClient.Size = new System.Drawing.Size(55, 13);
+            this.labelTicketClient.Size = new System.Drawing.Size(67, 17);
             this.labelTicketClient.TabIndex = 10;
             this.labelTicketClient.Text = "label3";
             // 
@@ -197,10 +189,9 @@
             // 
             this.labelTicketDate.AutoSize = true;
             this.labelTicketDate.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketDate.Location = new System.Drawing.Point(98, 130);
-            this.labelTicketDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketDate.Location = new System.Drawing.Point(131, 160);
             this.labelTicketDate.Name = "labelTicketDate";
-            this.labelTicketDate.Size = new System.Drawing.Size(55, 13);
+            this.labelTicketDate.Size = new System.Drawing.Size(67, 17);
             this.labelTicketDate.TabIndex = 9;
             this.labelTicketDate.Text = "label2";
             // 
@@ -208,10 +199,9 @@
             // 
             this.labelTicketMovie.AutoSize = true;
             this.labelTicketMovie.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.labelTicketMovie.Location = new System.Drawing.Point(98, 96);
-            this.labelTicketMovie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTicketMovie.Location = new System.Drawing.Point(131, 118);
             this.labelTicketMovie.Name = "labelTicketMovie";
-            this.labelTicketMovie.Size = new System.Drawing.Size(53, 13);
+            this.labelTicketMovie.Size = new System.Drawing.Size(65, 17);
             this.labelTicketMovie.TabIndex = 8;
             this.labelTicketMovie.Text = "label1";
             // 
@@ -219,10 +209,10 @@
             // 
             this.buttonBuy.BackColor = System.Drawing.Color.LavenderBlush;
             this.buttonBuy.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.buttonBuy.Location = new System.Drawing.Point(197, 263);
-            this.buttonBuy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBuy.Location = new System.Drawing.Point(263, 324);
+            this.buttonBuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBuy.Name = "buttonBuy";
-            this.buttonBuy.Size = new System.Drawing.Size(74, 19);
+            this.buttonBuy.Size = new System.Drawing.Size(99, 23);
             this.buttonBuy.TabIndex = 7;
             this.buttonBuy.Text = "Buy";
             this.buttonBuy.UseVisualStyleBackColor = false;
@@ -233,10 +223,10 @@
             // 
             this.buttonUnbook.BackColor = System.Drawing.Color.LavenderBlush;
             this.buttonUnbook.Font = new System.Drawing.Font("Castellar", 8F, System.Drawing.FontStyle.Bold);
-            this.buttonUnbook.Location = new System.Drawing.Point(285, 263);
-            this.buttonUnbook.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonUnbook.Location = new System.Drawing.Point(380, 324);
+            this.buttonUnbook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUnbook.Name = "buttonUnbook";
-            this.buttonUnbook.Size = new System.Drawing.Size(77, 19);
+            this.buttonUnbook.Size = new System.Drawing.Size(103, 23);
             this.buttonUnbook.TabIndex = 6;
             this.buttonUnbook.Text = "Unbook";
             this.buttonUnbook.UseVisualStyleBackColor = false;
@@ -247,10 +237,9 @@
             // 
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelDate.Location = new System.Drawing.Point(14, 124);
-            this.labelDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDate.Location = new System.Drawing.Point(19, 153);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(66, 19);
+            this.labelDate.Size = new System.Drawing.Size(80, 25);
             this.labelDate.TabIndex = 5;
             this.labelDate.Text = "Date:";
             // 
@@ -258,10 +247,9 @@
             // 
             this.labelClient.AutoSize = true;
             this.labelClient.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelClient.Location = new System.Drawing.Point(-3, 55);
-            this.labelClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelClient.Location = new System.Drawing.Point(-4, 68);
             this.labelClient.Name = "labelClient";
-            this.labelClient.Size = new System.Drawing.Size(83, 19);
+            this.labelClient.Size = new System.Drawing.Size(103, 25);
             this.labelClient.TabIndex = 4;
             this.labelClient.Text = "Client:";
             // 
@@ -269,10 +257,9 @@
             // 
             this.labelType.AutoSize = true;
             this.labelType.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelType.Location = new System.Drawing.Point(16, 192);
-            this.labelType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelType.Location = new System.Drawing.Point(21, 236);
             this.labelType.Name = "labelType";
-            this.labelType.Size = new System.Drawing.Size(62, 19);
+            this.labelType.Size = new System.Drawing.Size(76, 25);
             this.labelType.TabIndex = 3;
             this.labelType.Text = "Type:";
             // 
@@ -280,10 +267,9 @@
             // 
             this.labelScreen.AutoSize = true;
             this.labelScreen.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelScreen.Location = new System.Drawing.Point(-4, 226);
-            this.labelScreen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelScreen.Location = new System.Drawing.Point(-5, 278);
             this.labelScreen.Name = "labelScreen";
-            this.labelScreen.Size = new System.Drawing.Size(84, 19);
+            this.labelScreen.Size = new System.Drawing.Size(104, 25);
             this.labelScreen.TabIndex = 2;
             this.labelScreen.Text = "Screen:";
             // 
@@ -291,10 +277,9 @@
             // 
             this.labelSeat.AutoSize = true;
             this.labelSeat.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelSeat.Location = new System.Drawing.Point(19, 260);
-            this.labelSeat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSeat.Location = new System.Drawing.Point(25, 320);
             this.labelSeat.Name = "labelSeat";
-            this.labelSeat.Size = new System.Drawing.Size(60, 19);
+            this.labelSeat.Size = new System.Drawing.Size(73, 25);
             this.labelSeat.TabIndex = 1;
             this.labelSeat.Text = "Seat:";
             // 
@@ -302,16 +287,15 @@
             // 
             this.labelMovie.AutoSize = true;
             this.labelMovie.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.labelMovie.Location = new System.Drawing.Point(2, 89);
-            this.labelMovie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMovie.Location = new System.Drawing.Point(3, 110);
             this.labelMovie.Name = "labelMovie";
-            this.labelMovie.Size = new System.Drawing.Size(78, 19);
+            this.labelMovie.Size = new System.Drawing.Size(96, 25);
             this.labelMovie.TabIndex = 0;
             this.labelMovie.Text = "Movie:";
             // 
             // TicketsClientPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
@@ -319,9 +303,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.groupBoxTicket);
             this.Controls.Add(this.dataGridViewTickets);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TicketsClientPanel";
-            this.Size = new System.Drawing.Size(700, 600);
+            this.Size = new System.Drawing.Size(933, 738);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickets)).EndInit();
             this.groupBoxTicket.ResumeLayout(false);
             this.groupBoxTicket.PerformLayout();
