@@ -224,6 +224,24 @@
     <Compile Include="Views\Admin\UsersAdminPanel.Designer.cs">
       <DependentUpon>UsersAdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Employee\BookingsEmployeePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\BookingsEmployeePanel.Designer.cs">
+      <DependentUpon>BookingsEmployeePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\ComplaintsEmployeePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\ComplaintsEmployeePanel.Designer.cs">
+      <DependentUpon>ComplaintsEmployeePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\ShowtimesEmployeePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\ShowtimesEmployeePanel.Designer.cs">
+      <DependentUpon>ShowtimesEmployeePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LogInAdminPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -313,6 +331,15 @@
     <EmbeddedResource Include="Views\Admin\UsersAdminPanel.resx">
       <DependentUpon>UsersAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employee\BookingsEmployeePanel.resx">
+      <DependentUpon>BookingsEmployeePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employee\ComplaintsEmployeePanel.resx">
+      <DependentUpon>ComplaintsEmployeePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employee\ShowtimesEmployeePanel.resx">
+      <DependentUpon>ShowtimesEmployeePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LogInAdminPanel.resx">
       <DependentUpon>LogInAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,7 +388,6 @@
       <DependentUpon>CinemaModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Cinema.Database.SHOWTIME_VIEW.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
