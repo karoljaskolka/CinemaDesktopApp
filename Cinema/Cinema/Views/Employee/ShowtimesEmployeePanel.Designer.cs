@@ -34,11 +34,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(297, 275);
+            this.label1.Location = new System.Drawing.Point(217, 234);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 17);
+            this.label1.Size = new System.Drawing.Size(266, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Showtimes";
+            this.label1.Text = "Showtimes - kupowanie biletów za klienta";
             // 
             // ShowtimesEmployeePanel
             // 

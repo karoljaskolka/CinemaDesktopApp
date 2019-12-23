@@ -24,6 +24,48 @@ namespace Cinema.Services
 
         }
 
+        public void GetShowtimes(DataGridView table)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.Showtime.Join(database.Movie, x => x.Movie_ID, y => y.Movie_ID,
+                        (x, y) => new { x.Showtime_ID, x.Movie_ID, y.Title, x.Screen_ID, x.Date, x.Technology })
+                            .ToList();
+            }
+        }
+
+        public void AddShowtime(int movieID, int screenID, string date, string technology)
+        {
+            using(CinemaEntities database = new CinemaEntities())
+            {
+                Showtime showtime = database.Showtime.Create();
+
+                showtime.Showtime_ID = Convert.ToInt32(database.sp_getSeqShowtimeID().FirstOrDefault());
+                showtime.Movie_ID = movieID;
+                showtime.Screen_ID = screenID;
+                showtime.Date = DateTime.Parse(date);
+                showtime.Technology = technology;
+
+                database.Showtime.Add(showtime);
+                database.SaveChanges();
+            }
+        }
+
+        public void EditShowtime(int showtimeID, int screenID, string date, string technology)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+
+                Showtime showtime = database.Showtime.Single(x => x.Showtime_ID == showtimeID);
+
+                showtime.Screen_ID = screenID;
+                showtime.Date = DateTime.Parse(date);
+                showtime.Technology = technology;
+
+                database.SaveChanges();
+            }
+        }
+
         public void ShowAvailableSeats(ComboBox seats, int showtimeID)
         {
             using (CinemaEntities database = new CinemaEntities())
@@ -34,7 +76,7 @@ namespace Cinema.Services
                 seats.DisplayMember = "Name";
             }
         }
-        public int GetShowtimeID(int screenID,string date)
+        public int GetShowtimeID(int screenID, string date)
         {
             
                 int ID = 0;

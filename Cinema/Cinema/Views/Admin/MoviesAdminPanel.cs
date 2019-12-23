@@ -106,8 +106,16 @@ namespace Cinema.Views.Admin
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            moviesService.DeleteMovie(Int32.Parse(textBoxID.Text));
-            MessageBox.Show("Movie deleted from database");
+            try
+            {
+                moviesService.DeleteMovie(Int32.Parse(textBoxID.Text));
+                MessageBox.Show("Movie deleted from database");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot deleted this movie because it is in used by other entities");
+            }
+            
             ClearInput();
             moviesService.GetMovies(dataGridViewMovies);
         }
