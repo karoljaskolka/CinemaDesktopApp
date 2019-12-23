@@ -20,6 +20,7 @@ namespace Cinema.Views.Admin
         {
             InitializeComponent();
             buttonDelete.BackColor = Design.BUTTON_DELETE;
+            buttonDelete.Enabled = false;
         }
 
         private void buttonSearchByCustomer_Click(object sender, EventArgs e)
@@ -28,9 +29,15 @@ namespace Cinema.Views.Admin
             if (textBoxSearchCustomer.Text != "")
             {
                 service.GetCommentsByCustomer(dataGridViewComments, textBoxSearchCustomer.Text);
+                SetDataGridViewColumnsWidthCustomer(dataGridViewComments);
             }
-            SetDataGridViewColumnsWidthCustomer(dataGridViewComments);
+            else
+            {
+                dataGridViewComments.DataSource = null;
+            }
+            
             ClearInput();
+            ClearCommentOnDisplay();
         }
 
         private void buttonSearchByMovie_Click(object sender, EventArgs e)
@@ -38,9 +45,15 @@ namespace Cinema.Views.Admin
             if (textBoxSearchMovie.Text != "")
             {
                 service.GetCommentsByMovie(dataGridViewComments, textBoxSearchMovie.Text);
+                SetDataGridViewColumnsWidthMovie(dataGridViewComments);
             }
-            SetDataGridViewColumnsWidthMovie(dataGridViewComments);
+            else
+            {
+                dataGridViewComments.DataSource = null;
+            }
+            
             ClearInput();
+            ClearCommentOnDisplay();
         }
 
         private void SetDataGridViewColumnsWidthCustomer(DataGridView dataGridView)
@@ -65,7 +78,7 @@ namespace Cinema.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No results has been found");
+                MessageBox.Show("Error");
             }
 
         }
@@ -92,7 +105,7 @@ namespace Cinema.Views.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No results has been found");
+                MessageBox.Show("Error");
             }
 
         }
@@ -101,17 +114,29 @@ namespace Cinema.Views.Admin
         {
             textBoxSearchCustomer.Text = "";
             textBoxSearchMovie.Text = "";
+            buttonDelete.Enabled = false;
+        }
+
+        private void ClearCommentOnDisplay()
+        {
+            labelID.Text = "";
+            labelDescription.Text = "";
         }
 
         private void dataGridViewComments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             labelID.Text = dataGridViewComments.Rows[dataGridViewComments.CurrentCell.RowIndex].Cells[0].Value.ToString();
             labelDescription.Text = dataGridViewComments.Rows[dataGridViewComments.CurrentCell.RowIndex].Cells[2].Value.ToString();
+            buttonDelete.Enabled = true;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("To be done ... ");
+            service.DeleteComment(Int32.Parse(labelID.Text));
+            dataGridViewComments.DataSource = null;
+            ClearInput();
+            ClearCommentOnDisplay();
+            MessageBox.Show("Deleted!");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Cinema.Services
             {
                 table.DataSource = database.Comment.Join(database.Movie, x => x.Movie_ID, y => y.Movie_ID,
                     (x, y) => new { x.Comment_ID, y.Title, x.Description, x.Date }).
-                         Where(x => x.Title == movieTitle).ToList();
+                         Where(x => x.Title.Contains(movieTitle)).ToList();
             }
         }
 
@@ -30,9 +30,23 @@ namespace Cinema.Services
             }
         }
 
-        public void DeleteComment()
+        public void DeleteComment(int commentID)
         {
+            using(CinemaEntities database = new CinemaEntities())
+            {
+                Comment comment = database.Comment.Single(x => x.Comment_ID == commentID);
+                database.Comment.Remove(comment);
+                database.SaveChanges();
+            }
+        }
 
+        public void DeleteCommentByCustomer(int customerID)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                database.Comment.RemoveRange(database.Comment.Where(x => x.Customer_ID == customerID));
+                database.SaveChanges();
+            }
         }
     }
 }

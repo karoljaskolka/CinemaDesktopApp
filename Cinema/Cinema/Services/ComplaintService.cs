@@ -30,5 +30,14 @@ namespace Cinema.Services
             }
 
         }
+
+        public void DeleteComplaintByCustomer(int customerID)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                database.Complaint.RemoveRange(database.Complaint.Where(x => x.Customer_ID == customerID));
+                database.SaveChanges();
+            }
+        }
     }
 }

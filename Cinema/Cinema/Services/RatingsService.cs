@@ -20,5 +20,14 @@ namespace Cinema.Services
 
         }
 
+        public void DeleteRatingByCustomer(int customerID)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                database.Rating.RemoveRange(database.Rating.Where(x => x.Customer_ID == customerID));
+                database.SaveChanges();
+            }
+        }
+
     }
 }

@@ -98,18 +98,13 @@ namespace Cinema.Services
 
         public int GetMovieID(string title)
         {
-
             int ID = 0;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Movie movie = database.Movie.Single(x => x.Title == title);
                 ID = movie.Movie_ID;
             }
             return ID;
-
-
-
         }
 
         public void CreateComment(int customerID, string description, int movieID)
@@ -173,9 +168,6 @@ namespace Cinema.Services
                     return true;
                 }
             }
-            
-
-
             return false;
         }
 
@@ -187,8 +179,6 @@ namespace Cinema.Services
                 table.DataSource = database.sp_showCommentsMovie(movieID).ToList();
 
             }
-
-
         }
 
         public void ShowAvgRating(DataGridView table, int movieID)
@@ -197,9 +187,7 @@ namespace Cinema.Services
             using (CinemaEntities database = new CinemaEntities())
             {
                 table.DataSource = database.sp_showAverageRatingMovie(movieID).ToList();
-              }
-
-
+            }
         }
 
     }

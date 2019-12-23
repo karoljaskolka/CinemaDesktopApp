@@ -71,6 +71,7 @@ namespace Cinema.Views.Admin
 
                 MessageBox.Show("Movie added to database");
                 ClearInput();
+                moviesService.GetMovies(dataGridViewMovies);
 
             }
         }
@@ -99,6 +100,7 @@ namespace Cinema.Views.Admin
 
                 MessageBox.Show("Movie edited");
                 ClearInput();
+                moviesService.GetMovies(dataGridViewMovies);
             }
         }
 
@@ -107,13 +109,12 @@ namespace Cinema.Views.Admin
             moviesService.DeleteMovie(Int32.Parse(textBoxID.Text));
             MessageBox.Show("Movie deleted from database");
             ClearInput();
+            moviesService.GetMovies(dataGridViewMovies);
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
             ClearInput();
-            VisibleButtons(false);
-            buttonAdd.Visible = true;
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -123,6 +124,7 @@ namespace Cinema.Views.Admin
             }
             else
             {
+                ClearInput();
                 moviesService.GetMovieByTitle(dataGridViewMovies, textBoxSearch.Text);
                 textBoxSearch.Text = "";
             }
@@ -131,7 +133,9 @@ namespace Cinema.Views.Admin
 
         private void buttonAll_Click(object sender, EventArgs e)
         {
+            ClearInput();
             moviesService.GetMovies(dataGridViewMovies);
+            textBoxSearch.Text = "";
         }
 
         private void dataGridViewMovies_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -152,6 +156,10 @@ namespace Cinema.Views.Admin
             if (dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[7].Value != null)
             {
                 textBoxDescription.Text = dataGridViewMovies.Rows[dataGridViewMovies.CurrentCell.RowIndex].Cells[7].Value.ToString();
+            }
+            else
+            {
+                textBoxDescription.Text = "";
             }
 
         }
@@ -194,14 +202,14 @@ namespace Cinema.Views.Admin
         private void ClearInput()
         {
             textBoxID.Text = "";
-            textBoxDescription.Text = "";
+            textBoxTitle.Text = "";
             textBoxDirector.Text = "";
             dateTimePickerRelease.Value = DateTime.Parse("2020-01-01");
-            textBoxTitle.Text = "";
-            numericUpDownDuration.Value = 120;
             comboBoxCategory.SelectedIndex = -1;
             comboBoxGenre.SelectedIndex = -1;
-            moviesService.GetMovies(dataGridViewMovies);
+            numericUpDownDuration.Value = 120;
+            textBoxDescription.Text = "";
+            
             VisibleButtons(false);
             buttonAdd.Visible = true;
         }

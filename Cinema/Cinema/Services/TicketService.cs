@@ -118,5 +118,15 @@ namespace Cinema.Services
             }
 
         }
+
+        public void DeleteTicketByCustomer(int customerID)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                database.Ticket.RemoveRange(database.Ticket.Where(x => x.Customer_ID == customerID));
+                database.SaveChanges();
+            }
+        }
+
     }
 }

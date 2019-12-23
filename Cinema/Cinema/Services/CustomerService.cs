@@ -28,6 +28,41 @@ namespace Cinema.Services
             }
         }
 
+        public Customer GetCustomer(string login)
+        {
+            using(CinemaEntities database = new CinemaEntities())
+            {
+                Customer customer = database.Customer.Where(x => x.Login == login).FirstOrDefault();
+                return customer;
+            }
+        }
+
+        public void DeleteCustomer(int customerID)
+        {
+            using(CinemaEntities database = new CinemaEntities())
+            {
+
+                // before delete customer 
+                // must delete all records with his foreign key
+
+                CommentService commentService = new CommentService();
+                ComplaintService complaintService = new ComplaintService();
+                TicketService ticketService = new TicketService();
+                RatingsService ratingsService = new RatingsService();
+
+                commentService.DeleteCommentByCustomer(customerID);
+                complaintService.DeleteComplaintByCustomer(customerID);
+                ticketService.DeleteTicketByCustomer(customerID);
+                ratingsService.DeleteRatingByCustomer(customerID);
+
+                // now delete customer
+
+                Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
+                database.Customer.Remove(customer);
+                database.SaveChanges();
+            }
+        }
+
         public int GetCustomerID(string login)
         {
             int ID = 0;
