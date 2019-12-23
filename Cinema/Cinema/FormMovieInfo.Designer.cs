@@ -46,7 +46,7 @@
             this.dataGridViewRating.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewRating.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewRating.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRating.GridColor = System.Drawing.Color.LavenderBlush;
+            this.dataGridViewRating.GridColor = System.Drawing.Color.Gold;
             this.dataGridViewRating.Location = new System.Drawing.Point(189, 63);
             this.dataGridViewRating.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRating.MultiSelect = false;
@@ -68,7 +68,7 @@
             this.dataGridViewComments.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewComments.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewComments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewComments.GridColor = System.Drawing.Color.LavenderBlush;
+            this.dataGridViewComments.GridColor = System.Drawing.Color.Gold;
             this.dataGridViewComments.Location = new System.Drawing.Point(119, 211);
             this.dataGridViewComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewComments.MultiSelect = false;

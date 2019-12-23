@@ -44,29 +44,29 @@
             this.dataGridViewRatings.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewRatings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRatings.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dataGridViewRatings.GridColor = System.Drawing.Color.LavenderBlush;
-            this.dataGridViewRatings.Location = new System.Drawing.Point(151, 93);
-            this.dataGridViewRatings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewRatings.GridColor = System.Drawing.Color.Gold;
+            this.dataGridViewRatings.Location = new System.Drawing.Point(201, 114);
+            this.dataGridViewRatings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewRatings.MultiSelect = false;
             this.dataGridViewRatings.Name = "dataGridViewRatings";
             this.dataGridViewRatings.ReadOnly = true;
             this.dataGridViewRatings.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewRatings.RowTemplate.Height = 24;
-            this.dataGridViewRatings.Size = new System.Drawing.Size(446, 392);
+            this.dataGridViewRatings.Size = new System.Drawing.Size(595, 482);
             this.dataGridViewRatings.TabIndex = 0;
             // 
             // RatingsClientPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
             this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.dataGridViewRatings);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RatingsClientPanel";
-            this.Size = new System.Drawing.Size(700, 600);
+            this.Size = new System.Drawing.Size(933, 738);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRatings)).EndInit();
             this.ResumeLayout(false);
 

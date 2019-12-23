@@ -142,7 +142,7 @@
             this.dataGridViewMovies.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewMovies.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMovies.GridColor = System.Drawing.Color.LavenderBlush;
+            this.dataGridViewMovies.GridColor = System.Drawing.Color.Gold;
             this.dataGridViewMovies.Location = new System.Drawing.Point(129, 149);
             this.dataGridViewMovies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewMovies.Name = "dataGridViewMovies";

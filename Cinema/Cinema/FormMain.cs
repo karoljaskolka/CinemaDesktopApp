@@ -27,6 +27,8 @@ namespace Cinema
             buttonAdmin.BackColor = Design.LAUNCHER_BUTTONS;
             panelContent.BackColor = Design.LAUNCHER_BACKGROUND;
             panelButtonsStartWindow.BackColor = Design.LAUNCHER_NAV;
+
+            
         }
 
         /// <summary>

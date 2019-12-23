@@ -39,7 +39,7 @@ namespace Cinema
         private void SetDesign()
         {
 
-            labelProfileLogin.ForeColor = Design.FONT_CLIENT;
+            
             labelProfileName.ForeColor = Design.FONT_CLIENT;
             labelProfileEmail.ForeColor = Design.FONT_CLIENT;
             labelProfilePassword.ForeColor = Design.FONT_CLIENT;
@@ -49,7 +49,7 @@ namespace Cinema
             
             
 
-            labelProfileLogin.BackColor = Color.Transparent;
+            
             labelProfileName.BackColor = Color.Transparent;
             labelProfileEmail.BackColor = Color.Transparent;
             labelProfilePassword.BackColor = Color.Transparent;
@@ -71,7 +71,7 @@ namespace Cinema
             
                     
              //inicjalizacja danych w text box'ach
-             textBoxProfileLogin.Text = service.GetLogin(CustomerID);
+             
              textBoxProfilePassword.Text = service.GetPassword(CustomerID);
              textBoxProfileName.Text = service.GetName(CustomerID);
              textBoxProfileSurname.Text = service.GetSurname(CustomerID);
@@ -90,11 +90,11 @@ namespace Cinema
         {
             
             //jesli textBox'y które wartosci w tabeli mają not null są puste to nie spełnia warunku 
-            if (textBoxProfileLogin.Text != "" && textBoxProfilePassword.Text !="" && textBoxProfileName.Text != "" && textBoxProfileSurname.Text != "")
+            if ( textBoxProfilePassword.Text !="" && textBoxProfileName.Text != "" && textBoxProfileSurname.Text != "")
             {
                 service = new CustomerService();
 
-                service.SetLogin(CustomerID, textBoxProfileLogin.Text);
+                
                 service.SetPassword(CustomerID, textBoxProfilePassword.Text);
                 service.SetName(CustomerID, textBoxProfileName.Text);
                 service.SetSurname(CustomerID, textBoxProfileSurname.Text);

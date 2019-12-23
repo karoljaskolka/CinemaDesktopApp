@@ -39,18 +39,16 @@
             this.textBoxProfileSurname = new System.Windows.Forms.TextBox();
             this.textBoxProfileName = new System.Windows.Forms.TextBox();
             this.textBoxProfilePassword = new System.Windows.Forms.TextBox();
-            this.textBoxProfileLogin = new System.Windows.Forms.TextBox();
-            this.labelProfileLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonProfileEdit
             // 
             this.buttonProfileEdit.BackColor = System.Drawing.Color.LavenderBlush;
             this.buttonProfileEdit.Font = new System.Drawing.Font("Castellar", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonProfileEdit.Location = new System.Drawing.Point(404, 403);
-            this.buttonProfileEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonProfileEdit.Location = new System.Drawing.Point(524, 468);
+            this.buttonProfileEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonProfileEdit.Name = "buttonProfileEdit";
-            this.buttonProfileEdit.Size = new System.Drawing.Size(126, 60);
+            this.buttonProfileEdit.Size = new System.Drawing.Size(168, 74);
             this.buttonProfileEdit.TabIndex = 54;
             this.buttonProfileEdit.Text = "Edit";
             this.buttonProfileEdit.UseVisualStyleBackColor = false;
@@ -58,116 +56,93 @@
             // 
             // textBoxProfilePhone
             // 
-            this.textBoxProfilePhone.Location = new System.Drawing.Point(374, 357);
-            this.textBoxProfilePhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxProfilePhone.Location = new System.Drawing.Point(484, 411);
+            this.textBoxProfilePhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProfilePhone.Name = "textBoxProfilePhone";
-            this.textBoxProfilePhone.Size = new System.Drawing.Size(157, 20);
+            this.textBoxProfilePhone.Size = new System.Drawing.Size(208, 22);
             this.textBoxProfilePhone.TabIndex = 51;
             // 
             // labelProfilePassword
             // 
             this.labelProfilePassword.Font = new System.Drawing.Font("Castellar", 16F, System.Drawing.FontStyle.Bold);
-            this.labelProfilePassword.Location = new System.Drawing.Point(202, 201);
-            this.labelProfilePassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProfilePassword.Location = new System.Drawing.Point(254, 219);
             this.labelProfilePassword.Name = "labelProfilePassword";
-            this.labelProfilePassword.Size = new System.Drawing.Size(167, 37);
+            this.labelProfilePassword.Size = new System.Drawing.Size(223, 46);
             this.labelProfilePassword.TabIndex = 50;
             this.labelProfilePassword.Text = "Password";
             // 
             // labelProfileName
             // 
             this.labelProfileName.Font = new System.Drawing.Font("Castellar", 16F, System.Drawing.FontStyle.Bold);
-            this.labelProfileName.Location = new System.Drawing.Point(202, 238);
-            this.labelProfileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProfileName.Location = new System.Drawing.Point(254, 265);
             this.labelProfileName.Name = "labelProfileName";
-            this.labelProfileName.Size = new System.Drawing.Size(113, 37);
+            this.labelProfileName.Size = new System.Drawing.Size(151, 46);
             this.labelProfileName.TabIndex = 49;
             this.labelProfileName.Text = "Name";
             // 
             // labelProfileSurname
             // 
             this.labelProfileSurname.Font = new System.Drawing.Font("Castellar", 16F, System.Drawing.FontStyle.Bold);
-            this.labelProfileSurname.Location = new System.Drawing.Point(202, 274);
-            this.labelProfileSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProfileSurname.Location = new System.Drawing.Point(254, 309);
             this.labelProfileSurname.Name = "labelProfileSurname";
-            this.labelProfileSurname.Size = new System.Drawing.Size(142, 37);
+            this.labelProfileSurname.Size = new System.Drawing.Size(189, 46);
             this.labelProfileSurname.TabIndex = 48;
             this.labelProfileSurname.Text = "Surname";
             // 
             // labelProfileEmail
             // 
             this.labelProfileEmail.Font = new System.Drawing.Font("Castellar", 16F, System.Drawing.FontStyle.Bold);
-            this.labelProfileEmail.Location = new System.Drawing.Point(202, 313);
-            this.labelProfileEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProfileEmail.Location = new System.Drawing.Point(254, 357);
             this.labelProfileEmail.Name = "labelProfileEmail";
-            this.labelProfileEmail.Size = new System.Drawing.Size(128, 37);
+            this.labelProfileEmail.Size = new System.Drawing.Size(171, 46);
             this.labelProfileEmail.TabIndex = 47;
             this.labelProfileEmail.Text = "E-mail";
             // 
             // labelProfilePhone
             // 
             this.labelProfilePhone.Font = new System.Drawing.Font("Castellar", 16F, System.Drawing.FontStyle.Bold);
-            this.labelProfilePhone.Location = new System.Drawing.Point(202, 350);
-            this.labelProfilePhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelProfilePhone.Location = new System.Drawing.Point(254, 403);
             this.labelProfilePhone.Name = "labelProfilePhone";
-            this.labelProfilePhone.Size = new System.Drawing.Size(128, 37);
+            this.labelProfilePhone.Size = new System.Drawing.Size(171, 46);
             this.labelProfilePhone.TabIndex = 46;
             this.labelProfilePhone.Text = "Phone";
             // 
             // textBoxProfileEmail
             // 
-            this.textBoxProfileEmail.Location = new System.Drawing.Point(374, 321);
-            this.textBoxProfileEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxProfileEmail.Location = new System.Drawing.Point(484, 367);
+            this.textBoxProfileEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProfileEmail.Name = "textBoxProfileEmail";
-            this.textBoxProfileEmail.Size = new System.Drawing.Size(157, 20);
+            this.textBoxProfileEmail.Size = new System.Drawing.Size(208, 22);
             this.textBoxProfileEmail.TabIndex = 45;
             // 
             // textBoxProfileSurname
             // 
-            this.textBoxProfileSurname.Location = new System.Drawing.Point(374, 285);
-            this.textBoxProfileSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxProfileSurname.Location = new System.Drawing.Point(484, 323);
+            this.textBoxProfileSurname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProfileSurname.Name = "textBoxProfileSurname";
-            this.textBoxProfileSurname.Size = new System.Drawing.Size(157, 20);
+            this.textBoxProfileSurname.Size = new System.Drawing.Size(208, 22);
             this.textBoxProfileSurname.TabIndex = 44;
             // 
             // textBoxProfileName
             // 
-            this.textBoxProfileName.Location = new System.Drawing.Point(374, 247);
-            this.textBoxProfileName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxProfileName.Location = new System.Drawing.Point(484, 276);
+            this.textBoxProfileName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProfileName.Name = "textBoxProfileName";
-            this.textBoxProfileName.Size = new System.Drawing.Size(157, 20);
+            this.textBoxProfileName.Size = new System.Drawing.Size(208, 22);
             this.textBoxProfileName.TabIndex = 43;
             // 
             // textBoxProfilePassword
             // 
-            this.textBoxProfilePassword.Location = new System.Drawing.Point(374, 208);
-            this.textBoxProfilePassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxProfilePassword.Location = new System.Drawing.Point(484, 228);
+            this.textBoxProfilePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxProfilePassword.Name = "textBoxProfilePassword";
-            this.textBoxProfilePassword.Size = new System.Drawing.Size(157, 20);
+            this.textBoxProfilePassword.Size = new System.Drawing.Size(208, 22);
             this.textBoxProfilePassword.TabIndex = 42;
-            // 
-            // textBoxProfileLogin
-            // 
-            this.textBoxProfileLogin.Location = new System.Drawing.Point(374, 174);
-            this.textBoxProfileLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBoxProfileLogin.Name = "textBoxProfileLogin";
-            this.textBoxProfileLogin.Size = new System.Drawing.Size(157, 20);
-            this.textBoxProfileLogin.TabIndex = 41;
-            // 
-            // labelProfileLogin
-            // 
-            this.labelProfileLogin.Font = new System.Drawing.Font("Castellar", 16F, System.Drawing.FontStyle.Bold);
-            this.labelProfileLogin.Location = new System.Drawing.Point(202, 166);
-            this.labelProfileLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelProfileLogin.Name = "labelProfileLogin";
-            this.labelProfileLogin.Size = new System.Drawing.Size(116, 37);
-            this.labelProfileLogin.TabIndex = 40;
-            this.labelProfileLogin.Text = "Login";
             // 
             // ProfileClientPanel
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Lavender;
@@ -184,12 +159,10 @@
             this.Controls.Add(this.textBoxProfileSurname);
             this.Controls.Add(this.textBoxProfileName);
             this.Controls.Add(this.textBoxProfilePassword);
-            this.Controls.Add(this.textBoxProfileLogin);
-            this.Controls.Add(this.labelProfileLogin);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProfileClientPanel";
-            this.Size = new System.Drawing.Size(700, 600);
+            this.Size = new System.Drawing.Size(933, 738);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,7 +181,5 @@
         private System.Windows.Forms.TextBox textBoxProfileSurname;
         private System.Windows.Forms.TextBox textBoxProfileName;
         private System.Windows.Forms.TextBox textBoxProfilePassword;
-        private System.Windows.Forms.TextBox textBoxProfileLogin;
-        private System.Windows.Forms.Label labelProfileLogin;
     }
 }

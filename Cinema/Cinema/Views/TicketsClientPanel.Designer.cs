@@ -62,7 +62,7 @@
             this.dataGridViewTickets.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewTickets.BackgroundColor = System.Drawing.Color.LavenderBlush;
             this.dataGridViewTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTickets.GridColor = System.Drawing.Color.LavenderBlush;
+            this.dataGridViewTickets.GridColor = System.Drawing.Color.Gold;
             this.dataGridViewTickets.Location = new System.Drawing.Point(92, 89);
             this.dataGridViewTickets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewTickets.MultiSelect = false;
