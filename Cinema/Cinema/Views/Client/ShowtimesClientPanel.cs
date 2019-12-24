@@ -142,8 +142,7 @@ namespace Cinema
         /// <param name="e"></param>
         private void buttonBook_Click(object sender, EventArgs e)
         {
-            ////tresc inserta
-            //string query = "INSERT INTO Ticket VALUES (NEXT VALUE FOR SEQ_TICKET_ID,@Showtime_ID, @Customer_ID,@Seat_ID,@Ticket_Type_ID,'Booked',@Date)";
+           
             
             ////jesli zaznaczylismy comboboxy to wchodzimy
             if (!string.IsNullOrEmpty(comboBoxShowtimeTicket.Text) && !string.IsNullOrEmpty(comboBoxShowtimeSeat.Text))

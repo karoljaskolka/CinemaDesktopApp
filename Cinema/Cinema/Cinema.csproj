@@ -260,36 +260,36 @@
     <Compile Include="Views\LogInPanel.Designer.cs">
       <DependentUpon>LogInPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\MoviesClientPanel.cs">
+    <Compile Include="Views\Client\MoviesClientPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\MoviesClientPanel.Designer.cs">
+    <Compile Include="Views\Client\MoviesClientPanel.Designer.cs">
       <DependentUpon>MoviesClientPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProfileClientPanel.cs">
+    <Compile Include="Views\Client\ProfileClientPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ProfileClientPanel.Designer.cs">
+    <Compile Include="Views\Client\ProfileClientPanel.Designer.cs">
       <DependentUpon>ProfileClientPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\RatingsClientPanel.cs">
+    <Compile Include="Views\Client\RatingsClientPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\RatingsClientPanel.Designer.cs">
+    <Compile Include="Views\Client\RatingsClientPanel.Designer.cs">
       <DependentUpon>RatingsClientPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReportClientPanel.cs">
+    <Compile Include="Views\Client\ReportClientPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ReportClientPanel.Designer.cs">
+    <Compile Include="Views\Client\ReportClientPanel.Designer.cs">
       <DependentUpon>ReportClientPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ShowtimesClientPanel.cs">
+    <Compile Include="Views\Client\ShowtimesClientPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ShowtimesClientPanel.Designer.cs">
+    <Compile Include="Views\Client\ShowtimesClientPanel.Designer.cs">
       <DependentUpon>ShowtimesClientPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SignUpPanel.cs">
@@ -298,10 +298,10 @@
     <Compile Include="Views\SignUpPanel.Designer.cs">
       <DependentUpon>SignUpPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\TicketsClientPanel.cs">
+    <Compile Include="Views\Client\TicketsClientPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\TicketsClientPanel.Designer.cs">
+    <Compile Include="Views\Client\TicketsClientPanel.Designer.cs">
       <DependentUpon>TicketsClientPanel.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormAdmin.resx">
@@ -349,10 +349,10 @@
     <EmbeddedResource Include="Views\LogInPanel.resx">
       <DependentUpon>LogInPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MoviesClientPanel.resx">
+    <EmbeddedResource Include="Views\Client\MoviesClientPanel.resx">
       <DependentUpon>MoviesClientPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProfileClientPanel.resx">
+    <EmbeddedResource Include="Views\Client\ProfileClientPanel.resx">
       <DependentUpon>ProfileClientPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -365,19 +365,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\RatingsClientPanel.resx">
+    <EmbeddedResource Include="Views\Client\RatingsClientPanel.resx">
       <DependentUpon>RatingsClientPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ReportClientPanel.resx">
+    <EmbeddedResource Include="Views\Client\ReportClientPanel.resx">
       <DependentUpon>ReportClientPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ShowtimesClientPanel.resx">
+    <EmbeddedResource Include="Views\Client\ShowtimesClientPanel.resx">
       <DependentUpon>ShowtimesClientPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SignUpPanel.resx">
       <DependentUpon>SignUpPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\TicketsClientPanel.resx">
+    <EmbeddedResource Include="Views\Client\TicketsClientPanel.resx">
       <DependentUpon>TicketsClientPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Database\CinemaModel.edmx">

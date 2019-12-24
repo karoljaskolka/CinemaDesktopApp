@@ -20,6 +20,14 @@ namespace Cinema.Services
         }
 
 
+        public void ShowAllTicketsView(DataGridView table)
+        {
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.TICKET_VIEW.ToList();
+            }
+        }
+        
 
     public int GetTicketID(int showtimeID, int seatID)
         {
