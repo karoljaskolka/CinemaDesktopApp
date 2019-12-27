@@ -62,7 +62,8 @@ namespace Cinema
 
         private void SetDesign()
         {
-
+            buttonSearch.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
+            buttonSearch.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
 
             buttonBuy.BackColor = Design.CLIENT_BUTTONS_BACKCOLOR;
             buttonBuy.ForeColor = Design.CLIENT_BUTTONS_FORECOLOR;
@@ -204,5 +205,12 @@ namespace Cinema
 
 
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string date = dateTimePickerShowtime.Value.ToString("yyyy-MM-dd");
+            serviceShowtime.ShowShowtimesByDate(dataGridViewShowtimes, date);
+        }
+
     }
 }

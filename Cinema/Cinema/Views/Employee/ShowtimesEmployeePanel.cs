@@ -34,7 +34,16 @@ namespace Cinema.Views.Employee
             comboBoxShowtimeTicket.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxShowtimeSeat.DropDownStyle = ComboBoxStyle.DropDownList;
             GetDataFromTable();
+
+            SetColors();
             
+        }
+
+        private void SetColors()
+        {
+            buttonSearch.BackColor = Design.BUTTON_EDIT;
+            buttonBuy.BackColor = Design.BUTTON_EDIT;
+            buttonBook.BackColor = Design.BUTTON_ADD;
         }
 
         /// <summary>
@@ -133,6 +142,12 @@ namespace Cinema.Views.Employee
             comboBoxShowtimeSeat.SelectedIndex = -1;
             buttonBook.Visible = false;
             buttonBuy.Visible = false;
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string date = dateTimePickerShowtime.Value.ToString("yyyy-MM-dd");
+            serviceShowtime.ShowShowtimesByDate(dataGridViewShowtimes, date);
         }
     }
 }

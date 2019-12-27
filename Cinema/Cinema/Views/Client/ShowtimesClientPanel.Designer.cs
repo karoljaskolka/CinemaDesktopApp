@@ -44,6 +44,8 @@
             this.labelShowtimeScreen = new System.Windows.Forms.Label();
             this.labelShowtimeSeat = new System.Windows.Forms.Label();
             this.labelShowtimeMovie = new System.Windows.Forms.Label();
+            this.dateTimePickerShowtime = new System.Windows.Forms.DateTimePicker();
+            this.buttonSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).BeginInit();
             this.groupBoxShowtime.SuspendLayout();
             this.SuspendLayout();
@@ -254,6 +256,23 @@
             this.labelShowtimeMovie.TabIndex = 0;
             this.labelShowtimeMovie.Text = "Movie:";
             // 
+            // dateTimePickerShowtime
+            // 
+            this.dateTimePickerShowtime.Location = new System.Drawing.Point(231, 21);
+            this.dateTimePickerShowtime.Name = "dateTimePickerShowtime";
+            this.dateTimePickerShowtime.Size = new System.Drawing.Size(353, 22);
+            this.dateTimePickerShowtime.TabIndex = 2;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(615, 20);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 3;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
             // ShowtimesClientPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,6 +280,8 @@
             this.BackColor = System.Drawing.Color.Lavender;
             this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.dateTimePickerShowtime);
             this.Controls.Add(this.groupBoxShowtime);
             this.Controls.Add(this.dataGridViewShowtimes);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -291,5 +312,7 @@
         private System.Windows.Forms.Label labelReservationDate;
         private System.Windows.Forms.Label labelReservationMovie;
         private System.Windows.Forms.ComboBox comboBoxShowtimeTicket;
+        private System.Windows.Forms.DateTimePicker dateTimePickerShowtime;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }

@@ -29,7 +29,7 @@ namespace Cinema.Views.Employee
             CustomerID = customerID;
             service = new TicketService();
             checkTicket = false;
-
+            buttonSearch.BackColor = Design.BUTTON_EDIT;
             //wczytanie danych do tabeli
             GetDataFromTable();
 
@@ -114,5 +114,10 @@ namespace Cinema.Views.Employee
             
         }
 
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string date = dateTimePickerTickets.Value.ToString("yyyy-MM-dd");
+            service.ShowAllBookedTicketsViewByDate(dataGridViewTickets, date);
+        }
     }
 }

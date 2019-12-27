@@ -83,20 +83,20 @@
             // labelComments
             // 
             this.labelComments.AutoSize = true;
-            this.labelComments.Font = new System.Drawing.Font("Castellar", 14F, System.Drawing.FontStyle.Bold);
+            this.labelComments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelComments.Location = new System.Drawing.Point(315, 163);
             this.labelComments.Name = "labelComments";
-            this.labelComments.Size = new System.Drawing.Size(175, 29);
+            this.labelComments.Size = new System.Drawing.Size(137, 29);
             this.labelComments.TabIndex = 15;
             this.labelComments.Text = "Comments";
             // 
             // labelAvgRating
             // 
             this.labelAvgRating.AutoSize = true;
-            this.labelAvgRating.Font = new System.Drawing.Font("Castellar", 14F, System.Drawing.FontStyle.Bold);
+            this.labelAvgRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelAvgRating.Location = new System.Drawing.Point(286, 19);
             this.labelAvgRating.Name = "labelAvgRating";
-            this.labelAvgRating.Size = new System.Drawing.Size(270, 29);
+            this.labelAvgRating.Size = new System.Drawing.Size(182, 29);
             this.labelAvgRating.TabIndex = 16;
             this.labelAvgRating.Text = "Average rating";
             // 
@@ -111,6 +111,7 @@
             this.Controls.Add(this.dataGridViewComments);
             this.Controls.Add(this.dataGridViewRating);
             this.Name = "FormMovieInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informations about movie";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRating)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComments)).EndInit();

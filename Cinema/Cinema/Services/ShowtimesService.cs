@@ -22,6 +22,38 @@ namespace Cinema.Services
             }
         }
 
+        public void ShowShowtimesByDate(DataGridView table, string date)
+        {
+
+            date = this.DateConverter(date);
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.SHOWTIME_VIEW.Where(x => x.Date.Contains(date)).ToList();
+            }
+        }
+
+        public string DateConverter(string date)
+        {
+            // e.g. 2020-01-11 => 2020-1-11
+            if (date[5] == '0')
+            {
+                date = date.Remove(5, 1);
+                // e.g. 2020-01-01 => 2020-1-1
+                if (date[7] == '0')
+                {
+                    date = date.Remove(7, 1);
+                }
+            }
+            // e.g. 2020-11-01 => 2020-11-1
+            else if (date[8] == '0')
+            {
+                date = date.Remove(8, 1);
+            }
+
+            return date.Length == 10 ? date : date + " ";
+        }
+
         public void GetShowtimes(DataGridView table)
         {
             using (CinemaEntities database = new CinemaEntities())

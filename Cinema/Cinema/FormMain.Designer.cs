@@ -196,6 +196,7 @@
             this.MinimizeBox = false;
             this.Name = "FormMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cinema";
             this.panelButtonsStartWindow.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

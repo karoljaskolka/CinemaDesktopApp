@@ -134,9 +134,11 @@
             this.ClientSize = new System.Drawing.Size(882, 553);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelNav);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
             this.panelNav.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

@@ -164,10 +164,11 @@
             this.ClientSize = new System.Drawing.Size(1262, 753);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelNav);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.panelNav.ResumeLayout(false);
             this.panelButtonComments.ResumeLayout(false);

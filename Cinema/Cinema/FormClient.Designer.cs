@@ -162,6 +162,7 @@
             this.MinimizeBox = false;
             this.Name = "FormClient";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client of Cinema";
             this.panelButtonsClient.ResumeLayout(false);
             this.ResumeLayout(false);

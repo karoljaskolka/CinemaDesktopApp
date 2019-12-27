@@ -27,9 +27,21 @@ namespace Cinema.Services
                 table.DataSource = database.TICKET_VIEW.Where(x => x.Status == "Booked").ToList();
             }
         }
-        
 
-    public int GetTicketID(int showtimeID, int seatID)
+        public void ShowAllBookedTicketsViewByDate(DataGridView table, string date)
+        {
+            ShowtimesService showtimeSerivce = new ShowtimesService();
+
+            date = showtimeSerivce.DateConverter(date);
+
+            using (CinemaEntities database = new CinemaEntities())
+            {
+                table.DataSource = database.TICKET_VIEW.Where(x => x.Status == "Booked" 
+                        && x.Showtime.Contains(date)).ToList();
+            }
+        }
+
+        public int GetTicketID(int showtimeID, int seatID)
         {
 
             int ID = 0;

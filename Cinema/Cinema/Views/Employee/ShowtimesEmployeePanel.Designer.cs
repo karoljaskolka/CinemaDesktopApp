@@ -44,6 +44,8 @@
             this.labelShowtimeSeat = new System.Windows.Forms.Label();
             this.labelShowtimeMovie = new System.Windows.Forms.Label();
             this.dataGridViewShowtimes = new System.Windows.Forms.DataGridView();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.dateTimePickerShowtime = new System.Windows.Forms.DateTimePicker();
             this.groupBoxShowtime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).BeginInit();
             this.SuspendLayout();
@@ -237,20 +239,40 @@
             this.dataGridViewShowtimes.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewShowtimes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewShowtimes.GridColor = System.Drawing.Color.MediumAquamarine;
-            this.dataGridViewShowtimes.Location = new System.Drawing.Point(17, 22);
+            this.dataGridViewShowtimes.Location = new System.Drawing.Point(17, 44);
             this.dataGridViewShowtimes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewShowtimes.Name = "dataGridViewShowtimes";
             this.dataGridViewShowtimes.ReadOnly = true;
             this.dataGridViewShowtimes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewShowtimes.RowTemplate.Height = 24;
-            this.dataGridViewShowtimes.Size = new System.Drawing.Size(653, 201);
+            this.dataGridViewShowtimes.Size = new System.Drawing.Size(653, 179);
             this.dataGridViewShowtimes.TabIndex = 2;
             this.dataGridViewShowtimes.SelectionChanged += new System.EventHandler(this.dataGridViewShowtimes_SelectionChanged);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonSearch.Location = new System.Drawing.Point(488, 5);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 31);
+            this.buttonSearch.TabIndex = 5;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // dateTimePickerShowtime
+            // 
+            this.dateTimePickerShowtime.Location = new System.Drawing.Point(104, 10);
+            this.dateTimePickerShowtime.Name = "dateTimePickerShowtime";
+            this.dateTimePickerShowtime.Size = new System.Drawing.Size(353, 22);
+            this.dateTimePickerShowtime.TabIndex = 4;
             // 
             // ShowtimesEmployeePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.dateTimePickerShowtime);
             this.Controls.Add(this.groupBoxShowtime);
             this.Controls.Add(this.dataGridViewShowtimes);
             this.Name = "ShowtimesEmployeePanel";
@@ -280,5 +302,7 @@
         private System.Windows.Forms.Label labelShowtimeSeat;
         private System.Windows.Forms.Label labelShowtimeMovie;
         private System.Windows.Forms.DataGridView dataGridViewShowtimes;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.DateTimePicker dateTimePickerShowtime;
     }
 }

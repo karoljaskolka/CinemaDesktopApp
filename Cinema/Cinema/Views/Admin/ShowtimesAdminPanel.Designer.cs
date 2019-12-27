@@ -32,6 +32,8 @@
             this.buttonShowShowtimes = new System.Windows.Forms.Button();
             this.dataGridViewData = new System.Windows.Forms.DataGridView();
             this.groupBoxEdit = new System.Windows.Forms.GroupBox();
+            this.textBoxShowtimeIDEdit = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBoxMovieIDEdit = new System.Windows.Forms.TextBox();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxShowtimeIDEdit = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewData)).BeginInit();
             this.groupBoxEdit.SuspendLayout();
             this.groupBoxAdd.SuspendLayout();
@@ -118,6 +118,24 @@
             this.groupBoxEdit.TabStop = false;
             this.groupBoxEdit.Text = "Edit";
             // 
+            // textBoxShowtimeIDEdit
+            // 
+            this.textBoxShowtimeIDEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxShowtimeIDEdit.Location = new System.Drawing.Point(134, 42);
+            this.textBoxShowtimeIDEdit.Name = "textBoxShowtimeIDEdit";
+            this.textBoxShowtimeIDEdit.Size = new System.Drawing.Size(343, 26);
+            this.textBoxShowtimeIDEdit.TabIndex = 21;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(6, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Showtime_ID";
+            // 
             // textBoxMovieIDEdit
             // 
             this.textBoxMovieIDEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -176,6 +194,7 @@
             // 
             // comboBoxScreenEdit
             // 
+            this.comboBoxScreenEdit.Enabled = false;
             this.comboBoxScreenEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxScreenEdit.FormattingEnabled = true;
             this.comboBoxScreenEdit.Location = new System.Drawing.Point(134, 186);
@@ -324,24 +343,6 @@
             this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Screen";
-            // 
-            // textBoxShowtimeIDEdit
-            // 
-            this.textBoxShowtimeIDEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxShowtimeIDEdit.Location = new System.Drawing.Point(134, 42);
-            this.textBoxShowtimeIDEdit.Name = "textBoxShowtimeIDEdit";
-            this.textBoxShowtimeIDEdit.Size = new System.Drawing.Size(343, 26);
-            this.textBoxShowtimeIDEdit.TabIndex = 21;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(6, 48);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 20);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Showtime_ID";
             // 
             // ShowtimesAdminPanel
             // 
