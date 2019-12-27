@@ -112,7 +112,7 @@ namespace Cinema.Services
                 newTicket.Customer_ID = customerID;
                 newTicket.Showtime_ID = showtimeID;
                 newTicket.Seat_ID = seatID;
-                newTicket.Ticket_Type_ID = customerID;
+                newTicket.Ticket_Type_ID = ticketTypeID;
                 newTicket.Status = status;
                 newTicket.Date = DateTime.Parse(sqlFormattedDate);
 
@@ -122,12 +122,7 @@ namespace Cinema.Services
 
         }
 
-        public void BuyingTicket()
-        {
-
-
-
-        }
+        
 
 
     }

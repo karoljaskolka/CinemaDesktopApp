@@ -63,7 +63,10 @@ namespace Cinema.Views.Employee
                 ShowtimeID = serviceShowtime.GetShowtimeID(Convert.ToInt32(labelReservationScreen.Text), row.Cells["Date"].Value.ToString() + ":00.000");
                 serviceShowtime.ShowAvailableSeats(comboBoxShowtimeSeat, ShowtimeID);
 
-               // labelReservationClient.Text = name + " " + surname;
+                buttonBook.Visible = true;
+                buttonBuy.Visible = true;
+
+                // labelReservationClient.Text = name + " " + surname;
                 comboBoxShowtimeTicket.SelectedIndex = -1;
                 comboBoxShowtimeSeat.SelectedIndex = -1;
 
@@ -83,6 +86,7 @@ namespace Cinema.Views.Employee
 
             //CustomerID = serviceCustomer.
             SeatID = Convert.ToInt32(comboBoxShowtimeSeat.SelectedValue);
+            CustomerID = serviceCustomer.GetCustomerID("Anonymous_Client");
             serviceShowtime.OrderingTicket(ShowtimeID, CustomerID, SeatID, TicketTypeID, "Paid");
 
             MessageBox.Show("The purchase of ticket for " + labelReservationMovie.Text+" has been done.");
@@ -106,6 +110,7 @@ namespace Cinema.Views.Employee
 
                 //CustomerID = serviceCustomer.
                 SeatID = Convert.ToInt32(comboBoxShowtimeSeat.SelectedValue);
+                CustomerID = serviceCustomer.GetCustomerID("Anonymous_Client");
                 serviceShowtime.OrderingTicket(ShowtimeID, CustomerID, SeatID, TicketTypeID, "Booked");
 
                 MessageBox.Show("Reservation for " + labelReservationMovie.Text + " has been done.");
@@ -123,7 +128,7 @@ namespace Cinema.Views.Employee
             labelReservationMovie.Text = "";
             labelReservationDate.Text = "";
             labelReservationScreen.Text = "";
-            labelReservationClient.Text = "";
+            
             comboBoxShowtimeTicket.SelectedIndex = -1;
             comboBoxShowtimeSeat.SelectedIndex = -1;
             buttonBook.Visible = false;
