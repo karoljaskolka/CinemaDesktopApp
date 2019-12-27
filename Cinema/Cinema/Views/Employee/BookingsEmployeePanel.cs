@@ -41,7 +41,7 @@ namespace Cinema.Views.Employee
         /// polaczen z baza</summary>
         public void GetDataFromTable()
         {
-            service.ShowAllTicketsView(dataGridViewTickets);
+            service.ShowAllBookedTicketsView(dataGridViewTickets);
 
 
         }

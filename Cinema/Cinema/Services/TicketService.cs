@@ -20,11 +20,11 @@ namespace Cinema.Services
         }
 
 
-        public void ShowAllTicketsView(DataGridView table)
+        public void ShowAllBookedTicketsView(DataGridView table)
         {
             using (CinemaEntities database = new CinemaEntities())
             {
-                table.DataSource = database.TICKET_VIEW.ToList();
+                table.DataSource = database.TICKET_VIEW.Where(x => x.Status == "Booked").ToList();
             }
         }
         

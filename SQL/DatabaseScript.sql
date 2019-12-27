@@ -597,7 +597,7 @@ INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'jmourinho','special
 INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'admin','admin','admin','admin','1998-12-13',null,null,3);
 INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'hannahBaker','note','Hannah','Baker','2000-01-19','hbaker@gmail.com','465892320',2);
 INSERT INTO Customer Values(NEXT VALUE FOR SEQ_CUSTOMER_ID, 'clayJensen','helmet','Clay','Jensen','2000-02-15','cjensen@gmail.com','685321457',2);
-INSERT INTO Customer Values(100000, 'Anonymous_Client','cinemaanonymousclient','Anonymous','Client','1990-12-31','cinema@cinema.com','',1);
+INSERT INTO Customer Values(100000, 'Anonymous_Client','cinemaanonymousclient','Anonymous','Client','1990-12-31','cinema@cinema.com',null,1);
 
 INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Reduced', 15);
 INSERT INTO Ticket_Type VALUES (NEXT VALUE FOR SEQ_TICKET_TYPE_ID, 'Regular', 20);
