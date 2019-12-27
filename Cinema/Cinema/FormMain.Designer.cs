@@ -38,11 +38,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.labelWelcome = new System.Windows.Forms.Label();
             this.panelButtonsStartWindow.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panelContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelButtonsStartWindow
@@ -163,11 +165,22 @@
             this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.panelContent.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
             this.panelContent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelContent.Controls.Add(this.labelWelcome);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(200, 0);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(682, 453);
             this.panelContent.TabIndex = 1;
+            // 
+            // labelWelcome
+            // 
+            this.labelWelcome.Font = new System.Drawing.Font("NSimSun", 75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelWelcome.Location = new System.Drawing.Point(111, 261);
+            this.labelWelcome.Name = "labelWelcome";
+            this.labelWelcome.Size = new System.Drawing.Size(473, 139);
+            this.labelWelcome.TabIndex = 0;
+            this.labelWelcome.Text = "CINEMA";
+            this.labelWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormMain
             // 
@@ -189,6 +202,7 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panelContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -205,6 +219,7 @@
         private System.Windows.Forms.Button buttonEmployee;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labelWelcome;
     }
 }
 

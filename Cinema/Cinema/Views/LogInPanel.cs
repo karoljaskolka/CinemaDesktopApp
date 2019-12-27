@@ -20,21 +20,21 @@ namespace Cinema
             InitializeComponent();
             this.formMain = formMain;
             SetDesign();
-            buttonLogInAccept.BackColor = Design.LAUNCHER_BUTTONS;
+            
         }
         private void SetDesign()
         {
+            buttonLogInAccept.BackColor = Design.LAUNCHER_BUTTONS;
 
-           labelLogin.ForeColor = Design.FONT_CLIENT;
+            labelLogin.ForeColor = Design.FONT_CLIENT;
             labelPassword.ForeColor = Design.FONT_CLIENT;
 
             labelLogin.BackColor = Color.Transparent;
             labelPassword.BackColor = Color.Transparent;
-
         }
 
         /// <summary>
-        /// funkcja ktora logue nas do aplikacji 
+        /// funkcja ktora loguje klienta do aplikacji 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -42,8 +42,7 @@ namespace Cinema
         {
             //obiekt klasy LogIn sprawdzająca logowanie
             CustomerService service = new CustomerService();
-            //FormWarehouse formWarehouse = new FormWarehouse();
-            if (service.LogIn(textBoxLogin.Text, textBoxPassword.Text))
+            if (service.LogIn(textBoxLogin.Text, textBoxPassword.Text, 1))
             {
                 MessageBox.Show("Login succeeded");
                 formMain.Hide();
@@ -55,14 +54,11 @@ namespace Cinema
             }
             else
             {
-               //okno informujace o błednych danych
+                //okno informujace o błednych danych
                 MessageBox.Show("Invalid data provided");
                 textBoxLogin.Text = "";
                 textBoxPassword.Text = "";
             }
-            
-            
-
         }
     }
 }

@@ -16,8 +16,6 @@ namespace Cinema.Services
             {
                 table.DataSource = database.sp_showCustomerRatings(customerID).ToList();
             }
-
-
         }
 
         public void DeleteRatingByCustomer(int customerID)

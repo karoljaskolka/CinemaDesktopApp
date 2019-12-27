@@ -28,6 +28,9 @@ namespace Cinema
             panelContent.BackColor = Design.LAUNCHER_BACKGROUND;
             panelButtonsStartWindow.BackColor = Design.LAUNCHER_NAV;
 
+            labelWelcome.BackColor = Color.Transparent;
+            labelWelcome.Font = new Font("NSimSun", 75, FontStyle.Bold);
+            labelWelcome.ForeColor = Design.FONT_CLIENT;
             
         }
 

@@ -22,7 +22,30 @@ namespace Cinema
         {
             InitializeComponent();
             this.formMain=formMain;
-            buttonSignUp.BackColor = Design.LAUNCHER_BUTTONS; ;
+            SetColors();
+        }
+
+        private void SetColors()
+        {
+            buttonSignUp.BackColor = Design.LAUNCHER_BUTTONS;
+
+            labelSignUpLogin.ForeColor = Design.FONT_CLIENT;
+            labelSignUpPassword.ForeColor = Design.FONT_CLIENT;
+            labelSignUpEmail.ForeColor = Design.FONT_CLIENT;
+            labelSignUpPhone.ForeColor = Design.FONT_CLIENT;
+            labelSignUpName.ForeColor = Design.FONT_CLIENT;
+            labelSignUpSurname.ForeColor = Design.FONT_CLIENT;
+            labelSignUpBirth.ForeColor = Design.FONT_CLIENT;
+            checkBoxTerms.ForeColor = Design.FONT_CLIENT;
+
+            labelSignUpLogin.BackColor = Color.Transparent;
+            labelSignUpPassword.BackColor = Color.Transparent;
+            labelSignUpName.BackColor = Color.Transparent;
+            labelSignUpPhone.BackColor = Color.Transparent;
+            labelSignUpEmail.BackColor = Color.Transparent;
+            labelSignUpSurname.BackColor = Color.Transparent;
+            labelSignUpBirth.BackColor = Color.Transparent;
+            checkBoxTerms.BackColor = Color.Transparent;
         }
 
         /// <summary>
@@ -36,7 +59,8 @@ namespace Cinema
 
             //jesli textBox'y które wartosci w tabeli mają not null są puste to nie spełnia warunku 
 
-            if (textBoxSignUpLogin.Text != "" && textBoxSignUpPassword.Text != "" && textBoxSignUpName.Text != "" && textBoxSignUpSurname.Text != "")
+            if (textBoxSignUpLogin.Text != "" && textBoxSignUpPassword.Text != "" 
+                && textBoxSignUpName.Text != "" && textBoxSignUpSurname.Text != "")
             {
                 if (checkBoxTerms.Checked == false)
                 {
@@ -44,14 +68,14 @@ namespace Cinema
                 }
                 else
                 {
-                    service.SignUp(textBoxSignUpLogin.Text, textBoxSignUpPassword.Text, textBoxSignUpName.Text, textBoxSignUpSurname.Text, dateTimePickerSignUpBirth.Value.ToString("yyyy-MM-dd"), textBoxSignUpEmail.Text, textBoxSignUpPhone.Text);
+                    service.SignUp(textBoxSignUpLogin.Text, textBoxSignUpPassword.Text, 
+                        textBoxSignUpName.Text, textBoxSignUpSurname.Text, 
+                        dateTimePickerSignUpBirth.Value.ToString("yyyy-MM-dd"), textBoxSignUpEmail.Text, 
+                        textBoxSignUpPhone.Text);
                     formMain.panelContent.Controls.Clear();
                     LogInPanel panel = new LogInPanel(formMain);
                     formMain.panelContent.Controls.Add(panel);
                 }
-
-
-
             }
             else
             {

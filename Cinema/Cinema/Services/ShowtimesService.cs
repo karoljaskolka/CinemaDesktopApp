@@ -20,8 +20,6 @@ namespace Cinema.Services
             {
                 table.DataSource=database.SHOWTIME_VIEW.ToList();
             }
-        
-
         }
 
         public void GetShowtimes(DataGridView table)
@@ -79,21 +77,18 @@ namespace Cinema.Services
         public int GetShowtimeID(int screenID, string date)
         {
             
-                int ID = 0;
-                using (CinemaEntities database = new CinemaEntities())
-                {
+            int ID = 0;
+            using (CinemaEntities database = new CinemaEntities())
+            {
                 DateTime myDate = DateTime.Parse(date);
-                // pobranie ID użytkownika o podanym loginie
-                Showtime showtime = database.Showtime.Where(x => x.Screen_ID == screenID && x.Date== myDate).SingleOrDefault();
+                Showtime showtime = database.Showtime.Where(x => x.Screen_ID == screenID && x.Date == myDate).SingleOrDefault();
                 if (showtime != null)
                 {
                     ID = showtime.Showtime_ID;
                 }
-                
-                
-                }
-                return ID;
-            
+            }
+            return ID;
+
         }
 
         public void OrderingTicket( int showtimeID, int customerID, int seatID, int ticketTypeID, string status)
@@ -119,11 +114,6 @@ namespace Cinema.Services
                 database.Ticket.Add(newTicket);
                 database.SaveChanges();
             }
-
         }
-
-        
-
-
     }
 }

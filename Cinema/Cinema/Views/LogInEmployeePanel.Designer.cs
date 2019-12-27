@@ -29,27 +29,57 @@
         private void InitializeComponent()
         {
             this.buttonLogIn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelLogin = new System.Windows.Forms.Label();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonLogIn
             // 
-            this.buttonLogIn.Location = new System.Drawing.Point(297, 197);
+            this.buttonLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonLogIn.Location = new System.Drawing.Point(425, 282);
             this.buttonLogIn.Name = "buttonLogIn";
-            this.buttonLogIn.Size = new System.Drawing.Size(114, 68);
+            this.buttonLogIn.Size = new System.Drawing.Size(125, 50);
             this.buttonLogIn.TabIndex = 0;
-            this.buttonLogIn.Text = "EMPLOYEE";
+            this.buttonLogIn.Text = "Log In";
             this.buttonLogIn.UseVisualStyleBackColor = true;
             this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
-            // label1
+            // labelPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(283, 159);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Narazie tylko przycisk";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelPassword.Location = new System.Drawing.Point(156, 208);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(113, 25);
+            this.labelPassword.TabIndex = 13;
+            this.labelPassword.Text = "Password:";
+            // 
+            // labelLogin
+            // 
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelLogin.Location = new System.Drawing.Point(197, 138);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(72, 25);
+            this.labelLogin.TabIndex = 12;
+            this.labelLogin.Text = "Login:";
+            // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Location = new System.Drawing.Point(350, 212);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(200, 22);
+            this.textBoxPassword.TabIndex = 11;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            // 
+            // textBoxLogin
+            // 
+            this.textBoxLogin.Location = new System.Drawing.Point(350, 142);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(200, 22);
+            this.textBoxLogin.TabIndex = 10;
             // 
             // LogInEmployeePanel
             // 
@@ -57,7 +87,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Cinema.Properties.Resources.cinemaPhoto;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPassword);
+            this.Controls.Add(this.labelLogin);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.buttonLogIn);
             this.Name = "LogInEmployeePanel";
             this.Size = new System.Drawing.Size(682, 453);
@@ -69,6 +102,9 @@
         #endregion
 
         private System.Windows.Forms.Button buttonLogIn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelLogin;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxLogin;
     }
 }

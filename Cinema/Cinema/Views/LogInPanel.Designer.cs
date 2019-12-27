@@ -38,9 +38,9 @@
             // buttonLogInAccept
             // 
             this.buttonLogInAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonLogInAccept.Location = new System.Drawing.Point(366, 276);
+            this.buttonLogInAccept.Location = new System.Drawing.Point(425, 282);
             this.buttonLogInAccept.Name = "buttonLogInAccept";
-            this.buttonLogInAccept.Size = new System.Drawing.Size(136, 47);
+            this.buttonLogInAccept.Size = new System.Drawing.Size(125, 50);
             this.buttonLogInAccept.TabIndex = 9;
             this.buttonLogInAccept.Text = "Log In";
             this.buttonLogInAccept.UseVisualStyleBackColor = true;
@@ -50,7 +50,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.labelPassword.Location = new System.Drawing.Point(195, 201);
+            this.labelPassword.Location = new System.Drawing.Point(156, 208);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(113, 25);
             this.labelPassword.TabIndex = 8;
@@ -60,7 +60,7 @@
             // 
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.labelLogin.Location = new System.Drawing.Point(236, 122);
+            this.labelLogin.Location = new System.Drawing.Point(197, 138);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(72, 25);
             this.labelLogin.TabIndex = 7;
@@ -68,17 +68,17 @@
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(366, 201);
+            this.textBoxPassword.Location = new System.Drawing.Point(350, 212);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(136, 22);
+            this.textBoxPassword.Size = new System.Drawing.Size(200, 22);
             this.textBoxPassword.TabIndex = 6;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxLogin
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(366, 126);
+            this.textBoxLogin.Location = new System.Drawing.Point(350, 142);
             this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(136, 22);
+            this.textBoxLogin.Size = new System.Drawing.Size(200, 22);
             this.textBoxLogin.TabIndex = 5;
             // 
             // LogInPanel

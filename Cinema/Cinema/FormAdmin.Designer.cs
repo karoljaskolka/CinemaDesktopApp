@@ -168,7 +168,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAdmin";
-            this.Text = "FormAdmin";
+            this.Text = "Admin";
             this.panelNav.ResumeLayout(false);
             this.panelButtonComments.ResumeLayout(false);
             this.panelButtonUsers.ResumeLayout(false);

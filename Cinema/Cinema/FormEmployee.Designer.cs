@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panelNav = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonComplaints = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonBookings = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonShowtimes = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonComplaints = new System.Windows.Forms.Button();
             this.panelNav.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelNav
@@ -52,6 +52,28 @@
             this.panelNav.Name = "panelNav";
             this.panelNav.Size = new System.Drawing.Size(200, 553);
             this.panelNav.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.buttonComplaints);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 200);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 100);
+            this.panel3.TabIndex = 2;
+            // 
+            // buttonComplaints
+            // 
+            this.buttonComplaints.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonComplaints.FlatAppearance.BorderSize = 0;
+            this.buttonComplaints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonComplaints.Location = new System.Drawing.Point(0, 0);
+            this.buttonComplaints.Name = "buttonComplaints";
+            this.buttonComplaints.Size = new System.Drawing.Size(200, 100);
+            this.buttonComplaints.TabIndex = 0;
+            this.buttonComplaints.Text = "Complaints";
+            this.buttonComplaints.UseVisualStyleBackColor = true;
+            this.buttonComplaints.Click += new System.EventHandler(this.buttonComplaints_Click);
             // 
             // panel2
             // 
@@ -105,28 +127,6 @@
             this.panelContent.Size = new System.Drawing.Size(682, 553);
             this.panelContent.TabIndex = 1;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.buttonComplaints);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 200);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 100);
-            this.panel3.TabIndex = 2;
-            // 
-            // buttonComplaints
-            // 
-            this.buttonComplaints.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonComplaints.FlatAppearance.BorderSize = 0;
-            this.buttonComplaints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonComplaints.Location = new System.Drawing.Point(0, 0);
-            this.buttonComplaints.Name = "buttonComplaints";
-            this.buttonComplaints.Size = new System.Drawing.Size(200, 100);
-            this.buttonComplaints.TabIndex = 0;
-            this.buttonComplaints.Text = "Complaints";
-            this.buttonComplaints.UseVisualStyleBackColor = true;
-            this.buttonComplaints.Click += new System.EventHandler(this.buttonComplaints_Click);
-            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -137,11 +137,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEmployee";
-            this.Text = "FormEmployee";
+            this.Text = "Employee";
             this.panelNav.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -160,8 +160,6 @@ namespace Cinema.Services
             
             using (CinemaEntities database = new CinemaEntities())
             {
-                
-                // pobranie ID użytkownika o podanym loginie
                 Rating ratings = database.Rating.Where(x => x.Customer_ID == customerID && x.Movie_ID == movieID).SingleOrDefault();
                 if( ratings!=null)
                  {

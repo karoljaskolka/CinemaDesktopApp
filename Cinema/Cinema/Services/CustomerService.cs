@@ -10,18 +10,18 @@ namespace Cinema.Services
 {
     class CustomerService
     {
-        public bool LogIn(string login, string password)
+        public bool LogIn(string login, string password, int roleID)
         {
             using (CinemaEntities database = new CinemaEntities())
             {
                 bool access = false;
 
-                var signIn = database.Customer.Where(x => x.Login == login && x.Password == password).Count();
+                var signIn = database.Customer.Where(x => x.Login == login 
+                    && x.Password == password && x.Role_ID == roleID).Count();
 
                 if (signIn == 1)
                 {
                     access = true;
-
                 }
 
                 return access;
@@ -80,7 +80,6 @@ namespace Cinema.Services
             string login;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 login = customer.Login;
             }
@@ -93,7 +92,6 @@ namespace Cinema.Services
             string password;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 password = customer.Password;
             }
@@ -104,7 +102,6 @@ namespace Cinema.Services
             string name;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 name = customer.First_Name;
             }
@@ -116,7 +113,6 @@ namespace Cinema.Services
             string surname;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 surname = customer.Last_Name;
             }
@@ -128,7 +124,6 @@ namespace Cinema.Services
             string email;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 email = customer.Email;
             }
@@ -139,7 +134,6 @@ namespace Cinema.Services
             string phone;
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 phone = customer.Phone;
             }
@@ -152,7 +146,6 @@ namespace Cinema.Services
 
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 customer.Login = login;
                 database.SaveChanges();
@@ -166,7 +159,6 @@ namespace Cinema.Services
 
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 customer.Password = password;
                 database.SaveChanges();
@@ -179,7 +171,6 @@ namespace Cinema.Services
 
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 customer.First_Name = name;
                 database.SaveChanges();
@@ -192,7 +183,6 @@ namespace Cinema.Services
 
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 customer.Last_Name = surname;
                 database.SaveChanges();
@@ -205,7 +195,6 @@ namespace Cinema.Services
 
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 customer.Email = email;
                 database.SaveChanges();
@@ -218,7 +207,6 @@ namespace Cinema.Services
 
             using (CinemaEntities database = new CinemaEntities())
             {
-                // pobranie ID użytkownika o podanym loginie
                 Customer customer = database.Customer.Single(x => x.Customer_ID == customerID);
                 customer.Phone = phone;
                 database.SaveChanges();
@@ -230,7 +218,6 @@ namespace Cinema.Services
         {
             using (CinemaEntities context = new CinemaEntities())
             {
-
                 var checkCustomerExist = context.Customer.Where(x => x.Login == login).Count();
                 if (checkCustomerExist < 1) { return false; }
                 else { return true; }
@@ -241,7 +228,6 @@ namespace Cinema.Services
         {
             using (CinemaEntities database = new CinemaEntities())
             {
-
 
                 Customer newCustomer = database.Customer.Create();
 

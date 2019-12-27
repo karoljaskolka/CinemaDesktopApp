@@ -35,8 +35,6 @@ namespace Cinema.Services
             int ID = 0;
             using (CinemaEntities database = new CinemaEntities())
             {
-                
-                // pobranie ID użytkownika o podanym loginie
                 Ticket ticket = database.Ticket.Where(x => x.Seat_ID == seatID && x.Showtime_ID == showtimeID).SingleOrDefault();
                 if (ticket != null)
                 {
@@ -57,7 +55,6 @@ namespace Cinema.Services
             using (CinemaEntities database = new CinemaEntities())
             {
                 DateTime myDate = DateTime.Parse(date);
-                // pobranie ID użytkownika o podanym loginie
                 Showtime showtime = database.Showtime.Where(x => x.Screen_ID == screenID && x.Date == myDate).SingleOrDefault();
                 if (showtime != null)
                 {
