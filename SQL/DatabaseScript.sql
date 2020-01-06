@@ -309,17 +309,7 @@ CREATE TRIGGER rating_ai ON Rating
 			   UPDATE Rating SET stars=1 WHERE stars<1
 			IF @starsMAX > 10 
 			   UPDATE Rating SET stars=10 WHERE stars>10
-
-CREATE TRIGGER showtime_technology_ai ON Showtime
-         AFTER INSERT 
-         AS
-           DECLARE @tech2d VARCHAR(2) ,@tech3d VARCHAR(2) 
-		   SELECT @tech2d=technology, @tech3d=technology FROM inserted
-		   IF @tech3d ='3D' 
-			   UPDATE Showtime SET technology='3D' WHERE technology='3D'
-			else 
-			   UPDATE Showtime SET technology='2D' 
-         
+      
 CREATE TRIGGER movie_age_category_ai  ON Movie
          AFTER INSERT 
          AS

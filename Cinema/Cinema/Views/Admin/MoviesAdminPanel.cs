@@ -212,7 +212,7 @@ namespace Cinema.Views.Admin
             textBoxID.Text = "";
             textBoxTitle.Text = "";
             textBoxDirector.Text = "";
-            dateTimePickerRelease.Value = DateTime.Parse("2020-01-01");
+            dateTimePickerRelease.Value = DateTime.Now;
             comboBoxCategory.SelectedIndex = -1;
             comboBoxGenre.SelectedIndex = -1;
             numericUpDownDuration.Value = 120;

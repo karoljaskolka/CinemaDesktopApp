@@ -65,7 +65,7 @@ namespace Cinema.Views.Admin
 
             dateTimePickerAdd.Format = DateTimePickerFormat.Custom;
             dateTimePickerAdd.CustomFormat = "MM/dd/yyyy HH:mm:ss";
-            dateTimePickerAdd.Value = new DateTime(2020, 1, 1, 15, 15, 0);
+            dateTimePickerAdd.Value = DateTime.Now;
 
             dateTimePickerEdit.Format = DateTimePickerFormat.Custom;
             dateTimePickerEdit.CustomFormat = "MM/dd/yyyy HH:mm:ss";
@@ -245,7 +245,7 @@ namespace Cinema.Views.Admin
             comboBoxScreenEdit.SelectedIndex = -1;
             comboBoxTechnologyEdit.SelectedIndex = -1;
 
-            dateTimePickerAdd.Value = new DateTime(2020, 1, 1, 15, 15, 0);
+            dateTimePickerAdd.Value = DateTime.Now;
             dateTimePickerEdit.Value = new DateTime(2020, 1, 1, 15, 15, 0);
         }
 
