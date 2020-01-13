@@ -107,7 +107,7 @@ namespace Cinema.Services
             {
 
                 
-               Ticket ticket = database.Ticket.Single(x => x.Ticket_ID == ticketID);
+               Ticket ticket = database.Ticket.Where(x => x.Ticket_ID == ticketID).SingleOrDefault();
                 if (ticket != null)
                 {
                     database.Ticket.Remove(ticket);

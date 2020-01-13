@@ -40,7 +40,6 @@ namespace Cinema
         /// <param name="e"></param>
         private void buttonLogInAccept_Click(object sender, EventArgs e)
         {
-            //obiekt klasy LogIn sprawdzająca logowanie
             CustomerService service = new CustomerService();
             if (service.LogIn(textBoxLogin.Text, textBoxPassword.Text, 1))
             {
