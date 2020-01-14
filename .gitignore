@@ -331,5 +331,5 @@ ASALocalRun/
 
 SqlDataGenerator/*.sql
 
-Cinema/Cinema/App.config
+Cinema/CinemaSetup
 Cinema/Cinema/cinemaPhoto.jpg
