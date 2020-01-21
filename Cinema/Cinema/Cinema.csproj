@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>cinema.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\cinema.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -406,8 +406,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="cinemaPhoto.jpg" />
-    <Content Include="cinema.ico" />
+    <None Include="Resources\cinemaPhoto.jpg" />
+    <Content Include="Resources\cinema.ico" />
     <Content Include="Database\CinemaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CinemaModel.Context.cs</LastGenOutput>

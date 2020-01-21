@@ -331,5 +331,4 @@ ASALocalRun/
 
 SqlDataGenerator/*.sql
 
-Cinema/CinemaSetup
-Cinema/Cinema/cinemaPhoto.jpg
+!Cinema/CinemaSetup/Release
